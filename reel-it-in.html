@@ -51,6 +51,7 @@
   .live-toggle:hover{transform:translateY(-2px);box-shadow:0 16px 38px rgba(0,0,0,.22)}
   .live-toggle .glyph{width:9px;height:9px;border-radius:50%;background:var(--gold);transition:.35s}
   body.live .live-toggle{background:var(--gold);color:#16110A;border-color:var(--gold)}
+  body.live .live-toggle .glyph{background:#16110A;animation:pulse 1.6s infinite}
   body.live .live-toggle .t-enter{display:none}
   .live-toggle .t-exit{display:none}
   body.live .live-toggle .t-exit{display:inline}
@@ -120,7 +121,7 @@
   .spark .cover{position:absolute;top:14px;right:14px;width:26px;height:26px;border:1px solid var(--line);border-radius:50%;display:none;align-items:center;justify-content:center;cursor:pointer;font-family:var(--mono);font-size:13px;color:var(--ink-faint);background:var(--paper-deep);transition:.2s;z-index:3}
   body.live .spark{cursor:pointer}
   body.live .spark .cover{display:flex}
-  body.live .spark .cover:hover{border-color:var(--gold);color:var(--gold)}
+  .spark .cover:hover{border-color:var(--gold);color:var(--gold)}
   .spark.covered{opacity:.4}
   .spark.covered .cover{border-color:var(--gold);color:var(--gold)}
   .spark.covered .cover::after{content:"\2713"}
@@ -298,7 +299,7 @@
 
 <script>
   /* =====================================================================
-     🚩🚩🚩 EDIT THIS BLOCK EACH WEEK — NOTHING ELSE 🚩🚩🚩
+     ███  EDIT THIS BLOCK EACH WEEK — NOTHING ELSE  ███
        1. Duplicate this file  ->  reel-it-in-ep002.html
        2. Edit the EPISODE object below (number, date, hosts, news, sparks)
        3. Move last week's file to your archive folder + add it to ARCHIVE
@@ -327,7 +328,7 @@
   const SPARK_LIBRARY = {
     "consciousness":  { tag:"The Big One",       prompt:"Is anybody home in there? Is it actually thinking?", aside:"My honest take: no — a brilliant mirror, not a mind. So why does the line feel like it's blurring?" },
     "whose-opinions": { tag:"Under the Hood",    prompt:"The model has no opinions of its own — so whose are coming out of its mouth?", aside:"Whatever it was trained on becomes its worldview. That's why two AIs can answer the same question differently." },
-    "oracle":         { tag:"Myth & Machine",    prompt:"People are “praying” to the machine. Is the prompt box the new oracle?", aside:"A tool, a confessional, or a ritual — and does it know the difference? (It doesn't.)" },
+    "oracle":         { tag:"Myth & Machine",    prompt:"People are \u201cpraying\u201d to the machine. Is the prompt box the new oracle?", aside:"A tool, a confessional, or a ritual — and does it know the difference? (It doesn't.)" },
     "old-gods":       { tag:"Old Gods, New Gods", prompt:"Every age built something to consult the unknown. What does ours say about us?", aside:"Oracles, spirits, daemons — and the silicon version we just quietly invented." },
     "the-state":      { tag:"The State",         prompt:"When the government starts asking the AI for answers, whose answers are they?", aside:"Policy, policing, public services — running on models almost nobody can see inside." },
     "where-it-lives": { tag:"Where It Lives",    prompt:"Soon the AI may live in your pocket instead of a warehouse far away. Better, or just different?", aside:"Data centers, energy, privacy — and why 'where the AI lives' is about to matter to you." },
@@ -363,7 +364,7 @@
   $('#sparks').innerHTML = EPISODE.featuredSparks.map((id,i) => {
     const s = SPARK_LIBRARY[id]; if(!s) return '';
     return `<div class="spark rise" data-id="${id}" data-index="${i}">
-      <span class="idx">${String(i+1).padStart(2,'00')}</span>
+      <span class="idx">${String(i+1).padStart(2,'0')}</span>
       <span class="cover" title="Mark covered" role="button" aria-label="Mark covered"></span>
       <span class="tag">${esc(s.tag)}</span>
       <p class="prompt">${esc(s.prompt)}</p>
@@ -475,7 +476,7 @@
   let timerId = null, startMs = 0;
   function tick(){
     const t = Math.floor((Date.now()-startMs)/1000);
-    $('#clock').textContent = String(Math.floor(t/60)).padStart(2,'00')+':'+String(t%60).padStart(2,'00');
+    $('#clock').textContent = String(Math.floor(t/60)).padStart(2,'0')+':'+String(t%60).padStart(2,'0');
   }
   function startTimer(){ startMs = Date.now(); tick(); timerId = setInterval(tick, 1000); }
   function stopTimer(){ clearInterval(timerId); timerId = null; $('#clock').textContent='00:00'; }
