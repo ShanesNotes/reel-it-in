@@ -1,0 +1,17 @@
+# Local/editor noise
+.DS_Store
+Thumbs.db
+*.log
+
+# Dependencies/build output if introduced later
+node_modules/
+dist/
+build/
+.cache/
+
+# Raw imports are provenance, not working source
+inbox/original-exports/*.zip
+
+# Temporary scratch space
+.tmp/
+.reel-it-in-tmp/

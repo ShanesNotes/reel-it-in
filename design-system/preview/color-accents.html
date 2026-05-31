@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html lang="en"><head><meta charset="UTF-8" />
+<link rel="stylesheet" href="../colors_and_type.css" />
+<style>
+  html,body{margin:0}
+  body{background:var(--bg);color:var(--fg1);padding:24px 30px;-webkit-font-smoothing:antialiased}
+  .grid{display:grid;grid-template-columns:repeat(3,1fr);gap:14px}
+  .sw{border:1px solid var(--line);border-radius:5px;overflow:hidden}
+  .chip{height:64px}
+  .meta{padding:8px 10px}
+  .nm{font-family:var(--mono);font-size:11px;letter-spacing:.06em;text-transform:uppercase;color:var(--fg1)}
+  .hex{font-family:var(--mono);font-size:11px;color:var(--fg3);margin-top:2px}
+</style></head>
+<body>
+  <div class="grid">
+    <div class="sw"><div class="chip" style="background:#AE7A2A"></div><div class="meta"><div class="nm">Gold</div><div class="hex">#AE7A2A</div></div></div>
+    <div class="sw"><div class="chip" style="background:#855B17"></div><div class="meta"><div class="nm">Gold deep</div><div class="hex">#855B17</div></div></div>
+    <div class="sw"><div class="chip" style="background:#1E4D49"></div><div class="meta"><div class="nm">Teal</div><div class="hex">#1E4D49</div></div></div>
+    <div class="sw"><div class="chip" style="background:#E5483B"></div><div class="meta"><div class="nm">Alert / On-air</div><div class="hex">#E5483B</div></div></div>
+    <div class="sw"><div class="chip" style="background:#E5A93F"></div><div class="meta"><div class="nm">Gold (live)</div><div class="hex">#E5A93F</div></div></div>
+    <div class="sw"><div class="chip" style="background:#5FA89F"></div><div class="meta"><div class="nm">Teal (live)</div><div class="hex">#5FA89F</div></div></div>
+  </div>
+</body></html>

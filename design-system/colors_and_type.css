@@ -1,0 +1,330 @@
+/* ============================================================
+   REEL IT IN — Color & Type Foundations
+   A father–son conversation about A.I. — weekly editorial show.
+   Two themes: "paper" (draft / off-air) and "live" (on-air dark).
+   Fonts are Google Fonts (link below or self-host from /fonts).
+   ============================================================ */
+
+@import url("https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,400;0,9..144,500;0,9..144,600;1,9..144,400;1,9..144,500&family=Hanken+Grotesk:wght@400;500;600;700&family=JetBrains+Mono:wght@400;500&display=swap");
+
+:root {
+  /* ---------- BRAND COLOR PRIMITIVES ---------- */
+  --rii-cream:        #F2EBDB;  /* paper base */
+  --rii-cream-deep:   #EAE0C9;  /* recessed paper */
+  --rii-card:         #F7F1E3;  /* raised card on paper */
+  --rii-ink:          #221B12;  /* primary text — warm near-black */
+  --rii-ink-soft:     #5C5142;  /* secondary text */
+  --rii-ink-faint:    #8A7E6B;  /* tertiary / meta text */
+  --rii-gold:         #AE7A2A;  /* primary accent (light theme) */
+  --rii-gold-deep:    #855B17;  /* accent for small text / links */
+  --rii-teal:         #1E4D49;  /* secondary accent — news / status */
+  --rii-alert:        #E5483B;  /* on-air red — used sparingly */
+
+  /* dark / "on-air" primitives */
+  --rii-night:        #16110A;  /* live base */
+  --rii-night-deep:   #1E160D;
+  --rii-night-card:   #241B10;
+  --rii-night-ink:    #F0E7D2;
+  --rii-night-gold:   #E5A93F;
+  --rii-night-teal:   #5FA89F;
+
+  /* ============================================================
+     TONAL RAMPS  (Phase 1)
+     Perceptually-stepped tints/shades of the two accents, for
+     washes, fills, hovers, borders, and the live dashboard's
+     "quiet over-budget" cues. The brand stops are anchored:
+     gold-500 = brand gold, gold-700 = brand gold-deep,
+     teal-500 = brand teal, teal-300 ≈ live teal.
+     Use sparingly — gold is still a spice, not a sauce.
+     ============================================================ */
+  --gold-50:   #FAF2E1;  /* faintest wash / hover tint on paper */
+  --gold-100:  #F2E1C0;
+  --gold-200:  #E5C691;
+  --gold-300:  #D4A75D;
+  --gold-400:  #C18E39;
+  --gold-500:  #AE7A2A;  /* = brand gold */
+  --gold-600:  #97691F;
+  --gold-700:  #855B17;  /* = brand gold-deep */
+  --gold-800:  #5E3F11;
+  --gold-900:  #3C280B;
+
+  --teal-50:   #E7F0EE;
+  --teal-100:  #C8DED9;
+  --teal-200:  #9CC2BB;
+  --teal-300:  #5FA89F;  /* ≈ live teal */
+  --teal-400:  #3A746E;
+  --teal-500:  #1E4D49;  /* = brand teal */
+  --teal-600:  #173E3B;
+  --teal-700:  #102C2A;
+
+  /* ============================================================
+     SEMANTIC TOKENS — default (paper / draft theme)
+     Reference these in product CSS, never the raw primitives.
+     ============================================================ */
+  --bg:          var(--rii-cream);      /* page background */
+  --bg-deep:     var(--rii-cream-deep); /* recessed surfaces */
+  --surface:     var(--rii-card);       /* raised cards */
+  --fg1:         var(--rii-ink);        /* primary text */
+  --fg2:         var(--rii-ink-soft);   /* secondary text */
+  --fg3:         var(--rii-ink-faint);  /* meta / tertiary */
+  --accent:      var(--rii-gold);       /* primary accent */
+  --accent-deep: var(--rii-gold-deep);  /* link / small-text accent */
+  --accent-2:    var(--rii-teal);       /* secondary accent */
+  --alert:       var(--rii-alert);
+
+  --line:        rgba(34,27,18,0.16);   /* dividers / borders */
+  --line-soft:   rgba(34,27,18,0.09);   /* faint hairlines */
+  --hl:          rgba(255,255,255,0.45);/* top inner-shadow highlight */
+
+  /* film-grain overlay controls */
+  --grain-opacity: .05;
+  --grain-blend:   multiply;
+
+  /* ---------- TYPE FAMILIES ---------- */
+  --serif: "Fraunces", Georgia, "Times New Roman", serif;       /* display / editorial */
+  --sans:  "Hanken Grotesk", system-ui, sans-serif;             /* body / UI */
+  --mono:  "JetBrains Mono", ui-monospace, "SF Mono", monospace;/* labels / meta / kickers */
+
+  /* ---------- TYPE SCALE (Phase 1) ----------
+     Named ramp ≈1.25 (major third), fluid where it earns it.
+     Roman-numeral / display sizes carry opsz 144; everything
+     ≤ --text-2xl uses optical-sizing:auto. Pair each with its
+     line-height token below. Use these instead of ad-hoc clamps. */
+  --text-xs:      11px;                    /* mono labels, source tags */
+  --text-sm:      13px;                    /* mono meta, code, fine print */
+  --text-base:    16px;                    /* body / UI default */
+  --text-md:      clamp(17px, 1.4vw, 19px);/* small lede, intro */
+  --text-lg:      clamp(19px, 2.4vw, 24px);/* lede / deck body */
+  --text-xl:      clamp(22px, 2.6vw, 28px);/* spark prompt, h2 */
+  --text-2xl:     clamp(26px, 4vw, 40px);  /* act title, h1 */
+  --text-3xl:     clamp(34px, 6vw, 64px);  /* roman numerals, focus prompt */
+  --text-display: clamp(64px, 15vw, 168px);/* show title / wordmark */
+
+  --lh-tight:   .86;   /* display */
+  --lh-snug:    1.05;  /* h1 / titles */
+  --lh-head:    1.22;  /* h2 / spark prompts / news heads */
+  --lh-body:    1.5;   /* ledes */
+  --lh-prose:   1.6;   /* running body */
+  --tracking-display: -.02em;
+  --tracking-tight:   -.01em;
+  --tracking-label:   .14em;  /* mono labels */
+  --tracking-kicker:  .34em;  /* widest — top eyebrow */
+
+  --num: "JetBrains Mono", ui-monospace, monospace;  /* number runs */
+  --num-feat: tabular-nums;   /* apply via font-variant-numeric for aligned digits */
+
+  /* ---------- RADII ---------- */
+  --radius-sm:  3px;   /* chips, status, focus ring */
+  --radius-md:  5px;   /* cards */
+  --radius-pill: 40px; /* buttons, toggles */
+
+  /* ---------- SHADOWS / ELEVATION ---------- */
+  --shadow-card:  inset 0 1px 0 var(--hl), 0 1px 2px rgba(0,0,0,.04);
+  --shadow-hover: inset 0 1px 0 var(--hl), 0 18px 40px rgba(0,0,0,.12);
+  --shadow-float: 0 10px 30px rgba(0,0,0,.16);
+  --shadow-pop:   0 16px 38px rgba(0,0,0,.22);
+
+  /* ---------- SPACING (8px base, editorial rhythm) ---------- */
+  --sp-1: 6px;  --sp-2: 10px; --sp-3: 14px; --sp-4: 18px;
+  --sp-5: 24px; --sp-6: 34px; --sp-7: 48px; --sp-8: 64px; --sp-9: 96px;
+
+  /* ---------- LAYOUT / GRID (Phase 1) ---------- */
+  --col-max:     1080px;  /* centered editorial column */
+  --gutter:      28px;    /* column side padding */
+  --measure:     60ch;    /* ideal reading measure for ledes/prose */
+  --measure-narrow: 30ch; /* deck / focus prompt measure */
+  --bp-mobile:   620px;   /* single-column collapse */
+  --bp-tablet:   960px;   /* dashboard density shift */
+
+  /* ---------- MOTION (Phase 1: named + documented) ----------
+     --ease is the signature "rise" curve (gentle settle, no overshoot).
+     Durations: fast = hover/press, mid = card lift / swaps,
+     slow = theme cross-fade. The pulse is the only loop (on-air dot). */
+  --ease:       cubic-bezier(.2,.7,.2,1);  /* signature settle */
+  --ease-out:   cubic-bezier(.2,.7,.2,1);
+  --t-fast:     .2s;   /* hover, press, link underline */
+  --t-mid:      .35s;  /* card lift, focus-deck swap, toggle */
+  --t-slow:     .55s;  /* theme cross-fade (foreground only) */
+  --rise-dur:   .9s;   /* entrance slide */
+  --pulse-dur:  1.6s;  /* on-air dot loop */
+}
+
+/* ============================================================
+   "ON AIR" / LIVE THEME — apply class to <body> or root.
+   Warm-black ground, brighter gold, glowing teal.
+   ============================================================ */
+.live, [data-theme="live"] {
+  --bg:        var(--rii-night);
+  --bg-deep:   var(--rii-night-deep);
+  --surface:   var(--rii-night-card);
+  --fg1:       var(--rii-night-ink);
+  --fg2:       var(--rii-cream-deep);   /* re-mapped soft */
+  --fg2:       #C5B594;
+  --fg3:       #8A7C5F;
+  --accent:      var(--rii-night-gold);
+  --accent-deep: var(--rii-night-gold);
+  --accent-2:    var(--rii-night-teal);
+
+  --line:      rgba(240,231,210,0.16);
+  --line-soft: rgba(240,231,210,0.08);
+  --hl:        rgba(255,255,255,0.05);
+
+  --grain-opacity: .06;
+  --grain-blend:   overlay;
+}
+
+/* ============================================================
+   SEMANTIC TYPE ROLES
+   Map product elements onto the type system.
+   opsz is wired to Fraunces' optical-size axis; WONK adds the
+   playful ink-trap wobble used on the italic "It".
+   ============================================================ */
+.rii-display {            /* hero / show title */
+  font-family: var(--serif);
+  font-weight: 600;
+  font-size: clamp(64px, 15vw, 168px);
+  line-height: .86;
+  letter-spacing: -.02em;
+  font-variation-settings: "opsz" 144;
+}
+.rii-display .it {        /* the gold italic accent word */
+  font-style: italic;
+  font-weight: 500;
+  color: var(--accent);
+  font-variation-settings: "opsz" 144, "WONK" 1;
+}
+
+h1, .h1 {                 /* act / section titles */
+  font-family: var(--serif);
+  font-weight: 600;
+  font-size: clamp(26px, 4vw, 40px);
+  line-height: 1.05;
+  letter-spacing: -.01em;
+  text-wrap: balance;
+}
+h2, .h2 {                 /* sub-headings, spark prompts */
+  font-family: var(--serif);
+  font-weight: 500;
+  font-size: clamp(22px, 2.6vw, 28px);
+  line-height: 1.22;
+  letter-spacing: -.01em;
+  text-wrap: balance;
+}
+.deck, .lede {            /* editorial intro paragraphs */
+  font-family: var(--serif);
+  font-size: clamp(19px, 2.4vw, 24px);
+  line-height: 1.5;
+  text-wrap: pretty;
+}
+.deck {                   /* italic standfirst under title */
+  font-style: italic;
+  font-weight: 400;
+  color: var(--fg2);
+}
+p, .body {                /* default running text */
+  font-family: var(--sans);
+  font-weight: 400;
+  font-size: 16px;
+  line-height: 1.6;
+  color: var(--fg1);
+}
+.body-sm {
+  font-family: var(--sans);
+  font-size: 14px;
+  line-height: 1.45;
+  color: var(--fg2);
+}
+.kicker, .label, .meta {  /* mono eyebrows / labels / meta */
+  font-family: var(--mono);
+  font-weight: 400;
+  text-transform: uppercase;
+  color: var(--accent-deep);
+}
+.kicker {                 /* top eyebrow — widest tracking */
+  font-size: 12px;
+  letter-spacing: .34em;
+}
+.label {                  /* card source tags, status */
+  font-size: 11px;
+  letter-spacing: .14em;
+}
+.meta {                   /* metadata rows */
+  font-size: 12px;
+  letter-spacing: .06em;
+  color: var(--fg3);
+}
+.roman {                  /* roman-numeral act markers */
+  font-family: var(--serif);
+  font-style: italic;
+  font-weight: 500;
+  font-size: clamp(34px, 6vw, 64px);
+  color: var(--accent);
+  line-height: 1;
+}
+code, .code {
+  font-family: var(--mono);
+  font-size: 13px;
+  color: var(--accent-deep);
+}
+
+/* ---------- the signature drop-cap ---------- */
+.lede.first::first-letter {
+  font-family: var(--serif);
+  font-weight: 600;
+  font-size: 3.4em;
+  line-height: .78;
+  float: left;
+  margin: .05em .1em 0 0;
+  color: var(--accent);
+  font-variation-settings: "opsz" 144;
+}
+
+/* ============================================================
+   UTILITIES (Phase 1)
+   ============================================================ */
+
+/* Tabular, aligned digits — for the on-air clock, segment timers,
+   episode numbers, dates. Keeps columns of numbers from jittering. */
+.num, .tabular {
+  font-family: var(--num);
+  font-variant-numeric: tabular-nums;
+  font-feature-settings: "tnum" 1;
+}
+
+/* Reading measures */
+.measure        { max-width: var(--measure); }
+.measure-narrow { max-width: var(--measure-narrow); }
+
+/* Centered editorial column */
+.column {
+  max-width: var(--col-max);
+  margin-inline: auto;
+  padding-inline: var(--gutter);
+}
+
+/* ---------- motion utilities ----------
+   Opacity is never animated to/from 0 here: a backgrounded tab freezes
+   animation timelines on their start frame, which would leave content
+   stuck invisible. Entrances move transform only; content stays visible
+   wherever the timeline freezes. Disable all of it with .no-anim or
+   prefers-reduced-motion. */
+.anim-rise   { animation: rii-rise var(--rise-dur) var(--ease) both; }
+.anim-swap   { animation: rii-swap var(--t-mid) var(--ease) both; }
+.pulse       { animation: rii-pulse var(--pulse-dur) infinite; }
+
+@keyframes rii-rise  { from { transform: translateY(20px); } to { transform: translateY(0); } }
+@keyframes rii-swap  { from { transform: translateY(10px); } to { transform: translateY(0); } }
+@keyframes rii-pulse {
+  0%   { box-shadow: 0 0 0 0 rgba(229,72,59,.6); }
+  70%  { box-shadow: 0 0 0 9px rgba(229,72,59,0); }
+  100% { box-shadow: 0 0 0 0 rgba(229,72,59,0); }
+}
+
+.no-anim .anim-rise,
+.no-anim .anim-swap,
+.no-anim .pulse { animation: none; }
+
+@media (prefers-reduced-motion: reduce) {
+  .anim-rise, .anim-swap, .pulse { animation: none; }
+}
+

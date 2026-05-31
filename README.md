@@ -1,82 +1,48 @@
 # Reel It In
 
-> **Not all the AI news — just what matters, and why. In plain English.**
+Reel It In is a father-son show about AI for people who are curious but not living inside the AI news cycle.
 
-A weekly father–son conversation about artificial intelligence.
+The engine is simple: Shane follows the technology closely; Dad keeps the conversation honest by asking the normal-person question: "why does that matter?"
 
-This repository contains the living, self-contained web template used to publish each episode.
+This repo contains the show product, design system, production workflow, and early intro montage materials.
 
----
+## Start Here
 
-## The Show
+| Need | Go to |
+| --- | --- |
+| What is this project? | `docs/PROJECT_BRIEF.md` |
+| How does the show work? | `docs/SHOW_BIBLE.md` |
+| How should it sound? | `docs/VOICE.md` |
+| How do we prep and record? | `docs/WORKFLOW.md` |
+| What are we building next? | `docs/ROADMAP.md` |
+| What should Codex know first? | `AGENTS.md` |
+| Current pilot dashboard | `app/reel-it-in.html` |
+| Design system assets | `design-system/` |
+| Intro montage handoff | `production/intro-montage/` |
 
-Two people sit down once a week:
+## Current Status
 
-- One who follows AI closely
-- One who keeps the other honest
+- `main` contains the original pilot HTML and README history.
+- This branch reorganizes the project into a production-ready repo shape.
+- The current usable prototype is `app/reel-it-in.html`.
+- The design system has been extracted into `design-system/`.
+- The original Claude export zip is quarantined under `inbox/original-exports/` and ignored by git; it is not a working source of truth.
 
-The goal is simple: cut through the hype, explain what actually happened, and answer the only question that matters — *so what?*
+## Local Use
 
-No jargon survives the table.
+Open `app/reel-it-in.html` directly in a browser. It is intentionally self-contained for now.
 
-## Format
+During Live Mode, the dashboard supports:
 
-| Act | Name            | Purpose                                      |
-|-----|-----------------|----------------------------------------------|
-| I   | The Setup       | Who we are, what this is. Keep it short.     |
-| II  | This Week       | 3–5 headlines + the human "why it matters"   |
-| III | The Conversation| "Sparks" — potent prompts to pull like threads |
-| IV  | The Archive     | Every previous episode, saved forever        |
+- on-air clock
+- focus deck
+- keyboard navigation
+- covered tracking
+- wildcard prompts
+- fullscreen operation
 
-## How to Publish a New Episode (The Weekly Ritual)
+No build step is required yet.
 
-1. **Duplicate the file**
-   ```bash
-   cp reel-it-in.html reel-it-in-ep002.html
-   ```
+## Operating Principle
 
-2. **Edit only the `EPISODE` block** (near the top of the `<script>`)
-   - Update `number`, `label`, `date`, `hosts`
-   - Replace the `news` array (source + headline + *why it matters*)
-   - Pick featured sparks from `SPARK_LIBRARY` via `featuredSparks`
-
-3. **Update the `ARCHIVE` array** with last week's episode
-
-4. **(Recommended)** Move the previous week's file into `archive/`
-
-The entire page is one HTML file. No build tools. No dependencies. Open it in any browser.
-
-## Live Production Tools
-
-During recording, press <kbd>L</kbd> (or click the button) to enter **Live Mode**:
-
-- Dark "on air" theme
-- Large readable focus view for each spark
-- Keyboard-driven navigation (`←` `→`, `C` = mark covered, `W` = wildcard)
-- Built-in timer
-- Fullscreen support
-
-Designed so two people can run the entire show from one laptop.
-
-## Design Notes
-
-- Warm paper aesthetic (light mode) with a rich dark theater mode for live
-- Custom typography: Fraunces (serif) + Hanken Grotesk (sans) + JetBrains Mono
-- Subtle paper grain texture
-- Smooth animations that respect `prefers-reduced-motion`
-- Fully responsive down to small phones
-- 100% self-contained after fonts load from Google Fonts
-
-## Philosophy
-
-Keep it human.  
-Every headline must earn its place by answering "why should a normal person care?"  
-The sparks are doors, not lectures. One person explores; the other reels it back in.
-
----
-
-**Template version:** 5 (as of the pilot)
-
-Made with care by Shane & Dad · 2026
-
-*If you're seeing this in the repo: the current `reel-it-in.html` is the working pilot (Episode 001).*
+Keep the weekly workflow simple until real episodes prove where complexity belongs. Prefer clear files, plain data, and documented decisions over premature architecture.

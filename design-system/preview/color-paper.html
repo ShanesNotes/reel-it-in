@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html lang="en"><head><meta charset="UTF-8" />
+<link rel="stylesheet" href="../colors_and_type.css" />
+<style>
+  html,body{margin:0}
+  body{background:var(--bg);color:var(--fg1);padding:24px 30px;-webkit-font-smoothing:antialiased}
+  .grid{display:grid;grid-template-columns:repeat(3,1fr);gap:14px}
+  .sw{border:1px solid var(--line);border-radius:5px;overflow:hidden}
+  .chip{height:64px}
+  .meta{padding:8px 10px}
+  .nm{font-family:var(--mono);font-size:11px;letter-spacing:.06em;text-transform:uppercase;color:var(--fg1)}
+  .hex{font-family:var(--mono);font-size:11px;color:var(--fg3);margin-top:2px}
+</style></head>
+<body>
+  <div class="grid">
+    <div class="sw"><div class="chip" style="background:#F2EBDB"></div><div class="meta"><div class="nm">Paper / bg</div><div class="hex">#F2EBDB</div></div></div>
+    <div class="sw"><div class="chip" style="background:#EAE0C9"></div><div class="meta"><div class="nm">Paper deep</div><div class="hex">#EAE0C9</div></div></div>
+    <div class="sw"><div class="chip" style="background:#F7F1E3"></div><div class="meta"><div class="nm">Card surface</div><div class="hex">#F7F1E3</div></div></div>
+    <div class="sw"><div class="chip" style="background:#221B12"></div><div class="meta"><div class="nm">Ink / fg1</div><div class="hex">#221B12</div></div></div>
+    <div class="sw"><div class="chip" style="background:#5C5142"></div><div class="meta"><div class="nm">Ink soft / fg2</div><div class="hex">#5C5142</div></div></div>
+    <div class="sw"><div class="chip" style="background:#8A7E6B"></div><div class="meta"><div class="nm">Ink faint / fg3</div><div class="hex">#8A7E6B</div></div></div>
+  </div>
+</body></html>

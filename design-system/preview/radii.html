@@ -1,0 +1,20 @@
+<!DOCTYPE html>
+<html lang="en"><head><meta charset="UTF-8" />
+<link rel="stylesheet" href="../colors_and_type.css" />
+<style>
+  html,body{margin:0}
+  body{background:var(--bg);color:var(--fg1);padding:26px 30px;-webkit-font-smoothing:antialiased}
+  .row{display:flex;gap:24px;align-items:flex-end}
+  .item{display:flex;flex-direction:column;align-items:center;gap:10px}
+  .box{width:96px;height:64px;background:var(--surface);border:1px solid var(--line)}
+  .nm{font-family:var(--mono);font-size:11px;letter-spacing:.06em;text-transform:uppercase;color:var(--fg1)}
+  .v{font-family:var(--mono);font-size:11px;color:var(--fg3)}
+  .pill{width:120px;height:42px;border-radius:40px;border:1px solid var(--accent);background:var(--surface)}
+</style></head>
+<body>
+  <div class="row">
+    <div class="item"><div class="box" style="border-radius:3px"></div><div class="nm">sm</div><div class="v">3px</div></div>
+    <div class="item"><div class="box" style="border-radius:5px"></div><div class="nm">md card</div><div class="v">5px</div></div>
+    <div class="item"><div class="pill"></div><div class="nm">pill</div><div class="v">40px</div></div>
+  </div>
+</body></html>

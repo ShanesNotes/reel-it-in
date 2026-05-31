@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html lang="en"><head><meta charset="UTF-8" />
+<link rel="stylesheet" href="../colors_and_type.css" />
+<style>
+  html,body{margin:0}
+  body{background:#16110A;padding:24px 30px;-webkit-font-smoothing:antialiased}
+  body::before{content:"";position:fixed;inset:0;pointer-events:none;z-index:9;opacity:.06;mix-blend-mode:overlay;background-image:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='180' height='180'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.85' numOctaves='3' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)'/%3E%3C/svg%3E")}
+  .grid{display:grid;grid-template-columns:repeat(3,1fr);gap:14px;position:relative;z-index:1}
+  .sw{border:1px solid rgba(240,231,210,.16);border-radius:5px;overflow:hidden}
+  .chip{height:60px}
+  .meta{padding:8px 10px;background:#241B10}
+  .nm{font-family:var(--mono);font-size:11px;letter-spacing:.06em;text-transform:uppercase;color:#F0E7D2}
+  .hex{font-family:var(--mono);font-size:11px;color:#8A7C5F;margin-top:2px}
+</style></head>
+<body>
+  <div class="grid">
+    <div class="sw"><div class="chip" style="background:#16110A"></div><div class="meta"><div class="nm">Night / bg</div><div class="hex">#16110A</div></div></div>
+    <div class="sw"><div class="chip" style="background:#241B10"></div><div class="meta"><div class="nm">Night card</div><div class="hex">#241B10</div></div></div>
+    <div class="sw"><div class="chip" style="background:#F0E7D2"></div><div class="meta"><div class="nm">Night ink</div><div class="hex">#F0E7D2</div></div></div>
+    <div class="sw"><div class="chip" style="background:#E5A93F"></div><div class="meta"><div class="nm">Gold</div><div class="hex">#E5A93F</div></div></div>
+    <div class="sw"><div class="chip" style="background:#5FA89F"></div><div class="meta"><div class="nm">Teal</div><div class="hex">#5FA89F</div></div></div>
+    <div class="sw"><div class="chip" style="background:#E5483B"></div><div class="meta"><div class="nm">On-air red</div><div class="hex">#E5483B</div></div></div>
+  </div>
+</body></html>
