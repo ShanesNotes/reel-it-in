@@ -7,6 +7,7 @@ The direction is ancient-futuristic: illuminated manuscript meets archaic machin
 ## Files
 
 - `prompts.txt`: video and music generation prompts
+- `FLOW_OMNI_RUNBOOK.md`: Google Flow / Gemini Omni production workflow
 - `handoff.html`: visual handoff page
 - `assets/style-board.png`: style board
 - `assets/wordmark-night.png`: title/wordmark reference
