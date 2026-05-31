@@ -307,6 +307,21 @@ Reason: those two shots define the whole identity. If Flow cannot produce the th
 
 After those land, build Shot 3. Then Babel. Then Leviathan last.
 
+## Storyboard Studio Warning
+
+In the 2026-05-31 Flow test, pressing Done closed Storyboard Studio without preserving the assembled board layout, but the generated images remained in the project media grid.
+
+Treat Storyboard Studio as previs and asset generation, not as the durable project state.
+
+Before pressing Done:
+
+1. Screenshot the board.
+2. Favorite/pin strong frames.
+3. Download key selects when possible.
+4. Make notes in `sessions/`.
+
+The durable production state should live in this repo and in exported/select media, not only in Flow's storyboard UI.
+
 ## Codex + Human Collaboration Loop
 
 Codex can:
