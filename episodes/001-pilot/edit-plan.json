@@ -1,0 +1,42 @@
+{
+    "schemaVersion":  1,
+    "generatedAt":  "2026-06-01T13:26:38",
+    "episode":  {
+                    "folder":  "001-pilot",
+                    "number":  "001",
+                    "label":  "Pilot",
+                    "title":  "Reel It In 001: Pilot"
+                },
+    "inputs":  {
+                   "mediaFolder":  "Reel It In Media/001-pilot/raw/",
+                   "transcriptStatus":  "Template present; transcript not added yet",
+                   "descriptProject":  "TBD",
+                   "productionNotes":  "episodes/001-pilot/production-notes.md",
+                   "transcript":  "episodes/001-pilot/transcript.md",
+                   "sources":  "episodes/001-pilot/sources.md"
+               },
+    "chapters":  [
+                     {
+                         "Timecode":  "00:00",
+                         "Title":  "Opening",
+                         "Source":  "default"
+                     }
+                 ],
+    "clips":  [
+
+              ],
+    "cutList":  [
+
+                ],
+    "bestMoments":  [
+
+                    ],
+    "editDecisions":  [
+
+                      ],
+    "nextActions":  [
+                        "Export the Descript transcript into episodes/001-pilot/transcript.md or paste a transcript link.",
+                        "Add rough timestamps to production-notes.md while the recording is still fresh.",
+                        "Fill runtime and final export paths after Descript and Auphonic exports are done."
+                    ]
+}

@@ -1,0 +1,15 @@
+{
+    "schemaVersion":  1,
+    "generatedAt":  "2026-06-01T13:26:43",
+    "episodes":  [
+                     {
+                         "number":  "001",
+                         "label":  "Pilot",
+                         "status":  "Prep slate selected. Not recorded.",
+                         "releaseDate":  "2026-06-01",
+                         "title":  "Reel It In 001: Pilot",
+                         "folder":  "001-pilot",
+                         "archiveMetadata":  "episodes/001-pilot/archive.json"
+                     }
+                 ]
+}

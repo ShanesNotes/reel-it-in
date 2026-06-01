@@ -1,0 +1,11 @@
+This week on Reel It In:
+
+Introduce the father-son format with a simple theme: AI is moving out of the answer box and into everyday systems that act, protect, label, and connect.
+
+This episode covers:
+- Google wants AI to stop just answering and start doing things for you. This is the moment AI starts feeling less like a chatbot and more like a helper embedded in products people already use.
+- Microsoft says AI agents helped find serious Windows security holes. AI is not just writing code now; it is starting to inspect the digital plumbing we all depend on. That could help defenders, but it also raises the obvious question of what attackers can do with similar tools.
+- Europe is moving toward labels for AI conversations and AI-made media. The internet is about to need ingredient labels. The hard part is deciding what must be labeled, who checks it, and whether normal people will trust the labels.
+
+Best moments to look for:
+- TBD after edit.

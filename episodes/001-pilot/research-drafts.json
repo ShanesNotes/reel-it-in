@@ -1,0 +1,172 @@
+{
+    "schemaVersion":  1,
+    "generatedAt":  "2026-06-01T13:26:34",
+    "episode":  "001-pilot",
+    "input":  "episodes/001-pilot/research-inbox.json",
+    "top":  10,
+    "minScore":  3,
+    "drafts":  [
+                   {
+                       "recommendation":  "Candidate",
+                       "score":  17,
+                       "reasons":  [
+                                       "security/trust",
+                                       "real-world stakes",
+                                       "model/platform shift",
+                                       "developer workflow",
+                                       "recent"
+                                   ],
+                       "source":  "[OpenAI News](https://openai.com/index/strengthening-societal-resilience-with-rosalind-biodefense)",
+                       "feed":  "OpenAI News",
+                       "url":  "https://openai.com/index/strengthening-societal-resilience-with-rosalind-biodefense",
+                       "date":  "2026-05-28",
+                       "plainEnglishNote":  "Strengthening societal resilience with Rosalind Biodefense",
+                       "whyItMatters":  "This is about whether AI can help defend against biological risks without making dangerous knowledge easier to use.",
+                       "dadQuestion":  "Is this helping prevent scary biology problems, or teaching people how to make them?"
+                   },
+                   {
+                       "recommendation":  "Candidate",
+                       "score":  12,
+                       "reasons":  [
+                                       "agents/tools",
+                                       "model/platform shift",
+                                       "developer workflow",
+                                       "recent"
+                                   ],
+                       "source":  "[OpenAI News](https://openai.com/index/braintrust)",
+                       "feed":  "OpenAI News",
+                       "url":  "https://openai.com/index/braintrust",
+                       "date":  "2026-05-29",
+                       "plainEnglishNote":  "How Braintrust turns customer requests into code with Codex",
+                       "whyItMatters":  "AI is moving from answering questions into doing work inside professional workflows.",
+                       "dadQuestion":  "What is it allowed to do on its own, and who checks the work?"
+                   },
+                   {
+                       "recommendation":  "Candidate",
+                       "score":  11,
+                       "reasons":  [
+                                       "security/trust",
+                                       "developer workflow",
+                                       "recent"
+                                   ],
+                       "source":  "[Microsoft Security Blog](https://www.microsoft.com/en-us/security/blog/2026/05/29/33-malicious-npm-packages-abuse-dependency-confusion-profile-developer-environments/)",
+                       "feed":  "Microsoft Security Blog",
+                       "url":  "https://www.microsoft.com/en-us/security/blog/2026/05/29/33-malicious-npm-packages-abuse-dependency-confusion-profile-developer-environments/",
+                       "date":  "2026-05-29",
+                       "plainEnglishNote":  "Malicious npm packages abuse dependency confusion to profile developer environments",
+                       "whyItMatters":  "This is about whether the software supply chain and AI-assisted development can be trusted.",
+                       "dadQuestion":  "Does this make us safer, or does it give attackers better tools too?"
+                   },
+                   {
+                       "recommendation":  "Candidate",
+                       "score":  11,
+                       "reasons":  [
+                                       "security/trust",
+                                       "developer workflow",
+                                       "recent"
+                                   ],
+                       "source":  "[Microsoft Security Blog](https://www.microsoft.com/en-us/security/blog/2026/05/28/typosquatted-npm-packages-used-steal-cloud-ci-cd-secrets/)",
+                       "feed":  "Microsoft Security Blog",
+                       "url":  "https://www.microsoft.com/en-us/security/blog/2026/05/28/typosquatted-npm-packages-used-steal-cloud-ci-cd-secrets/",
+                       "date":  "2026-05-28",
+                       "plainEnglishNote":  "Typosquatted npm packages used to steal cloud and CI/CD secrets",
+                       "whyItMatters":  "This is about whether the software supply chain and AI-assisted development can be trusted.",
+                       "dadQuestion":  "Does this make us safer, or does it give attackers better tools too?"
+                   },
+                   {
+                       "recommendation":  "Candidate",
+                       "score":  10,
+                       "reasons":  [
+                                       "agents/tools",
+                                       "developer workflow",
+                                       "recent"
+                                   ],
+                       "source":  "[Hugging Face Blog](https://huggingface.co/blog/ibm-research/agent-logic-and-scalable-ai-adoption)",
+                       "feed":  "Hugging Face Blog",
+                       "url":  "https://huggingface.co/blog/ibm-research/agent-logic-and-scalable-ai-adoption",
+                       "date":  "2026-06-01",
+                       "plainEnglishNote":  "Beyond LLMs: Why Scalable Enterprise AI Adoption Depends on Agent Logic",
+                       "whyItMatters":  "AI is moving from answering questions into doing work inside professional workflows.",
+                       "dadQuestion":  "What is it allowed to do on its own, and who checks the work?"
+                   },
+                   {
+                       "recommendation":  "Candidate",
+                       "score":  9,
+                       "reasons":  [
+                                       "real-world stakes",
+                                       "model/platform shift",
+                                       "recent"
+                                   ],
+                       "source":  "[OpenAI News](https://openai.com/index/boston-childrens-hospital)",
+                       "feed":  "OpenAI News",
+                       "url":  "https://openai.com/index/boston-childrens-hospital",
+                       "date":  "2026-05-29",
+                       "plainEnglishNote":  "Boston Children\u0027s uses AI to unlock new diagnoses",
+                       "whyItMatters":  "This moves AI from demos into decisions around real people and real care.",
+                       "dadQuestion":  "Who is responsible if the AI helps with a medical decision and gets it wrong?"
+                   },
+                   {
+                       "recommendation":  "Candidate",
+                       "score":  8,
+                       "reasons":  [
+                                       "model/platform shift",
+                                       "developer workflow",
+                                       "recent"
+                                   ],
+                       "source":  "[Hugging Face Blog](https://huggingface.co/blog/JetBrains/mellum2-launch)",
+                       "feed":  "Hugging Face Blog",
+                       "url":  "https://huggingface.co/blog/JetBrains/mellum2-launch",
+                       "date":  "2026-06-01",
+                       "plainEnglishNote":  "Introducing Mellum2: A 12B Mixture-of-Experts Model by JetBrains",
+                       "whyItMatters":  "AI is moving from answering questions into doing work inside professional workflows.",
+                       "dadQuestion":  "What is it allowed to do on its own, and who checks the work?"
+                   },
+                   {
+                       "recommendation":  "Candidate",
+                       "score":  8,
+                       "reasons":  [
+                                       "model/platform shift",
+                                       "developer workflow",
+                                       "recent"
+                                   ],
+                       "source":  "[Hugging Face Blog](https://huggingface.co/blog/nvidia/cosmos-3-for-physical-ai)",
+                       "feed":  "Hugging Face Blog",
+                       "url":  "https://huggingface.co/blog/nvidia/cosmos-3-for-physical-ai",
+                       "date":  "2026-05-31",
+                       "plainEnglishNote":  "Welcome NVIDIA Cosmos 3: The First Open Omni-model for Physical AI Reasoning and Action",
+                       "whyItMatters":  "AI is moving from answering questions into doing work inside professional workflows.",
+                       "dadQuestion":  "What is it allowed to do on its own, and who checks the work?"
+                   },
+                   {
+                       "recommendation":  "Candidate",
+                       "score":  8,
+                       "reasons":  [
+                                       "measurement/trust",
+                                       "model/platform shift",
+                                       "recent"
+                                   ],
+                       "source":  "[OpenAI News](https://openai.com/index/trustworthy-third-party-evaluations-foundations)",
+                       "feed":  "OpenAI News",
+                       "url":  "https://openai.com/index/trustworthy-third-party-evaluations-foundations",
+                       "date":  "2026-05-28",
+                       "plainEnglishNote":  "A shared playbook for trustworthy third party evaluations",
+                       "whyItMatters":  "This is about how we tell whether AI systems are actually reliable enough to use.",
+                       "dadQuestion":  "How would a normal person know whether this thing is actually reliable?"
+                   },
+                   {
+                       "recommendation":  "Candidate",
+                       "score":  8,
+                       "reasons":  [
+                                       "security/trust",
+                                       "recent"
+                                   ],
+                       "source":  "[Microsoft Security Blog](https://www.microsoft.com/en-us/security/blog/2026/05/28/the-gentlemen-ransomware-dissecting-a-self-propagating-go-encryptor/)",
+                       "feed":  "Microsoft Security Blog",
+                       "url":  "https://www.microsoft.com/en-us/security/blog/2026/05/28/the-gentlemen-ransomware-dissecting-a-self-propagating-go-encryptor/",
+                       "date":  "2026-05-28",
+                       "plainEnglishNote":  "The Gentlemen ransomware: Dissecting a self-propagating Go encryptor",
+                       "whyItMatters":  "This is about whether the software supply chain and AI-assisted development can be trusted.",
+                       "dadQuestion":  "Does this make us safer, or does it give attackers better tools too?"
+                   }
+               ]
+}

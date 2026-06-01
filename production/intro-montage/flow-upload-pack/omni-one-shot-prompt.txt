@@ -1,0 +1,28 @@
+Create a silent cinematic intro montage for Reel It In called "The Golden Thread."
+
+A single continuous luminous golden thread is the main subject and must remain visually present across the sequence. The thread begins as a tiny gold spark over mirror-black water, then travels through warm-black darkness like a line of sacred light. As it moves, it passes through subtle symbolic impressions: a faint geometric proto-circuit forming in the dark, an ancient bronze-and-clay ziggurat rising in timeless night, black-gold floodwater swallowing the world, and a huge underwater shadow implied beneath the surface. These should feel like glimpses within one continuous mythic motion, not disconnected scenes.
+
+At the end, the thread pulls taut and snaps into a thin horizontal luminous gold waterline across the lower third of a warm-black title plate, leaving deep empty negative space above for the Reel It In wordmark to be added later.
+
+Timing and music alignment:
+This video should be silent, but the visual pacing must be designed to match a separate audio cue. Use proportional timing if the generated video is longer or shorter than the cue map.
+
+Opening: near silence / low cello begins. Visual: black water, tiny gold spark ignition, first glow.
+Early build: soft frame-drum heartbeat and low drone. Visual: the golden thread begins to unspool slowly from the spark.
+Middle build: bowed strings and distant choir begin to swell. Visual: the thread travels through darkness; faint abstract impressions appear briefly: proto-circuit geometry, ziggurat silhouette, black-gold water.
+Rising tension: metallic bronze / prepared piano textures enter. Visual: the thread descends briefly into darker water; a huge underwater shadow is implied below, not fully shown.
+Held silence: brief visual pause. Visual: the thread goes taut and motion nearly freezes.
+Mechanical hit: single reel mechanism sound and low cello pizzicato. Visual: the thread snaps decisively into a perfectly horizontal gold waterline.
+Resolve: warm cello note fades. Visual: hold on the warm-black title plate with the horizontal gold waterline and empty negative space above.
+
+Style:
+Ancient-futuristic sacred montage. Illuminated manuscript meets archaic machine. Gold leaf, clay, bronze, black water, code-like geometry, and one luminous thread. Warm near-black, antique gold, deep bronze, mirror-black water, tiny papyrus highlights, heavy 16mm film grain, soft halation, volumetric gold light. Reverent, slow, mysterious, cinematic, human.
+
+Motion:
+Slow, graceful, continuous. The thread is the through-line. The final snap to horizontal should be clear, elegant, and timed like a visual catch.
+
+Audio:
+Do not generate music, voiceover, dialogue, captions, or sound effects. Only align the silent visuals to the intended audio cue points.
+
+Avoid:
+No text, no captions, no logos, no readable symbols, no people in focus, no modern city, no neon, no blue/teal dominance, no glossy sci-fi, no cartoon, no anime, no fantasy battle, no explosion, no tangled rope, no braided cable, no monster attack, no bright daylight, no cream paper background for the final resolve.

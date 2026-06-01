@@ -8,7 +8,9 @@ The direction is ancient-futuristic: illuminated manuscript meets archaic machin
 
 - `prompts.txt`: video and music generation prompts
 - `FLOW_OMNI_RUNBOOK.md`: Google Flow / Gemini Omni production workflow
+- `flow-upload-pack/`: Flow-friendly image references and paste prompts when `.html` upload is not supported
 - `handoff.html`: visual handoff page
+- `prototypes/`: local, controllable intro animation prototypes
 - `assets/style-board.png`: style board
 - `assets/wordmark-night.png`: title/wordmark reference
 

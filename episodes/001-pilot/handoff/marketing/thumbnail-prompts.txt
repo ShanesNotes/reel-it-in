@@ -1,0 +1,23 @@
+## Prompt 1 - The Keys
+
+Warm editorial podcast thumbnail, father and adult son at a table, cream paper texture, warm ink, one brass key as the central object, subtle teal accent, cinematic but natural light, readable overlay text AI HAS KEYS, no fake brand logos, no tiny text, 16:9.
+
+Negative guidance: no fake logos, no tiny UI text, no sci-fi neon, no stock-photo gloss, no unreadable overlay.
+
+## Prompt 2 - The Crack
+
+Warm magazine-style podcast thumbnail, father and adult son reviewing a simple circuit-board map on paper, one visible crack highlighted in gold, cream and ink palette, subtle teal accent, readable overlay text AI FOUND IT, no fake logos, no cybersecurity cliches, 16:9.
+
+Negative guidance: no fake logos, no tiny UI text, no sci-fi neon, no stock-photo gloss, no unreadable overlay.
+
+## Prompt 3 - The Label
+
+Editorial podcast thumbnail, father and adult son at a table with two nearly identical printed cards, one stamped AI in gold, cream paper background, warm ink, restrained teal accent, readable overlay text AI OR REAL, grounded and human, no fake logos, 16:9.
+
+Negative guidance: no fake logos, no tiny UI text, no sci-fi neon, no stock-photo gloss, no unreadable overlay.
+
+## Prompt 4 - Three Cards
+
+Warm printed-magazine podcast thumbnail for Reel It In, father and adult son at a table with three bold story cards, labels AI ACTS, SECURITY, LABELS, cream paper, warm ink, one gold accent, subtle teal, readable overlay text WHAT MATTERS, no fake logos, 16:9.
+
+Negative guidance: no fake logos, no tiny UI text, no sci-fi neon, no stock-photo gloss, no unreadable overlay.

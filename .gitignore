@@ -15,3 +15,6 @@ inbox/original-exports/*.zip
 # Temporary scratch space
 .tmp/
 .reel-it-in-tmp/
+
+# Local prototype screenshots
+production/intro-montage/prototypes/screenshots/*.png

@@ -1,0 +1,902 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>Reel It In - Golden Thread Intro Prototype</title>
+<link rel="stylesheet" href="../../../design-system/colors_and_type.css" />
+<style>
+  * { box-sizing: border-box; }
+  html,
+  body {
+    width: 100%;
+    height: 100%;
+    margin: 0;
+    background: #080604;
+    color: var(--rii-night-ink);
+    font-family: var(--sans);
+    overflow: hidden;
+  }
+
+  body {
+    display: grid;
+    grid-template-rows: minmax(0, 1fr) auto;
+  }
+
+  .studio {
+    position: relative;
+    min-height: 0;
+    display: grid;
+    place-items: center;
+    padding: 18px;
+    background:
+      radial-gradient(1200px 720px at 50% 36%, rgba(92, 63, 17, 0.25), transparent 62%),
+      radial-gradient(760px 520px at 78% 76%, rgba(95, 168, 159, 0.08), transparent 68%),
+      #080604;
+  }
+
+  .stage-shell {
+    width: min(100%, calc((100vh - 112px) * 16 / 9));
+    aspect-ratio: 16 / 9;
+    max-width: 1920px;
+    border: 1px solid rgba(240, 231, 210, 0.11);
+    border-radius: 8px;
+    overflow: hidden;
+    position: relative;
+    background: #16110a;
+    box-shadow: 0 24px 80px rgba(0, 0, 0, 0.48);
+  }
+
+  #thread-canvas {
+    position: absolute;
+    inset: 0;
+    width: 100%;
+    height: 100%;
+    display: block;
+  }
+
+  .capture-vignette {
+    position: absolute;
+    inset: 0;
+    pointer-events: none;
+    background:
+      radial-gradient(96% 76% at 50% 45%, transparent 36%, rgba(0, 0, 0, 0.66) 100%),
+      linear-gradient(180deg, rgba(0, 0, 0, 0.18), transparent 28%, rgba(0, 0, 0, 0.24));
+    mix-blend-mode: multiply;
+  }
+
+  .grain {
+    position: absolute;
+    inset: 0;
+    pointer-events: none;
+    opacity: 0.075;
+    mix-blend-mode: overlay;
+    background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='180' height='180'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.86' numOctaves='3' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)'/%3E%3C/svg%3E");
+  }
+
+  .wordmark-wrap {
+    position: absolute;
+    left: 50%;
+    top: 43%;
+    transform: translate(-50%, 28px);
+    opacity: 0;
+    text-align: center;
+    will-change: transform, opacity;
+  }
+
+  .wordmark {
+    color: var(--rii-night-ink);
+    font-family: var(--serif);
+    font-size: 150px;
+    font-weight: 600;
+    line-height: 0.92;
+    letter-spacing: 0;
+    white-space: nowrap;
+    font-variation-settings: "opsz" 144;
+    text-shadow: 0 0 26px rgba(240, 231, 210, 0.08);
+  }
+
+  .wordmark .it {
+    color: var(--rii-night-gold);
+    font-style: italic;
+    font-weight: 500;
+    font-variation-settings: "opsz" 144, "WONK" 1;
+  }
+
+  .subtitle {
+    margin-top: 26px;
+    color: #c5b594;
+    font-family: var(--mono);
+    font-size: 18px;
+    letter-spacing: 0.2em;
+    text-transform: uppercase;
+    white-space: nowrap;
+  }
+
+  .hit-flash {
+    position: absolute;
+    inset: 0;
+    pointer-events: none;
+    opacity: 0;
+    background: radial-gradient(circle at 50% 61%, rgba(251, 233, 196, 0.86), rgba(229, 169, 63, 0.08) 18%, transparent 42%);
+    mix-blend-mode: screen;
+  }
+
+  .panel {
+    min-height: 94px;
+    display: grid;
+    grid-template-columns: auto 1fr auto;
+    gap: 18px;
+    align-items: center;
+    padding: 14px 18px 16px;
+    border-top: 1px solid rgba(240, 231, 210, 0.09);
+    background: #0d0b07;
+  }
+
+  .brandline {
+    min-width: 230px;
+  }
+
+  .kicker {
+    color: var(--rii-night-gold);
+    font-family: var(--mono);
+    font-size: 11px;
+    letter-spacing: 0.18em;
+    text-transform: uppercase;
+  }
+
+  .titleline {
+    margin-top: 6px;
+    color: var(--rii-night-ink);
+    font-family: var(--serif);
+    font-size: 26px;
+    font-weight: 600;
+    line-height: 1;
+    letter-spacing: 0;
+  }
+
+  .timeline {
+    min-width: 0;
+  }
+
+  .cue-row {
+    display: grid;
+    grid-template-columns: repeat(7, 1fr);
+    gap: 7px;
+    margin-bottom: 9px;
+  }
+
+  .cue {
+    height: 18px;
+    color: #8a7c5f;
+    font-family: var(--mono);
+    font-size: 10px;
+    letter-spacing: 0.06em;
+    text-transform: uppercase;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+  }
+
+  .cue.active {
+    color: var(--rii-night-gold);
+  }
+
+  input[type="range"] {
+    width: 100%;
+    accent-color: var(--rii-night-gold);
+  }
+
+  .controls {
+    display: flex;
+    gap: 8px;
+    align-items: center;
+  }
+
+  button {
+    width: 40px;
+    height: 40px;
+    display: grid;
+    place-items: center;
+    border: 1px solid rgba(240, 231, 210, 0.18);
+    border-radius: 8px;
+    background: rgba(240, 231, 210, 0.04);
+    color: var(--rii-night-ink);
+    cursor: pointer;
+  }
+
+  button:hover {
+    border-color: var(--rii-night-gold);
+    color: var(--rii-night-gold);
+  }
+
+  .time {
+    width: 78px;
+    color: #c5b594;
+    font-family: var(--mono);
+    font-size: 12px;
+    font-variant-numeric: tabular-nums;
+    text-align: right;
+  }
+
+  body.capture {
+    grid-template-rows: minmax(0, 1fr);
+  }
+
+  body.capture .studio {
+    padding: 0;
+  }
+
+  body.capture .stage-shell {
+    width: 100vw;
+    height: 100vh;
+    max-width: none;
+    border: 0;
+    border-radius: 0;
+  }
+
+  body.capture .panel {
+    display: none;
+  }
+
+  @media (max-width: 860px) {
+    .panel {
+      grid-template-columns: 1fr;
+      gap: 10px;
+    }
+    .brandline {
+      display: none;
+    }
+    .cue-row {
+      grid-template-columns: repeat(4, 1fr);
+    }
+    .wordmark {
+      font-size: 88px;
+    }
+    .subtitle {
+      font-size: 11px;
+    }
+  }
+</style>
+</head>
+<body>
+  <main class="studio">
+    <section class="stage-shell" aria-label="Golden Thread intro stage">
+      <canvas id="thread-canvas"></canvas>
+      <div class="wordmark-wrap" id="wordmark">
+        <div class="wordmark">Reel <span class="it">It</span> In</div>
+        <div class="subtitle">A Father-Son Conversation About A.I.</div>
+      </div>
+      <div class="hit-flash" id="hit-flash"></div>
+      <div class="capture-vignette"></div>
+      <div class="grain"></div>
+    </section>
+  </main>
+
+  <footer class="panel">
+    <div class="brandline">
+      <div class="kicker">Intro Prototype</div>
+      <div class="titleline">Golden Thread Cut</div>
+    </div>
+
+    <div class="timeline">
+      <div class="cue-row" id="cue-row"></div>
+      <input id="scrub" type="range" min="0" max="10.8" value="0" step="0.01" aria-label="Timeline scrubber" />
+    </div>
+
+    <div class="controls">
+      <button id="restart" type="button" title="Restart" aria-label="Restart">
+        <svg width="18" height="18" viewBox="0 0 18 18" aria-hidden="true">
+          <path d="M5.2 4.6A6 6 0 1 1 3 9.25" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round"/>
+          <path d="M5.25 1.8v4.7H.9" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/>
+        </svg>
+      </button>
+      <button id="play" type="button" title="Play or pause" aria-label="Play or pause">
+        <svg id="play-icon" width="16" height="16" viewBox="0 0 16 16" aria-hidden="true">
+          <path d="M4 2.5v11l9-5.5-9-5.5z" fill="currentColor"/>
+        </svg>
+      </button>
+      <div class="time" id="time">0:00.00</div>
+    </div>
+  </footer>
+
+<script>
+(() => {
+  const W = 1920;
+  const H = 1080;
+  const DURATION = 10.8;
+  const canvas = document.getElementById("thread-canvas");
+  const ctx = canvas.getContext("2d");
+  const wordmark = document.getElementById("wordmark");
+  const flash = document.getElementById("hit-flash");
+  const scrub = document.getElementById("scrub");
+  const playButton = document.getElementById("play");
+  const playIcon = document.getElementById("play-icon");
+  const restartButton = document.getElementById("restart");
+  const timeLabel = document.getElementById("time");
+  const cueRow = document.getElementById("cue-row");
+
+  const params = new URLSearchParams(window.location.search);
+  let time = clamp(Number(params.get("t")) || 0, 0, DURATION);
+  let playing = params.get("play") === "0"
+    ? false
+    : !window.matchMedia("(prefers-reduced-motion: reduce)").matches;
+  let lastTs = null;
+  let isDragging = false;
+
+  const GOLD = "#e5a93f";
+  const PALE = "#fbe9c4";
+  const BRONZE = "#ae7a2a";
+  const TEAL = "#5fa89f";
+
+  if (params.get("capture") === "1") {
+    document.body.classList.add("capture");
+  }
+
+  const cues = [
+    { t: 0.0, label: "spark" },
+    { t: 1.2, label: "unspool" },
+    { t: 2.7, label: "pattern" },
+    { t: 4.1, label: "ascent" },
+    { t: 5.7, label: "flood" },
+    { t: 7.2, label: "deep" },
+    { t: 8.45, label: "catch" },
+    { t: 9.0, label: "resolve" },
+  ];
+
+  const particles = Array.from({ length: 170 }, (_, i) => {
+    const r = seeded(i * 31.7);
+    return {
+      x: 220 + seeded(i * 2.1) * 1480,
+      y: 210 + seeded(i * 5.3) * 610,
+      size: 0.7 + seeded(i * 9.2) * 2.4,
+      drift: 0.4 + seeded(i * 4.7) * 1.6,
+      phase: r * Math.PI * 2,
+      alpha: 0.16 + seeded(i * 12.8) * 0.44,
+    };
+  });
+
+  const waterFlecks = Array.from({ length: 70 }, (_, i) => ({
+    x: seeded(100 + i * 4.2) * W,
+    y: 640 + seeded(30 + i * 3.1) * 280,
+    len: 14 + seeded(50 + i * 7.6) * 90,
+    alpha: 0.04 + seeded(70 + i * 6.1) * 0.18,
+    speed: 0.08 + seeded(90 + i * 2.2) * 0.18,
+  }));
+
+  cues.forEach((cue, i) => {
+    const el = document.createElement("div");
+    el.className = "cue";
+    el.textContent = cue.label;
+    el.dataset.index = String(i);
+    cueRow.appendChild(el);
+  });
+
+  function seeded(n) {
+    const x = Math.sin(n * 999.91) * 43758.5453123;
+    return x - Math.floor(x);
+  }
+
+  function clamp(v, min = 0, max = 1) {
+    return Math.max(min, Math.min(max, v));
+  }
+
+  function mix(a, b, p) {
+    return a + (b - a) * p;
+  }
+
+  function smooth(p) {
+    p = clamp(p);
+    return p * p * (3 - 2 * p);
+  }
+
+  function easeOut(p) {
+    return 1 - Math.pow(1 - clamp(p), 3);
+  }
+
+  function easeInOut(p) {
+    p = clamp(p);
+    return p < 0.5 ? 4 * p * p * p : 1 - Math.pow(-2 * p + 2, 3) / 2;
+  }
+
+  function span(t, start, end, easing = smooth) {
+    return easing((t - start) / (end - start));
+  }
+
+  function fadeWindow(t, enterStart, enterEnd, exitStart, exitEnd) {
+    return span(t, enterStart, enterEnd) * (1 - span(t, exitStart, exitEnd));
+  }
+
+  function rgba(hex, a) {
+    const v = hex.replace("#", "");
+    const r = parseInt(v.slice(0, 2), 16);
+    const g = parseInt(v.slice(2, 4), 16);
+    const b = parseInt(v.slice(4, 6), 16);
+    return `rgba(${r}, ${g}, ${b}, ${a})`;
+  }
+
+  function resize() {
+    const dpr = Math.min(window.devicePixelRatio || 1, 2);
+    canvas.width = Math.round(W * dpr);
+    canvas.height = Math.round(H * dpr);
+    ctx.setTransform(dpr, 0, 0, dpr, 0, 0);
+  }
+
+  function formatTime(t) {
+    const s = Math.floor(t % 60);
+    const cs = Math.floor((t * 100) % 100);
+    return `0:${String(s).padStart(2, "0")}.${String(cs).padStart(2, "0")}`;
+  }
+
+  function cubic(p0, p1, p2, p3, steps = 80) {
+    const pts = [];
+    for (let i = 0; i <= steps; i += 1) {
+      const t = i / steps;
+      const u = 1 - t;
+      pts.push({
+        x: u * u * u * p0.x + 3 * u * u * t * p1.x + 3 * u * t * t * p2.x + t * t * t * p3.x,
+        y: u * u * u * p0.y + 3 * u * u * t * p1.y + 3 * u * t * t * p2.y + t * t * t * p3.y,
+      });
+    }
+    return pts;
+  }
+
+  function pathLength(points) {
+    let total = 0;
+    for (let i = 1; i < points.length; i += 1) {
+      total += Math.hypot(points[i].x - points[i - 1].x, points[i].y - points[i - 1].y);
+    }
+    return total;
+  }
+
+  function drawPartialPath(points, progress, width, color, alpha = 1) {
+    const total = pathLength(points);
+    const target = total * clamp(progress);
+    let walked = 0;
+    ctx.beginPath();
+    ctx.moveTo(points[0].x, points[0].y);
+    for (let i = 1; i < points.length; i += 1) {
+      const a = points[i - 1];
+      const b = points[i];
+      const len = Math.hypot(b.x - a.x, b.y - a.y);
+      if (walked + len <= target) {
+        ctx.lineTo(b.x, b.y);
+      } else {
+        const remain = Math.max(0, target - walked);
+        const p = len === 0 ? 0 : remain / len;
+        ctx.lineTo(mix(a.x, b.x, p), mix(a.y, b.y, p));
+        break;
+      }
+      walked += len;
+    }
+    ctx.lineCap = "round";
+    ctx.lineJoin = "round";
+    ctx.strokeStyle = rgba(color, alpha);
+    ctx.lineWidth = width;
+    ctx.stroke();
+  }
+
+  function glowPath(points, progress, alpha = 1, width = 2.8) {
+    ctx.save();
+    ctx.globalCompositeOperation = "lighter";
+    ctx.shadowColor = rgba(GOLD, 0.85 * alpha);
+    ctx.shadowBlur = 30;
+    drawPartialPath(points, progress, width * 5.8, GOLD, 0.08 * alpha);
+    ctx.shadowBlur = 16;
+    drawPartialPath(points, progress, width * 2.1, GOLD, 0.34 * alpha);
+    ctx.shadowBlur = 9;
+    drawPartialPath(points, progress, width, PALE, 0.88 * alpha);
+    ctx.restore();
+  }
+
+  function linePath(y, amp = 0, phase = 0, points = 96) {
+    const out = [];
+    for (let i = 0; i <= points; i += 1) {
+      const x = (i / points) * W;
+      out.push({
+        x,
+        y: y + Math.sin(i * 0.22 + phase) * amp + Math.sin(i * 0.071 + phase * 1.4) * amp * 0.55,
+      });
+    }
+    return out;
+  }
+
+  function drawBackground(t) {
+    const g = ctx.createLinearGradient(0, 0, 0, H);
+    g.addColorStop(0, "#100b06");
+    g.addColorStop(0.5, "#16110a");
+    g.addColorStop(1, "#080604");
+    ctx.fillStyle = g;
+    ctx.fillRect(0, 0, W, H);
+
+    const lift = span(t, 0.2, 1.8) * 0.18 + fadeWindow(t, 8.35, 8.55, 8.8, 9.6) * 0.18;
+    const rg = ctx.createRadialGradient(960, 620, 20, 960, 600, 760);
+    rg.addColorStop(0, `rgba(229, 169, 63, ${0.12 + lift})`);
+    rg.addColorStop(0.33, "rgba(174, 122, 42, 0.07)");
+    rg.addColorStop(1, "rgba(0, 0, 0, 0)");
+    ctx.fillStyle = rg;
+    ctx.fillRect(0, 0, W, H);
+  }
+
+  function drawWater(t) {
+    const flood = span(t, 5.2, 6.2);
+    const resolve = span(t, 8.55, 9.1);
+    const waterY = mix(706, 666, flood);
+
+    const bg = ctx.createLinearGradient(0, waterY - 40, 0, H);
+    bg.addColorStop(0, `rgba(33, 20, 8, ${0.15 + 0.14 * flood})`);
+    bg.addColorStop(0.35, `rgba(8, 6, 4, ${0.45 + 0.25 * flood})`);
+    bg.addColorStop(1, "#040302");
+    ctx.fillStyle = bg;
+    ctx.fillRect(0, waterY - 24, W, H - waterY + 24);
+
+    ctx.save();
+    ctx.globalCompositeOperation = "screen";
+    const waveCount = 9;
+    for (let i = 0; i < waveCount; i += 1) {
+      const y = waterY + i * (18 + flood * 7);
+      const amp = (2.2 + i * 0.38) * (1 - resolve * 0.62);
+      const alpha = (0.09 - i * 0.006) * (1 + flood * 0.8);
+      const wave = linePath(y, amp, t * (0.8 + i * 0.08) + i * 0.6, 120);
+      ctx.beginPath();
+      wave.forEach((p, idx) => idx ? ctx.lineTo(p.x, p.y) : ctx.moveTo(p.x, p.y));
+      ctx.strokeStyle = i === 0 ? rgba(GOLD, alpha * 1.6) : rgba(PALE, alpha);
+      ctx.lineWidth = i < 2 ? 1.4 : 0.8;
+      ctx.stroke();
+    }
+
+    waterFlecks.forEach((f, i) => {
+      const drift = ((f.x + t * 40 * f.speed) % (W + 120)) - 60;
+      const shimmer = Math.sin(t * 2 + i) * 0.5 + 0.5;
+      ctx.strokeStyle = rgba(GOLD, f.alpha * shimmer * (0.6 + flood));
+      ctx.lineWidth = 1;
+      ctx.beginPath();
+      ctx.moveTo(drift, f.y + Math.sin(t + i) * 2);
+      ctx.lineTo(drift + f.len, f.y + Math.sin(t + i * 0.7) * 2);
+      ctx.stroke();
+    });
+    ctx.restore();
+  }
+
+  function drawSparkAndDust(t) {
+    const ignite = span(t, 0.08, 0.78, easeOut);
+    const fade = 1 - span(t, 2.0, 2.9);
+    const alpha = ignite * fade;
+    const pulse = 0.74 + Math.sin(t * 12) * 0.08 + Math.sin(t * 29) * 0.04;
+    const x = 902;
+    const y = 626;
+
+    ctx.save();
+    ctx.globalCompositeOperation = "lighter";
+    const g = ctx.createRadialGradient(x, y, 0, x, y, 110 * ignite);
+    g.addColorStop(0, rgba(PALE, 0.88 * alpha));
+    g.addColorStop(0.18, rgba(GOLD, 0.34 * alpha));
+    g.addColorStop(1, rgba(GOLD, 0));
+    ctx.fillStyle = g;
+    ctx.beginPath();
+    ctx.arc(x, y, 130 * pulse * ignite, 0, Math.PI * 2);
+    ctx.fill();
+
+    ctx.fillStyle = rgba(PALE, alpha);
+    ctx.beginPath();
+    ctx.arc(x, y, 4 + 5 * pulse * ignite, 0, Math.PI * 2);
+    ctx.fill();
+
+    particles.forEach((p, i) => {
+      const drift = span(t, 0.8, 3.4) * p.drift * 34;
+      const localAlpha = p.alpha * alpha * (0.5 + 0.5 * Math.sin(t * 1.7 + p.phase));
+      ctx.fillStyle = rgba(GOLD, localAlpha);
+      ctx.beginPath();
+      ctx.arc(
+        mix(x, p.x, span(t, 0.8, 3.2)) + Math.sin(t + i) * drift,
+        mix(y, p.y, span(t, 0.8, 3.2)) - drift * 0.35,
+        p.size,
+        0,
+        Math.PI * 2
+      );
+      ctx.fill();
+    });
+    ctx.restore();
+  }
+
+  function drawLattice(t) {
+    const alpha = fadeWindow(t, 1.8, 2.9, 5.0, 6.0);
+    if (alpha <= 0.001) return;
+
+    ctx.save();
+    ctx.globalCompositeOperation = "screen";
+    ctx.strokeStyle = rgba(GOLD, 0.23 * alpha);
+    ctx.lineWidth = 1.2;
+    const cols = 8;
+    const rows = 5;
+    const startX = 680;
+    const startY = 325;
+    const stepX = 90;
+    const stepY = 58;
+    const reveal = span(t, 1.95, 3.3);
+
+    for (let y = 0; y < rows; y += 1) {
+      for (let x = 0; x < cols; x += 1) {
+        const px = startX + x * stepX + Math.sin(y + x * 0.4) * 18;
+        const py = startY + y * stepY + Math.cos(x) * 9;
+        const p = (x + y * cols) / (cols * rows);
+        if (p > reveal) continue;
+        ctx.beginPath();
+        ctx.arc(px, py, 2.2, 0, Math.PI * 2);
+        ctx.stroke();
+        if (x < cols - 1 && seeded(x + y * 10) > 0.22) {
+          ctx.beginPath();
+          ctx.moveTo(px, py);
+          ctx.lineTo(startX + (x + 1) * stepX + Math.sin(y + (x + 1) * 0.4) * 18, startY + y * stepY + Math.cos(x + 1) * 9);
+          ctx.stroke();
+        }
+        if (y < rows - 1 && seeded(x * 8 + y) > 0.33) {
+          ctx.beginPath();
+          ctx.moveTo(px, py);
+          ctx.lineTo(startX + x * stepX + Math.sin(y + 1 + x * 0.4) * 18, startY + (y + 1) * stepY + Math.cos(x) * 9);
+          ctx.stroke();
+        }
+      }
+    }
+    ctx.restore();
+  }
+
+  function drawZiggurat(t) {
+    const alpha = fadeWindow(t, 3.15, 4.2, 5.45, 6.25);
+    if (alpha <= 0.001) return;
+
+    ctx.save();
+    ctx.translate(990, 350);
+    ctx.globalAlpha = alpha;
+    ctx.strokeStyle = rgba(BRONZE, 0.74);
+    ctx.fillStyle = "rgba(49, 33, 13, 0.42)";
+    ctx.lineWidth = 2;
+
+    const tiers = [
+      { x: -350, y: 330, w: 700, h: 86 },
+      { x: -292, y: 250, w: 584, h: 82 },
+      { x: -228, y: 172, w: 456, h: 80 },
+      { x: -160, y: 98, w: 320, h: 78 },
+      { x: -96, y: 30, w: 192, h: 72 },
+    ];
+
+    tiers.forEach((r, i) => {
+      const reveal = span(t, 3.2 + i * 0.12, 4.15 + i * 0.14);
+      if (reveal <= 0) return;
+      ctx.beginPath();
+      ctx.rect(r.x, r.y, r.w * reveal, r.h);
+      ctx.fill();
+      ctx.stroke();
+      for (let j = 0; j < 7; j += 1) {
+        const lx = r.x + (j + 0.5) * (r.w / 7);
+        ctx.strokeStyle = rgba(GOLD, 0.11 + 0.06 * Math.sin(t * 2 + j));
+        ctx.beginPath();
+        ctx.moveTo(lx, r.y + 10);
+        ctx.lineTo(lx + Math.sin(j) * 16, r.y + r.h - 10);
+        ctx.stroke();
+      }
+      ctx.strokeStyle = rgba(BRONZE, 0.74);
+    });
+
+    ctx.strokeStyle = rgba(GOLD, 0.34);
+    ctx.lineWidth = 1.1;
+    for (let i = 0; i < 28; i += 1) {
+      const x = -310 + seeded(i * 2) * 620;
+      const y = 54 + seeded(i * 5) * 350;
+      ctx.beginPath();
+      ctx.moveTo(x, y);
+      ctx.lineTo(x + 18 + seeded(i) * 28, y + 4 + seeded(i * 4) * 24);
+      ctx.stroke();
+    }
+
+    ctx.restore();
+  }
+
+  function drawFloodAndDeep(t) {
+    const flood = fadeWindow(t, 5.05, 5.7, 7.15, 7.8);
+    const deep = fadeWindow(t, 6.75, 7.35, 8.55, 8.95);
+
+    if (flood > 0.001) {
+      ctx.save();
+      ctx.globalCompositeOperation = "screen";
+      ctx.strokeStyle = rgba(GOLD, 0.18 * flood);
+      ctx.lineWidth = 1.4;
+      for (let i = 0; i < 14; i += 1) {
+        const y = 560 + i * 22 + Math.sin(t * 0.9 + i) * 6;
+        ctx.beginPath();
+        ctx.moveTo(0, y);
+        for (let x = 0; x <= W; x += 60) {
+          ctx.lineTo(x, y + Math.sin(x * 0.01 + t * 1.8 + i) * (8 + i * 0.35));
+        }
+        ctx.stroke();
+      }
+      ctx.restore();
+    }
+
+    if (deep > 0.001) {
+      ctx.save();
+      const g = ctx.createLinearGradient(0, 420, 0, H);
+      g.addColorStop(0, rgba(TEAL, 0.04 * deep));
+      g.addColorStop(0.55, rgba(TEAL, 0.13 * deep));
+      g.addColorStop(1, "rgba(0, 0, 0, 0)");
+      ctx.fillStyle = g;
+      ctx.fillRect(0, 380, W, H - 380);
+
+      ctx.globalAlpha = deep;
+      ctx.fillStyle = "rgba(2, 3, 2, 0.66)";
+      ctx.beginPath();
+      ctx.ellipse(1050, 800 + Math.sin(t) * 12, 500, 115, -0.08, 0, Math.PI * 2);
+      ctx.fill();
+
+      ctx.strokeStyle = rgba(BRONZE, 0.32 * deep);
+      ctx.lineWidth = 2.2;
+      ctx.beginPath();
+      ctx.ellipse(1050, 794 + Math.sin(t) * 12, 510, 122, -0.08, Math.PI * 1.05, Math.PI * 1.85);
+      ctx.stroke();
+
+      ctx.strokeStyle = rgba(PALE, 0.1 * deep);
+      for (let i = 0; i < 5; i += 1) {
+        const x = 720 + i * 130;
+        ctx.beginPath();
+        ctx.moveTo(x, 360);
+        ctx.lineTo(x - 80 + Math.sin(t + i) * 20, 860);
+        ctx.stroke();
+      }
+      ctx.restore();
+    }
+  }
+
+  function drawThreads(t) {
+    const creationPath = cubic(
+      { x: 902, y: 626 },
+      { x: 1045, y: 535 },
+      { x: 1212, y: 656 },
+      { x: 1380, y: 548 },
+      100
+    );
+    const creation = fadeWindow(t, 0.72, 1.05, 3.35, 4.0);
+    glowPath(creationPath, span(t, 0.72, 2.34, easeOut), creation, 2.4);
+
+    const climb = [
+      ...cubic({ x: 430, y: 760 }, { x: 570, y: 716 }, { x: 650, y: 708 }, { x: 735, y: 680 }, 32),
+      { x: 780, y: 612 },
+      { x: 872, y: 612 },
+      { x: 910, y: 542 },
+      { x: 1008, y: 542 },
+      { x: 1044, y: 468 },
+      { x: 1130, y: 468 },
+      { x: 1170, y: 388 },
+    ];
+    const climbAlpha = fadeWindow(t, 3.0, 3.55, 5.3, 6.0);
+    glowPath(climb, span(t, 3.1, 4.75, easeInOut), climbAlpha, 2.2);
+
+    const floodPath = linePath(665 + Math.sin(t * 1.4) * 1.8, 6, t * 1.4, 120);
+    const floodAlpha = fadeWindow(t, 5.1, 5.55, 7.4, 7.8);
+    glowPath(floodPath, span(t, 5.25, 6.35, easeOut), floodAlpha, 2.1);
+
+    const deepPath = [
+      ...cubic({ x: 960, y: 458 }, { x: 968, y: 550 }, { x: 948, y: 632 }, { x: 998, y: 728 }, 44),
+      ...cubic({ x: 998, y: 728 }, { x: 1020, y: 640 }, { x: 1090, y: 588 }, { x: 1064, y: 496 }, 44),
+    ];
+    const deepAlpha = fadeWindow(t, 6.9, 7.35, 8.53, 8.8);
+    glowPath(deepPath, span(t, 7.0, 8.15, easeInOut), deepAlpha, 2.5);
+
+    const catchAlpha = fadeWindow(t, 8.2, 8.34, 8.68, 8.86);
+    const catchPath = linePath(652, 1.5 * (1 - span(t, 8.45, 8.82)), t * 4, 128);
+    glowPath(catchPath, span(t, 8.33, 8.58, easeOut), catchAlpha, 3.2);
+
+    const resolve = span(t, 8.55, 9.03, easeOut);
+    if (resolve > 0) {
+      const line = linePath(667, 0.7 + (1 - resolve) * 12, t * 2, 160);
+      glowPath(line, resolve, 0.95, 2.6);
+      ctx.save();
+      ctx.globalCompositeOperation = "screen";
+      ctx.strokeStyle = rgba(PALE, 0.18 * resolve);
+      ctx.lineWidth = 1;
+      ctx.beginPath();
+      ctx.moveTo(0, 692);
+      ctx.lineTo(W, 692);
+      ctx.stroke();
+      ctx.restore();
+    }
+  }
+
+  function drawFrame(t) {
+    drawBackground(t);
+    drawWater(t);
+    drawSparkAndDust(t);
+    drawLattice(t);
+    drawZiggurat(t);
+    drawFloodAndDeep(t);
+    drawThreads(t);
+
+    const titleIn = span(t, 8.92, 9.72, easeOut);
+    const titleY = mix(30, 0, titleIn);
+    wordmark.style.opacity = String(titleIn);
+    wordmark.style.transform = `translate(-50%, ${titleY}px)`;
+
+    const hit = fadeWindow(t, 8.39, 8.47, 8.54, 8.82);
+    flash.style.opacity = String(hit);
+
+    [...cueRow.children].forEach((el, i) => {
+      const current = cues[i];
+      const next = cues[i + 1] || { t: DURATION + 1 };
+      el.classList.toggle("active", t >= current.t && t < next.t);
+    });
+
+    scrub.value = String(t);
+    timeLabel.textContent = formatTime(t);
+  }
+
+  function tick(ts) {
+    if (lastTs == null) lastTs = ts;
+    const dt = (ts - lastTs) / 1000;
+    lastTs = ts;
+    if (playing && !isDragging) {
+      time += dt;
+      if (time >= DURATION) time = DURATION;
+      if (time >= DURATION) playing = false;
+    }
+    drawFrame(time);
+    updatePlayIcon();
+    requestAnimationFrame(tick);
+  }
+
+  function updatePlayIcon() {
+    playIcon.innerHTML = playing
+      ? '<rect x="3" y="2.5" width="3" height="11" fill="currentColor"/><rect x="10" y="2.5" width="3" height="11" fill="currentColor"/>'
+      : '<path d="M4 2.5v11l9-5.5-9-5.5z" fill="currentColor"/>';
+  }
+
+  scrub.addEventListener("input", () => {
+    isDragging = true;
+    time = Number(scrub.value);
+    drawFrame(time);
+  });
+  scrub.addEventListener("change", () => {
+    isDragging = false;
+  });
+
+  playButton.addEventListener("click", () => {
+    if (time >= DURATION) time = 0;
+    playing = !playing;
+    lastTs = null;
+    updatePlayIcon();
+  });
+
+  restartButton.addEventListener("click", () => {
+    time = 0;
+    playing = true;
+    lastTs = null;
+    drawFrame(time);
+    updatePlayIcon();
+  });
+
+  window.addEventListener("keydown", (event) => {
+    if (event.code === "Space") {
+      event.preventDefault();
+      playing = !playing;
+      updatePlayIcon();
+    }
+    if (event.code === "Home" || event.key === "0") {
+      time = 0;
+      drawFrame(time);
+    }
+    if (event.code === "ArrowLeft") {
+      time = clamp(time - (event.shiftKey ? 1 : 0.1), 0, DURATION);
+      drawFrame(time);
+    }
+    if (event.code === "ArrowRight") {
+      time = clamp(time + (event.shiftKey ? 1 : 0.1), 0, DURATION);
+      drawFrame(time);
+    }
+  });
+
+  window.addEventListener("resize", resize);
+  resize();
+  drawFrame(0);
+  requestAnimationFrame(tick);
+})();
+</script>
+</body>
+</html>

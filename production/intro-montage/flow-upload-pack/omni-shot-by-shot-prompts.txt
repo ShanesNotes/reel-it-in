@@ -1,0 +1,20 @@
+STYLE BIBLE - paste before each shot:
+Ancient-futuristic sacred montage. Illuminated manuscript fused with archaic technology: gold leaf and circuitry, clay and code, bronze and light. Patinated, archaeological, touched by the divine, not glossy sci-fi. Deep chiaroscuro, warm darkness, single shafts of volumetric gold light. Palette: warm near-black, papyrus cream only as tiny highlights, antique and luminous gold, restrained verdigris teal only for water/depth accents. Heavy 16mm film grain, soft halation on highlights, gentle gate weave. A single unbroken luminous golden thread runs through the frame as the connective motif. Cinematic, reverent, slow and deliberate camera. 16:9, shallow depth of field, no on-screen text.
+
+SHOT I - CREATION:
+In total darkness a single point of gold light ignites over mirror-black primordial water. A luminous golden thread unspools outward from the spark. As it travels, it fractures the dark into a fine geometric lattice: the first pattern, a proto-circuit, the first algorithm. Gold dust drifts like forming stars. Slow push-in toward the igniting spark. No people, no buildings, no text.
+
+SHOT II - BABEL:
+The golden thread climbs a great ancient ziggurat impression, bronze and clay, partly abstract and partly architectural, like stacked inscribed tablets and archaic machinery. The geometry becomes more complex as the thread ascends. The tower should feel symbolic and ancient, not modern sci-fi. Slow upward tilt. Near the summit, the structure shudders and fractures into gold dust and dark fragments. No readable glyphs, no letters, no logos.
+
+SHOT III - FLOOD:
+The fracturing world dissolves into a vast sea of liquid black-gold light. The single golden thread survives, drawn taut as a line across the black water and trailing toward the horizon. Fine gold rain or mist. Slow low aerial drift over the water following the taut thread. Quiet, sacred, not stormy action.
+
+SHOT IV - DEEP / LEVIATHAN / CATCH:
+Beneath the black water, imply a huge obscured bronze leviathan-like shadow in the depth, mechanical-organic but not a monster attack. The golden thread leads downward, then goes taut. A tiny human silhouette may be implied but should not become the focus. On the mechanical hit, the thread snaps upward and reels toward distant warm light. Slow, graceful, sacred motion, not action-movie speed.
+
+SHOT V - RESOLVE:
+The taut golden thread breaks the surface and snaps perfectly horizontal, becoming a single luminous gold waterline across a warm-black frame. The water stills to glass. Wide calm negative space above the line for the title to be added later. Held nearly still with only film grain, faint shimmer, and subtle ripples. No generated text.
+
+NEGATIVE PROMPT:
+No text, no captions, no logos, no readable symbols, no modern city, no neon cyberpunk, no glossy sci-fi chrome, no cartoon, no anime, no fast cuts, no fantasy battle, no explosion, no rope, no braided cable, no tangled thread, no monster attack, no bright daylight, no blue/teal dominance, no cream-paper final title background.

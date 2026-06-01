@@ -1,0 +1,13 @@
+Introduce the father-son format with a simple theme: AI is moving out of the answer box and into everyday systems that act, protect, label, and connect.
+
+This episode covers:
+- Google wants AI to stop just answering and start doing things for you. This is the moment AI starts feeling less like a chatbot and more like a helper embedded in products people already use.
+- Microsoft says AI agents helped find serious Windows security holes. AI is not just writing code now; it is starting to inspect the digital plumbing we all depend on. That could help defenders, but it also raises the obvious question of what attackers can do with similar tools.
+- Europe is moving toward labels for AI conversations and AI-made media. The internet is about to need ingredient labels. The hard part is deciding what must be labeled, who checks it, and whether normal people will trust the labels.
+
+Sources:
+- [Google I/O 2026 announcements](https://blog.google/innovation-and-ai/technology/ai/google-io-2026-all-our-announcements/)
+- [Microsoft Security: Defense at AI speed](https://www.microsoft.com/en-us/security/blog/2026/05/12/defense-at-ai-speed-microsofts-new-multi-model-agentic-security-system-tops-leading-industry-benchmark/)
+- [European Commission AI transparency consultation](https://digital-strategy.ec.europa.eu/en/news/commission-opens-consultation-draft-guidelines-ai-transparency-obligations)
+
+Not all the AI news - just what matters, and why.

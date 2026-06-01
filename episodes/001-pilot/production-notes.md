@@ -1,4 +1,13 @@
-# Episode 001 Production Notes
+# Production Notes
+
+## Recording Setup
+
+- Recording service: Riverside
+- Backup recording: OBS if useful
+- Microphones:
+- Camera:
+- Headphones:
+- Media folder: `Reel It In Media/001-pilot/raw/`
 
 ## Before Recording
 
@@ -13,6 +22,26 @@
 - Mark covered sparks.
 - Note moments worth clipping.
 - Do not chase every tangent.
+
+## Live Notes
+
+Use action words like `chapter`, `clip`, `cut`, `fix`, or `highlight` so the edit-plan generator can route the note.
+
+| Timecode | Note | Action |
+| --- | --- | --- |
+|  |  |  |
+
+## Best Moments
+
+-
+
+## Confusing Spots
+
+-
+
+## Edit Decisions
+
+-
 
 ## After Recording
 

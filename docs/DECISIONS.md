@@ -32,3 +32,20 @@ Decision: oracle, gods, spirits, and mythology language can guide creative frami
 
 Reason: the metaphor is memorable, but the audience trust depends on practical explanation and intellectual honesty.
 
+## 2026-06-01: Git repo is the production brain, not the media vault
+
+Decision: keep planning docs, episode metadata, source links, dashboard code, and automation scripts in git. Keep raw audio, raw video, rendered exports, and large editing artifacts in a separate shared cloud media folder.
+
+Reason: Codex and GitHub are ideal for text and structured production artifacts. Large media files make git slow and brittle.
+
+## 2026-06-01: Dad gets briefs, not repo access
+
+Decision: Dad should receive a lightweight `dad-brief.md` export and a recording link, not a GitHub workflow.
+
+Reason: Dad's role is to stay curious and representative of the listener. Making him operate project tooling would weaken the premise.
+
+## 2026-06-01: Default production stack starts with Riverside, OBS, Descript, and Auphonic
+
+Decision: use Riverside as the primary recording room, OBS as a local safety recorder when useful, Descript for transcript-first editing, and Auphonic for repeatable final audio processing.
+
+Reason: this stack gives separate tracks, browser-based guest access, a local backup path, fast transcript editing, and repeatable loudness/mastering without forcing a custom build system.
