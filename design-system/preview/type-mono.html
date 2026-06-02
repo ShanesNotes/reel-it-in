@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html lang="en"><head><meta charset="UTF-8" />
+<link rel="stylesheet" href="../colors_and_type.css" />
+<style>
+  html,body{margin:0}
+  body{background:var(--bg);color:var(--fg1);padding:26px 30px;-webkit-font-smoothing:antialiased}
+  .stack{display:flex;flex-direction:column;gap:18px}
+  .row{display:flex;align-items:baseline;gap:16px}
+  .tag{font-family:var(--mono);font-size:10px;letter-spacing:.12em;text-transform:uppercase;color:var(--fg3);width:110px;flex-shrink:0}
+  .kicker{font-family:var(--mono);font-size:12px;letter-spacing:.34em;text-transform:uppercase;color:var(--accent-deep)}
+  .label{font-family:var(--mono);font-size:11px;letter-spacing:.14em;text-transform:uppercase;color:var(--accent-2)}
+  .meta{font-family:var(--mono);font-size:12px;letter-spacing:.06em;text-transform:uppercase;color:var(--fg3)}
+  .roman{font-family:var(--serif);font-style:italic;font-weight:500;font-size:46px;color:var(--accent);line-height:1}
+</style></head>
+<body>
+  <div class="stack">
+    <div class="row"><span class="tag">Kicker .34em</span><span class="kicker">This Week</span></div>
+    <div class="row"><span class="tag">Label .14em</span><span class="label">Illinois Legislature</span></div>
+    <div class="row"><span class="tag">Meta .06em</span><span class="meta">Episode 001 · Pilot</span></div>
+    <div class="row"><span class="tag">Roman numeral</span><span class="roman">III.</span></div>
+  </div>
+</body></html>

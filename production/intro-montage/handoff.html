@@ -1,0 +1,421 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>Reel It In — Intro Montage · Handoff</title>
+<link rel="stylesheet" href="../../design-system/colors_and_type.css" />
+<style>
+  :root { --maxw: 1080px; }
+  html { scroll-behavior: smooth; }
+  body {
+    margin: 0; background: var(--rii-night); color: var(--rii-night-ink);
+    font-family: var(--sans);
+    background-image:
+      radial-gradient(120% 80% at 50% -10%, #20180d 0%, transparent 55%),
+      radial-gradient(80% 60% at 100% 110%, #1b1409 0%, transparent 50%);
+    background-attachment: fixed;
+  }
+  /* film grain */
+  body::before {
+    content: ""; position: fixed; inset: 0; pointer-events: none; z-index: 200;
+    opacity: 0.05; mix-blend-mode: overlay;
+    background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='160' height='160'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.85' numOctaves='3' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)'/%3E%3C/svg%3E");
+  }
+  .wrap { max-width: var(--maxw); margin: 0 auto; padding: 0 32px; }
+
+  /* ---------- masthead ---------- */
+  header.mast { padding: 84px 0 40px; }
+  .eyebrow {
+    font-family: var(--mono); font-size: 12px; letter-spacing: 0.34em;
+    text-transform: uppercase; color: var(--rii-night-gold);
+    display: flex; align-items: center; gap: 14px;
+  }
+  .eyebrow::after { content: ""; height: 1px; flex: 1; background: rgba(229,169,63,0.28); }
+  h1.title {
+    font-family: var(--serif); font-weight: 600; font-size: clamp(48px, 8vw, 92px);
+    line-height: 0.94; letter-spacing: -0.02em; margin: 26px 0 0;
+    font-variation-settings: "opsz" 144;
+  }
+  h1.title .it { font-style: italic; font-weight: 500; color: var(--rii-night-gold); font-variation-settings: "opsz" 144, "WONK" 1; }
+  .logline {
+    font-family: var(--serif); font-style: italic; font-size: clamp(19px, 2.6vw, 26px);
+    line-height: 1.4; color: #D9CBA8; margin: 22px 0 0; max-width: 30ch; text-wrap: balance;
+  }
+  .mast-meta {
+    display: flex; flex-wrap: wrap; gap: 10px 26px; margin-top: 30px; padding-top: 22px;
+    border-top: 1px solid rgba(240,231,210,0.12);
+    font-family: var(--mono); font-size: 12px; letter-spacing: 0.08em; text-transform: uppercase; color: #9C8E72;
+  }
+  .mast-meta b { color: var(--rii-night-ink); font-weight: 500; }
+
+  /* ---------- section scaffolding ---------- */
+  section { padding: 30px 0; }
+  .sec-head { display: flex; align-items: baseline; gap: 16px; margin-bottom: 26px; }
+  .sec-num {
+    font-family: var(--mono); font-size: 12px; letter-spacing: 0.2em; color: var(--rii-night-gold);
+    border: 1px solid rgba(229,169,63,0.4); border-radius: 40px; padding: 4px 12px; white-space: nowrap;
+  }
+  .sec-head h2 {
+    font-family: var(--serif); font-weight: 600; font-size: clamp(26px, 4vw, 38px);
+    margin: 0; letter-spacing: -0.01em; line-height: 1.05;
+  }
+  .sec-head p { margin: 6px 0 0; font-size: 14.5px; line-height: 1.5; color: #B7A782; max-width: 64ch; }
+  .lead { font-size: 16px; line-height: 1.65; color: #CDBE99; max-width: 70ch; }
+  .lead b { color: var(--rii-night-ink); font-weight: 600; }
+  .lead .g { color: var(--rii-night-gold); }
+
+  /* ---------- storyboard strip ---------- */
+  .board { display: grid; grid-template-columns: repeat(5, 1fr); gap: 10px; margin: 28px 0 8px; }
+  @media (max-width: 720px){ .board { grid-template-columns: repeat(2, 1fr); } }
+  .frame {
+    position: relative; aspect-ratio: 16/10; border-radius: 8px; overflow: hidden;
+    background: linear-gradient(160deg, #1c1509, #100b06); border: 1px solid rgba(229,169,63,0.18);
+  }
+  .frame svg { position: absolute; inset: 0; width: 100%; height: 100%; }
+  .frame .cap {
+    position: absolute; left: 8px; bottom: 7px; z-index: 2;
+    font-family: var(--mono); font-size: 9.5px; letter-spacing: 0.12em; text-transform: uppercase; color: #E7D8B4;
+  }
+  .frame .rn {
+    position: absolute; right: 8px; top: 6px; z-index: 2;
+    font-family: var(--serif); font-style: italic; font-size: 15px; color: var(--rii-night-gold); opacity: 0.85;
+  }
+
+  /* ---------- prompt blocks ---------- */
+  .block {
+    background: #100b06; border: 1px solid rgba(240,231,210,0.12); border-radius: 12px;
+    margin: 16px 0; overflow: hidden;
+  }
+  .block-head {
+    display: flex; align-items: center; justify-content: space-between; gap: 12px;
+    padding: 13px 16px; border-bottom: 1px solid rgba(240,231,210,0.08); background: #150f08;
+  }
+  .block-head .lbl {
+    font-family: var(--mono); font-size: 11px; letter-spacing: 0.16em; text-transform: uppercase; color: var(--rii-night-gold);
+    display: flex; align-items: center; gap: 10px;
+  }
+  .block-head .tag {
+    font-family: var(--mono); font-size: 10px; letter-spacing: 0.1em; text-transform: uppercase;
+    color: #9C8E72; padding: 3px 8px; border: 1px solid rgba(240,231,210,0.14); border-radius: 30px;
+  }
+  .copy {
+    font-family: var(--mono); font-size: 10.5px; letter-spacing: 0.12em; text-transform: uppercase;
+    color: var(--rii-night-ink); background: transparent; border: 1px solid rgba(229,169,63,0.4);
+    border-radius: 30px; padding: 5px 12px; cursor: pointer; transition: all 0.18s ease; white-space: nowrap;
+  }
+  .copy:hover { background: var(--rii-night-gold); color: #16110A; border-color: var(--rii-night-gold); }
+  .copy.ok { background: var(--rii-night-teal); border-color: var(--rii-night-teal); color: #0c1410; }
+  pre.prompt {
+    margin: 0; padding: 16px 18px; font-family: var(--mono); font-size: 12.5px; line-height: 1.7;
+    color: #E2D5B6; white-space: pre-wrap; word-break: break-word;
+  }
+  pre.prompt .hl { color: var(--rii-night-gold); }
+  pre.prompt .dim { color: #897C61; }
+
+  /* ---------- palette ---------- */
+  .swatches { display: grid; grid-template-columns: repeat(auto-fill, minmax(132px, 1fr)); gap: 10px; margin-top: 8px; }
+  .sw { border-radius: 10px; overflow: hidden; border: 1px solid rgba(240,231,210,0.1); }
+  .sw .chip { height: 64px; }
+  .sw .meta { padding: 8px 10px; background: #130d07; }
+  .sw .nm { font-family: var(--sans); font-size: 12px; color: var(--rii-night-ink); font-weight: 600; }
+  .sw .hx { font-family: var(--mono); font-size: 11px; color: #9C8E72; letter-spacing: 0.04em; margin-top: 2px; }
+  .sw .role { font-family: var(--sans); font-size: 11px; color: #7E725A; margin-top: 3px; line-height: 1.3; }
+
+  /* ---------- asset checklist ---------- */
+  .assets { display: grid; grid-template-columns: repeat(auto-fill, minmax(220px, 1fr)); gap: 14px; }
+  .asset {
+    background: #120c07; border: 1px solid rgba(240,231,210,0.1); border-radius: 12px; overflow: hidden;
+    display: flex; flex-direction: column;
+  }
+  .asset .thumb { aspect-ratio: 16/9; background: var(--rii-night); display: grid; place-items: center; border-bottom: 1px solid rgba(240,231,210,0.08); }
+  .asset .thumb img { max-width: 100%; max-height: 100%; display: block; }
+  .asset .ab { padding: 12px 14px; }
+  .asset .an { font-family: var(--mono); font-size: 11px; letter-spacing: 0.1em; text-transform: uppercase; color: var(--rii-night-gold); }
+  .asset .ad { font-size: 12.5px; color: #B7A782; margin-top: 6px; line-height: 1.45; }
+  .asset .file { font-family: var(--mono); font-size: 10.5px; color: #7E725A; margin-top: 8px; word-break: break-all; }
+
+  /* ---------- how-to steps ---------- */
+  ol.steps { list-style: none; counter-reset: s; margin: 8px 0 0; padding: 0; }
+  ol.steps li { counter-increment: s; position: relative; padding: 0 0 18px 46px; }
+  ol.steps li::before {
+    content: counter(s); position: absolute; left: 0; top: -2px;
+    width: 30px; height: 30px; border-radius: 50%; display: grid; place-items: center;
+    font-family: var(--mono); font-size: 13px; color: var(--rii-night-gold);
+    border: 1px solid rgba(229,169,63,0.4);
+  }
+  ol.steps li::after { content: ""; position: absolute; left: 14.5px; top: 32px; bottom: 4px; width: 1px; background: rgba(229,169,63,0.18); }
+  ol.steps li:last-child::after { display: none; }
+  ol.steps b { color: var(--rii-night-ink); font-weight: 600; }
+  ol.steps .t { font-size: 15px; line-height: 1.55; color: #CDBE99; }
+
+  .note {
+    margin-top: 18px; padding: 16px 18px; border-radius: 12px;
+    background: rgba(95,168,159,0.07); border: 1px solid rgba(95,168,159,0.28);
+    font-size: 13.5px; line-height: 1.6; color: #C7D6CF;
+  }
+  .note b { color: #9FD0C6; }
+
+  hr.rule { border: none; height: 1px; background: rgba(240,231,210,0.1); margin: 8px 0; }
+  footer { padding: 40px 0 80px; color: #7E725A; font-family: var(--mono); font-size: 11px; letter-spacing: 0.1em; text-transform: uppercase; }
+</style>
+</head>
+<body>
+
+<header class="mast">
+  <div class="wrap">
+    <div class="eyebrow">Production Handoff · Cold-Open Montage</div>
+    <h1 class="title">The Golden <span class="it">Thread</span></h1>
+    <p class="logline">One luminous thread, traced from Creation to the belly of the deep — and reeled in.</p>
+    <div class="mast-meta">
+      <span>Show · <b>Reel It In</b></span>
+      <span>Deliverable · <b>~18–22s intro montage</b></span>
+      <span>Target tools · <b>Video-gen + Music-gen</b></span>
+      <span>Aspect · <b>16:9 · 1080p+</b></span>
+    </div>
+  </div>
+</header>
+
+<!-- ───────────────────────── CONCEPT ───────────────────────── -->
+<section>
+  <div class="wrap">
+    <div class="sec-head">
+      <span class="sec-num">01 · Concept</span>
+      <div><h2>Ancient-futuristic. A thread that survives every age.</h2></div>
+    </div>
+    <p class="lead">
+      A single <span class="g">golden thread</span> is the camera's only constant. It is born at <b>Creation</b>,
+      climbs the <b>Tower of Babel</b>, persists across the <b>Flood</b>, descends into the <b>sea-monster of Jonah</b> —
+      and then <b>pulls taut and reels in</b>, becoming the waterline beneath the show's wordmark. The thread is the
+      fishing line, the film reel, and the line of inheritance all at once — and the name <span class="g">Reel It In</span>
+      lands as its natural resolution: Jonah, drawn up from the deep; the viewer, drawn into the show.
+    </p>
+    <p class="lead" style="margin-top:16px;">
+      The look is <b>ancient-futuristic</b>, never retro-futuristic: an illuminated manuscript fused with archaic
+      machinery — <span class="g">gold leaf and circuitry, clay and code, bronze and light</span>. Every age of the
+      story already contains <i>techne</i>: the first pattern is the first algorithm; Babel's tongues are a storm of
+      untranslatable data; the leviathan's scales are inscribed circuit-tablets. Reverent, weighty, hand-made-by-the-divine —
+      not glossy sci-fi.
+    </p>
+
+    <!-- storyboard -->
+    <div class="board" aria-label="Storyboard: the golden thread across five beats">
+      <div class="frame">
+        <svg viewBox="0 0 160 100" preserveAspectRatio="xMidYMid slice">
+          <defs><radialGradient id="g1" cx="50%" cy="50%" r="50%"><stop offset="0%" stop-color="#E5A93F"/><stop offset="100%" stop-color="#E5A93F" stop-opacity="0"/></radialGradient></defs>
+          <circle cx="80" cy="50" r="26" fill="url(#g1)" opacity="0.9"/>
+          <circle cx="80" cy="50" r="3.2" fill="#FBE9C4"/>
+          <path d="M80 50 Q120 40 160 64" stroke="#E5A93F" stroke-width="1.4" fill="none"/>
+          <path d="M0 78 H160" stroke="#5FA89F" stroke-width="0.8" opacity="0.4"/>
+        </svg>
+        <span class="rn">I</span><span class="cap">Creation</span>
+      </div>
+      <div class="frame">
+        <svg viewBox="0 0 160 100" preserveAspectRatio="xMidYMid slice">
+          <g stroke="#E5A93F" fill="none" stroke-width="1.2" opacity="0.85">
+            <rect x="58" y="20" width="44" height="11"/><rect x="54" y="33" width="52" height="11"/>
+            <rect x="50" y="46" width="60" height="11"/><rect x="46" y="59" width="68" height="11"/><rect x="42" y="72" width="76" height="12"/>
+          </g>
+          <path d="M0 70 Q40 30 80 16" stroke="#E5A93F" stroke-width="1.4" fill="none"/>
+          <g fill="#E7D8B4" opacity="0.7"><circle cx="70" cy="14" r="0.9"/><circle cx="92" cy="18" r="0.9"/><circle cx="110" cy="26" r="0.9"/><circle cx="56" cy="22" r="0.9"/></g>
+        </svg>
+        <span class="rn">II</span><span class="cap">Babel</span>
+      </div>
+      <div class="frame">
+        <svg viewBox="0 0 160 100" preserveAspectRatio="xMidYMid slice">
+          <path d="M0 58 Q40 50 80 58 T160 58" stroke="#5FA89F" stroke-width="1" fill="none" opacity="0.5"/>
+          <path d="M0 70 Q40 62 80 70 T160 70" stroke="#5FA89F" stroke-width="1" fill="none" opacity="0.35"/>
+          <path d="M0 50 H160" stroke="#E5A93F" stroke-width="1.5" fill="none"/>
+          <path d="M70 44 l8 6 -8 6 -8 -6 z" fill="#E5A93F" opacity="0.9"/>
+        </svg>
+        <span class="rn">III</span><span class="cap">Flood</span>
+      </div>
+      <div class="frame">
+        <svg viewBox="0 0 160 100" preserveAspectRatio="xMidYMid slice">
+          <path d="M0 30 H160" stroke="#E5A93F" stroke-width="1.4"/>
+          <path d="M80 30 C80 60 60 70 96 82" stroke="#E5A93F" stroke-width="1.2" fill="none"/>
+          <path d="M30 86 Q70 60 120 78 Q150 86 160 70" stroke="#C18E39" stroke-width="2.4" fill="none" opacity="0.85"/>
+          <g fill="#5FA89F" opacity="0.8"><circle cx="120" cy="74" r="1.6"/></g>
+        </svg>
+        <span class="rn">IV</span><span class="cap">Jonah · Leviathan</span>
+      </div>
+      <div class="frame">
+        <svg viewBox="0 0 160 100" preserveAspectRatio="xMidYMid slice">
+          <path d="M0 52 H160" stroke="#E5A93F" stroke-width="2"/>
+          <rect x="0" y="52" width="160" height="48" fill="#5FA89F" opacity="0.05"/>
+          <text x="80" y="38" text-anchor="middle" font-family="Fraunces, serif" font-size="15" fill="#F0E7D2" font-style="italic">Reel <tspan fill="#E5A93F">It</tspan> In</text>
+        </svg>
+        <span class="rn">V</span><span class="cap">Resolve → Wordmark</span>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ───────────────────────── VIDEO PROMPTS ───────────────────────── -->
+<section>
+  <div class="wrap">
+    <div class="sec-head">
+      <span class="sec-num">02 · Video</span>
+      <div>
+        <h2>The prompts</h2>
+        <p>Built for shot-by-shot control. Generate each beat as its own ~8s clip, then trim to ≈3.5–4.5s and cross-dissolve in your editor. <b>Always prepend the Style Bible</b> so the five clips stay visually identical. No on-screen text — the wordmark is added in post.</p>
+      </div>
+    </div>
+
+    <div class="block">
+      <div class="block-head">
+        <span class="lbl">★ Style Bible <span class="tag">prepend to every shot</span></span>
+        <button class="copy" data-copy="sb">Copy</button>
+      </div>
+      <pre class="prompt" id="sb">Ancient-futuristic sacred montage. The aesthetic of an illuminated manuscript fused with archaic technology — gold leaf and circuitry, clay and code, bronze and light. Patinated, archaeological, touched-by-the-divine; NOT glossy sci-fi. Deep chiaroscuro, warm darkness, single shafts of volumetric gold light. Palette: warm near-black, papyrus cream, antique and luminous gold, one accent of verdigris teal. Heavy 16mm film grain, soft halation on highlights, gentle gate weave. A single unbroken luminous golden thread runs through the frame as the connective motif. Cinematic, reverent, slow and deliberate camera. 16:9, shallow depth of field, no on-screen text.</pre>
+    </div>
+
+    <div class="block">
+      <div class="block-head"><span class="lbl">Shot I — Creation <span class="tag">~8s</span></span><button class="copy" data-copy="s1">Copy</button></div>
+      <pre class="prompt" id="s1">[STYLE BIBLE] In total darkness a single point of gold light ignites; a luminous golden thread unspools outward into the void. As it travels it fractures the dark into a fine geometric lattice — the first pattern, a proto-circuit, the first algorithm — while primordial waters separate below, mirror-black and glinting. Gold dust drifts like forming stars. Slow push-in toward the igniting spark. Genesis: the dawn of order out of the deep.</pre>
+    </div>
+
+    <div class="block">
+      <div class="block-head"><span class="lbl">Shot II — Tower of Babel <span class="tag">~8s</span></span><button class="copy" data-copy="s2">Copy</button></div>
+      <pre class="prompt" id="s2">[STYLE BIBLE] The golden thread climbs, weaving a great ziggurat under construction — at once an ancient stepped temple, a stack of glowing inscribed clay tablets, and a tower of luminous server-racks and neural lattice reaching into a dark sky. Countless faint glyphs from many scripts swirl around it like embers — the confusion of tongues as a storm of untranslatable data. Hands of light set each course. Slow tilt up the tower; near the summit it shudders and fractures, glyphs scattering into the dark. Hubris and fragmentation.</pre>
+    </div>
+
+    <div class="block">
+      <div class="block-head"><span class="lbl">Shot III — The Flood <span class="tag">~8s</span></span><button class="copy" data-copy="s3">Copy</button></div>
+      <pre class="prompt" id="s3">[STYLE BIBLE] The fracturing tower dissolves into a deluge: a vast sea of liquid gold-black light floods the world, ancient and endless. The single golden thread survives, drawn taut as a line across the surface of the black water and trailing to the horizon. A small vessel of warm light — an ark — drifts far off. Fine gold rain. Slow aerial drift low over the water, following the taut thread. Judgment and cleansing; one line of continuity across the chaos.</pre>
+    </div>
+
+    <div class="block">
+      <div class="block-head"><span class="lbl">Shot IV — Jonah &amp; the Leviathan <span class="tag">~8s</span></span><button class="copy" data-copy="s4">Copy</button></div>
+      <pre class="prompt" id="s4">[STYLE BIBLE] Beneath the black water an immense sea leviathan rises — patinated bronze plating with inner light, mechanical-organic, its scales like inscribed circuit-tablets, eyes of molten gold. The golden thread leads down into its depths where a small human figure is held. Suddenly the thread snaps taut and begins to reel, drawing the figure upward through shafts of light toward the surface. Slow upward camera following the reeling thread. The descent into the deep — and the catch.</pre>
+    </div>
+
+    <div class="block">
+      <div class="block-head"><span class="lbl">Shot V — Resolve <span class="tag">~6s · hands to wordmark</span></span><button class="copy" data-copy="s5">Copy</button></div>
+      <pre class="prompt" id="s5">[STYLE BIBLE] The taut golden thread breaks the surface and snaps perfectly horizontal, becoming a single luminous gold waterline across a warm-black frame. The water stills to glass. Wide calm negative space above the line for a title to appear. Held nearly still, only grain and a faint shimmer moving. Quiet, resolved, expectant.</pre>
+    </div>
+
+    <hr class="rule" />
+
+    <div class="block">
+      <div class="block-head"><span class="lbl">⚡ Compact — one continuous take <span class="tag">alt · if single-clip</span></span><button class="copy" data-copy="one">Copy</button></div>
+      <pre class="prompt" id="one">[STYLE BIBLE] One continuous reverent traveling shot following a single luminous golden thread through deep warm-black space: it ignites from a spark amid separating black waters (Creation), climbs a fracturing ziggurat of glowing clay tablets and neural server-lattice swirling with many-scripted glyphs (Babel), survives drawn taut across a flooded sea of gold-black light (the Flood), descends to a vast bronze-and-light leviathan whose scales are inscribed circuit-tablets and reels a small figure up from its depths (Jonah), then snaps horizontal into a calm gold waterline with still negative space above. Slow, deliberate, cinematic. Heavy film grain, volumetric gold light, ancient-futuristic.</pre>
+    </div>
+
+    <div class="block">
+      <div class="block-head"><span class="lbl">⊘ Negative / avoid <span class="tag">paste where supported</span></span><button class="copy" data-copy="neg">Copy</button></div>
+      <pre class="prompt" id="neg">on-screen text, lettering, captions, logos, watermark, modern clothing, contemporary city, glossy plastic sci-fi, neon cyberpunk, chrome, cartoon, anime, fast cuts, stock lens flares, oversaturated rainbow colors, busy clutter, low-contrast flat lighting</pre>
+    </div>
+
+    <div class="note">
+      <b>Specs to set in the tool:</b> 16:9 · 1080p (or higher) · 24fps · cinematic / film look. Generate 8-second clips and trim — the slow, deliberate motion is essential, so don't rush the camera. If the model supports an image reference, attach the <b>Style / Mood Board</b> from Section 04 to lock the palette and texture.
+    </div>
+  </div>
+</section>
+
+<!-- ───────────────────────── MUSIC PROMPT ───────────────────────── -->
+<section>
+  <div class="wrap">
+    <div class="sec-head">
+      <span class="sec-num">03 · Music</span>
+      <div>
+        <h2>The score</h2>
+        <p>A solo cello is the <b>golden thread</b> — one searching line that persists throughout. Two versions: a descriptive prompt for the music-gen tool, and a second-by-second cue map if you want the hits locked to picture.</p>
+      </div>
+    </div>
+
+    <div class="block">
+      <div class="block-head"><span class="lbl">♪ Music-gen prompt <span class="tag">descriptive</span></span><button class="copy" data-copy="m1">Copy</button></div>
+      <pre class="prompt" id="m1">An ancient-futuristic sacred score for a ~20-second cinematic title montage. A solo cello is the through-line: one warm, searching melodic phrase that recurs and grows. Open in near-silence — a low sustained drone of cello and soft choral pad under a slow frame-drum heartbeat. Build through three swelling waves as the music ascends, layering bowed strings, a distant wordless choir, and metallic mechanical textures — struck bronze, prepared piano, soft glitching ticks — fusing the ancient and the technological. Reach a full, weighty crescendo, then cut hard to a held silence. Out of the silence: a single firm mechanical "reel" sound and a low cello pizzicato — the catch — then the solo cello resolves to a warm sustained note that blooms and fades to nothing. Reverent, mysterious, hopeful, weighty. Tempo ~60 BPM, rubato. Orchestral and organic, film-scored. No drum kit, no EDM, no synth bass drops, no sung words.</pre>
+    </div>
+
+    <div class="block">
+      <div class="block-head"><span class="lbl">⏱ Cue map <span class="tag">locked to picture · optional</span></span><button class="copy" data-copy="m2">Copy</button></div>
+      <pre class="prompt" id="m2"><span class="dim">0.0s</span>  Cello enters — low single sustained note, near-silence, frame-drum heartbeat begins   <span class="hl">[CREATION / build]</span>
+<span class="dim">4.0s</span>  Second wave — bowed strings + distant choir join, the line steps upward             <span class="hl">[BABEL / build]</span>
+<span class="dim">8.0s</span>  Third wave — metallic bronze + prepared-piano textures, tension rising              <span class="hl">[FLOOD / build]</span>
+<span class="dim">11.0s</span> Full crescendo — weighty peak as the leviathan rises                                <span class="hl">[JONAH / peak]</span>
+<span class="dim">12.5s</span> HARD CUT to silence — ~0.5s of nothing                                              <span class="hl">[SILENCE]</span>
+<span class="dim">13.0s</span> Single mechanical "reel" + low cello pizzicato — the catch, the thread pulls taut    <span class="hl">[HIT]</span>
+<span class="dim">14.0s</span> Solo cello resolves to a warm sustained note; choir pad blooms beneath               <span class="hl">[RESOLVE]</span>
+<span class="dim">17.0s</span> Note blooms under the wordmark and fades to silence                                 <span class="hl">[OUT]</span></pre>
+    </div>
+
+    <div class="note">
+      <b>Why this shape:</b> it matches the title sequence you already built — <b>crescendo → silence → mechanical resolve</b>. If you keep the timings above, the score will drop into the existing wordmark animation's cue sheet almost beat-for-beat.
+    </div>
+  </div>
+</section>
+
+<!-- ───────────────────────── PALETTE + ASSETS ───────────────────────── -->
+<section>
+  <div class="wrap">
+    <div class="sec-head">
+      <span class="sec-num">04 · Reference</span>
+      <div><h2>Palette &amp; attachable assets</h2><p>Lock these so whatever the tools generate cuts cleanly against the rest of the show.</p></div>
+    </div>
+
+    <div class="swatches">
+      <div class="sw"><div class="chip" style="background:#16110A"></div><div class="meta"><div class="nm">Night</div><div class="hx">#16110A</div><div class="role">Base — warm near-black</div></div></div>
+      <div class="sw"><div class="chip" style="background:#E5A93F"></div><div class="meta"><div class="nm">Luminous Gold</div><div class="hx">#E5A93F</div><div class="role">The thread / highlights</div></div></div>
+      <div class="sw"><div class="chip" style="background:#AE7A2A"></div><div class="meta"><div class="nm">Antique Gold</div><div class="hx">#AE7A2A</div><div class="role">Bronze, leaf, structure</div></div></div>
+      <div class="sw"><div class="chip" style="background:#F2EBDB"></div><div class="meta"><div class="nm">Papyrus</div><div class="hx">#F2EBDB</div><div class="role">Cream light / paper</div></div></div>
+      <div class="sw"><div class="chip" style="background:#5FA89F"></div><div class="meta"><div class="nm">Verdigris Teal</div><div class="hx">#5FA89F</div><div class="role">Single cool accent — water</div></div></div>
+      <div class="sw"><div class="chip" style="background:#5E3F11"></div><div class="meta"><div class="nm">Deep Bronze</div><div class="hx">#5E3F11</div><div class="role">Shadow / patina</div></div></div>
+    </div>
+
+    <div style="height:22px;"></div>
+
+    <div class="assets">
+      <div class="asset">
+        <div class="thumb"><img src="assets/wordmark-night.png" alt="Reel It In wordmark on night" /></div>
+        <div class="ab"><div class="an">Wordmark · Night</div><div class="ad">For the resolve frame and any title card. Fraunces, gold italic “It”.</div><div class="file">assets/wordmark-night.png</div></div>
+      </div>
+      <div class="asset">
+        <div class="thumb"><img src="assets/style-board.png" alt="Ancient-futuristic mood board" /></div>
+        <div class="ab"><div class="an">Style / Mood Board</div><div class="ad">Attach as the image reference where the video tool accepts one — locks palette + texture.</div><div class="file">assets/style-board.png</div></div>
+      </div>
+      <div class="asset">
+        <div class="thumb" style="padding:18px;"><div style="font-family:var(--mono); font-size:11px; line-height:1.7; color:#B7A782; letter-spacing:0.04em;">Style Bible<br/>5 shot prompts<br/>compact + negative<br/>music ×2</div></div>
+        <div class="ab"><div class="an">Prompts · Plain Text</div><div class="ad">Every prompt on this page in one copy-paste file.</div><div class="file">prompts.txt</div></div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ───────────────────────── HOW TO USE ───────────────────────── -->
+<section>
+  <div class="wrap">
+    <div class="sec-head">
+      <span class="sec-num">05 · Workflow</span>
+      <div><h2>Run it</h2></div>
+    </div>
+    <ol class="steps">
+      <li><div class="t"><b>Generate five clips.</b> For each shot, paste <b>Style Bible + that shot's prompt</b> into the video tool. Attach <b>style-board.png</b> as the image reference if supported. Keep the camera slow.</div></li>
+      <li><div class="t"><b>Score it.</b> Paste the <b>Music-gen prompt</b> (or the cue map for locked hits) into the music tool. Render ~20s.</div></li>
+      <li><div class="t"><b>Assemble.</b> In any editor, trim each clip to ≈3.5–4.5s, cross-dissolve on the golden thread so it reads as one continuous line, and lay the score underneath. Total ≈18–22s.</div></li>
+      <li><div class="t"><b>Resolve into the show.</b> Cut from Shot V's waterline straight into the existing wordmark title sequence — or drop the rendered “Reel It In” over Shot V's negative space. The thread becomes the wordmark.</div></li>
+      <li><div class="t"><b>Bring it back to me.</b> Once you have the rendered montage + audio, I'll fine-tune the wordmark animation's timing to lock frame-for-frame to your music.</div></li>
+    </ol>
+  </div>
+</section>
+
+<footer>
+  <div class="wrap">Reel It In · Golden Thread montage handoff · prepared for video-gen + music-gen · 16:9</div>
+</footer>
+
+<script>
+  document.querySelectorAll('.copy').forEach(function(btn){
+    btn.addEventListener('click', function(){
+      var el = document.getElementById(btn.getAttribute('data-copy'));
+      var txt = el ? el.innerText : '';
+      navigator.clipboard.writeText(txt).then(function(){
+        var old = btn.textContent;
+        btn.textContent = 'Copied ✓'; btn.classList.add('ok');
+        setTimeout(function(){ btn.textContent = old; btn.classList.remove('ok'); }, 1400);
+      });
+    });
+  });
+</script>
+</body>
+</html>

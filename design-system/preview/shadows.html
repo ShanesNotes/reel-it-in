@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html lang="en"><head><meta charset="UTF-8" />
+<link rel="stylesheet" href="../colors_and_type.css" />
+<style>
+  html,body{margin:0}
+  body{background:var(--bg);color:var(--fg1);padding:30px;-webkit-font-smoothing:antialiased}
+  .row{display:flex;gap:26px}
+  .item{display:flex;flex-direction:column;gap:12px;align-items:center}
+  .box{width:120px;height:70px;background:var(--surface);border:1px solid var(--line-soft);border-radius:5px}
+  .b1{box-shadow:inset 0 1px 0 var(--hl),0 1px 2px rgba(0,0,0,.04)}
+  .b2{box-shadow:inset 0 1px 0 var(--hl),0 18px 40px rgba(0,0,0,.12)}
+  .b3{box-shadow:0 10px 30px rgba(0,0,0,.16)}
+  .nm{font-family:var(--mono);font-size:11px;letter-spacing:.06em;text-transform:uppercase;color:var(--fg1);text-align:center}
+  .v{font-family:var(--mono);font-size:10px;color:var(--fg3);text-align:center}
+</style></head>
+<body>
+  <div class="row">
+    <div class="item"><div class="box b1"></div><div class="nm">Card rest</div><div class="v">+ inset sheen</div></div>
+    <div class="item"><div class="box b2"></div><div class="nm">Card hover</div><div class="v">0 18 40 / .12</div></div>
+    <div class="item"><div class="box b3"></div><div class="nm">Float chrome</div><div class="v">0 10 30 / .16</div></div>
+  </div>
+</body></html>

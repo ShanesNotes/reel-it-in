@@ -1,0 +1,89 @@
+{
+  "schemaVersion": 1,
+  "notes": [
+    "Primary sources are preferred. Secondary/aggregator feeds can be added later, but should be labeled clearly.",
+    "Manual pages are official sources that do not currently expose a simple RSS/Atom feed in this workflow."
+  ],
+  "feeds": [
+    {
+      "name": "OpenAI News",
+      "url": "https://openai.com/news/rss.xml",
+      "category": "AI lab",
+      "priority": "primary"
+    },
+    {
+      "name": "Google AI Blog",
+      "url": "https://blog.google/technology/ai/rss/",
+      "category": "AI lab / platform",
+      "priority": "primary"
+    },
+    {
+      "name": "Microsoft AI Blog",
+      "url": "https://blogs.microsoft.com/ai/feed/",
+      "category": "AI platform",
+      "priority": "primary"
+    },
+    {
+      "name": "Microsoft Security Blog",
+      "url": "https://www.microsoft.com/en-us/security/blog/feed/",
+      "category": "Security",
+      "priority": "primary"
+    },
+    {
+      "name": "Hugging Face Blog",
+      "url": "https://huggingface.co/blog/feed.xml",
+      "category": "Developer ecosystem",
+      "priority": "primary"
+    },
+    {
+      "name": "NVIDIA Deep Learning Blog",
+      "url": "https://blogs.nvidia.com/blog/category/deep-learning/feed/",
+      "category": "Infrastructure",
+      "priority": "primary"
+    },
+    {
+      "name": "Apple Newsroom",
+      "url": "https://www.apple.com/newsroom/rss-feed.rss",
+      "category": "Platform",
+      "priority": "primary",
+      "includeKeywords": [
+        "AI",
+        "Apple Intelligence",
+        "machine learning",
+        "Siri"
+      ]
+    }
+  ],
+  "manualPages": [
+    {
+      "name": "Anthropic News",
+      "url": "https://www.anthropic.com/news",
+      "category": "AI lab",
+      "reason": "Official news page; no simple RSS feed verified in this workflow."
+    },
+    {
+      "name": "Google DeepMind Blog",
+      "url": "https://deepmind.google/blog",
+      "category": "AI lab / research",
+      "reason": "Official blog page; no simple RSS feed verified in this workflow."
+    },
+    {
+      "name": "Meta AI Blog",
+      "url": "https://ai.meta.com/blog",
+      "category": "AI lab / platform",
+      "reason": "Official blog page; no simple RSS feed verified in this workflow."
+    },
+    {
+      "name": "European Commission AI News",
+      "url": "https://digital-strategy.ec.europa.eu/en/policies/artificial-intelligence",
+      "category": "Policy",
+      "reason": "Official policy source; use browsing/search to find current AI Act updates."
+    },
+    {
+      "name": "NIST AI",
+      "url": "https://www.nist.gov/artificial-intelligence",
+      "category": "Policy / standards",
+      "reason": "Official standards source; use browsing/search for current updates."
+    }
+  ]
+}

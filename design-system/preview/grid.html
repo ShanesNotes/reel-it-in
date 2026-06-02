@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="en"><head><meta charset="UTF-8" />
+<link rel="stylesheet" href="../colors_and_type.css" />
+<style>
+  html,body{margin:0}
+  body{background:var(--bg);color:var(--fg1);padding:22px 30px;-webkit-font-smoothing:antialiased}
+  .lbl{font-family:var(--mono);font-size:11px;letter-spacing:.06em;text-transform:uppercase;color:var(--fg2);margin-bottom:14px}
+  .frame{position:relative;border:1px solid var(--line);border-radius:5px;background:var(--surface);height:88px;display:flex;align-items:stretch;overflow:hidden}
+  .gut{width:32px;background:repeating-linear-gradient(45deg,var(--gold-100),var(--gold-100) 5px,transparent 5px,transparent 10px);flex-shrink:0}
+  .col{flex:1;border-left:1px dashed var(--line);border-right:1px dashed var(--line);display:flex;align-items:center;justify-content:center;font-family:var(--mono);font-size:11px;letter-spacing:.1em;text-transform:uppercase;color:var(--fg3)}
+  .meta{display:flex;gap:26px;margin-top:14px;font-family:var(--mono);font-size:11px;letter-spacing:.04em;color:var(--fg2)}
+  .meta b{color:var(--accent-deep);font-weight:500}
+</style></head>
+<body>
+  <div class="lbl">Editorial column · centered, gutters, reading measure</div>
+  <div class="frame">
+    <div class="gut"></div>
+    <div class="col">content column · max 1080 · measure ≈ 60ch</div>
+    <div class="gut"></div>
+  </div>
+  <div class="meta">
+    <span>col-max <b>1080px</b></span>
+    <span>gutter <b>28px</b></span>
+    <span>measure <b>60ch</b></span>
+    <span>breakpoints <b>620 / 960</b></span>
+  </div>
+</body></html>

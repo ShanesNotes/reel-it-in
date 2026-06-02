@@ -1,0 +1,725 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Reel It In Operational Workflow</title>
+  <style>
+    :root {
+      --paper: #f7f0df;
+      --paper-deep: #e9ddc3;
+      --ink: #231c16;
+      --muted: #6c5f52;
+      --line: rgba(35, 28, 22, .2);
+      --gold: #b9822d;
+      --teal: #1d716d;
+      --red: #9a4537;
+      --white: rgba(255, 255, 255, .42);
+      --shadow: 0 16px 34px rgba(35, 28, 22, .12);
+    }
+
+    * {
+      box-sizing: border-box;
+    }
+
+    html {
+      scroll-behavior: smooth;
+    }
+
+    body {
+      margin: 0;
+      width: 100vw;
+      color: var(--ink);
+      background: var(--paper);
+      font-family: "Hanken Grotesk", "Segoe UI", Arial, sans-serif;
+      line-height: 1.45;
+      max-width: 100vw;
+      overflow-x: hidden;
+    }
+
+    body::before {
+      content: "";
+      position: fixed;
+      inset: 0;
+      pointer-events: none;
+      opacity: .13;
+      background-image:
+        linear-gradient(90deg, rgba(35,28,22,.05) 1px, transparent 1px),
+        linear-gradient(rgba(35,28,22,.04) 1px, transparent 1px);
+      background-size: 24px 24px;
+      mix-blend-mode: multiply;
+    }
+
+    a {
+      color: inherit;
+    }
+
+    .shell {
+      width: 100vw;
+      min-height: 100vh;
+      max-width: 100vw;
+      overflow-x: hidden;
+    }
+
+    header {
+      display: grid;
+      grid-template-columns: minmax(0, 1.08fr) minmax(280px, .72fr);
+      gap: clamp(22px, 4vw, 54px);
+      align-items: end;
+      padding: clamp(28px, 5vw, 64px) clamp(18px, 5vw, 72px) 26px;
+      border-bottom: 1px solid var(--line);
+      overflow-x: hidden;
+      width: 100vw;
+      background:
+        linear-gradient(140deg, rgba(185,130,45,.2), transparent 34%),
+        linear-gradient(180deg, var(--paper), var(--paper-deep));
+    }
+
+    .eyebrow {
+      margin: 0 0 10px;
+      color: var(--teal);
+      font-size: 12px;
+      font-weight: 900;
+      letter-spacing: .08em;
+      text-transform: uppercase;
+    }
+
+    h1 {
+      margin: 0;
+      max-width: 960px;
+      font-family: Georgia, "Times New Roman", serif;
+      font-size: clamp(42px, 8vw, 112px);
+      line-height: .9;
+      letter-spacing: 0;
+      overflow-wrap: break-word;
+    }
+
+    .lede {
+      max-width: 760px;
+      margin: 18px 0 0;
+      color: var(--muted);
+      font-size: clamp(17px, 2.2vw, 22px);
+      overflow-wrap: break-word;
+    }
+
+    .control-strip {
+      min-width: 0;
+      display: grid;
+      grid-template-columns: repeat(2, minmax(0, 1fr));
+      gap: 10px;
+      align-self: stretch;
+    }
+
+    .control {
+      min-width: 0;
+      min-height: 112px;
+      padding: 14px;
+      border: 1px solid rgba(35,28,22,.25);
+      border-radius: 6px;
+      background: rgba(247,240,223,.72);
+      box-shadow: 0 8px 18px rgba(35,28,22,.07);
+    }
+
+    .control b {
+      display: block;
+      margin-bottom: 6px;
+      font-size: 12px;
+      text-transform: uppercase;
+      letter-spacing: .08em;
+    }
+
+    .control code {
+      display: block;
+      overflow-wrap: anywhere;
+      word-break: break-word;
+      color: var(--muted);
+      font-family: "JetBrains Mono", Consolas, monospace;
+      font-size: 12px;
+      line-height: 1.35;
+    }
+
+    main {
+      width: 100vw;
+      padding: 28px clamp(18px, 5vw, 72px) 72px;
+      overflow-x: hidden;
+    }
+
+    .section-title {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 12px;
+      align-items: baseline;
+      margin: 28px 0 14px;
+      border-bottom: 1px solid var(--line);
+    }
+
+    .section-title h2 {
+      margin: 0 0 8px;
+      font-family: Georgia, "Times New Roman", serif;
+      font-size: clamp(28px, 4vw, 48px);
+      letter-spacing: 0;
+    }
+
+    .section-title span {
+      color: var(--muted);
+      font-family: "JetBrains Mono", Consolas, monospace;
+      font-size: 12px;
+      text-transform: uppercase;
+    }
+
+    .rail {
+      position: relative;
+      display: grid;
+      gap: 16px;
+      margin-top: 12px;
+    }
+
+    .rail::before {
+      content: "";
+      position: absolute;
+      left: 18px;
+      top: 10px;
+      bottom: 10px;
+      width: 3px;
+      background: var(--gold);
+    }
+
+    .step {
+      position: relative;
+      display: grid;
+      grid-template-columns: 52px minmax(0, 1fr) minmax(260px, .85fr);
+      gap: 18px;
+      align-items: stretch;
+      padding: 16px;
+      border: 1px solid var(--line);
+      border-radius: 7px;
+      background: rgba(255,255,255,.25);
+      box-shadow: 0 6px 14px rgba(35,28,22,.06);
+    }
+
+    .num {
+      z-index: 1;
+      display: grid;
+      place-items: center;
+      width: 38px;
+      height: 38px;
+      border: 2px solid var(--ink);
+      border-radius: 50%;
+      background: var(--paper);
+      font-weight: 900;
+      font-family: "JetBrains Mono", Consolas, monospace;
+    }
+
+    .step h3 {
+      margin: 0 0 8px;
+      font-family: Georgia, "Times New Roman", serif;
+      font-size: clamp(24px, 3vw, 36px);
+      letter-spacing: 0;
+    }
+
+    .step p {
+      margin: 0;
+      color: var(--muted);
+      font-size: 15px;
+    }
+
+    .commands {
+      min-width: 0;
+      display: grid;
+      gap: 8px;
+      align-content: center;
+      padding: 12px;
+      border-left: 3px solid var(--teal);
+      background: rgba(29,113,109,.08);
+    }
+
+    .commands code {
+      display: block;
+      overflow-wrap: anywhere;
+      word-break: break-word;
+      color: var(--ink);
+      font-family: "JetBrains Mono", Consolas, monospace;
+      font-size: 12px;
+      line-height: 1.35;
+    }
+
+    .artifact-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(210px, 1fr));
+      gap: 12px;
+      margin-top: 14px;
+    }
+
+    .artifact {
+      min-width: 0;
+      min-height: 132px;
+      padding: 15px;
+      border: 1px solid var(--line);
+      border-radius: 6px;
+      background: var(--white);
+    }
+
+    .artifact b {
+      display: block;
+      margin-bottom: 8px;
+      font-family: Georgia, "Times New Roman", serif;
+      font-size: 22px;
+      letter-spacing: 0;
+    }
+
+    .artifact p {
+      margin: 0;
+      color: var(--muted);
+      font-size: 14px;
+    }
+
+    .artifact code {
+      display: block;
+      margin-top: 8px;
+      color: var(--teal);
+      font-family: "JetBrains Mono", Consolas, monospace;
+      font-size: 12px;
+      overflow-wrap: anywhere;
+      word-break: break-word;
+    }
+
+    .service-map {
+      display: grid;
+      grid-template-columns: repeat(6, minmax(120px, 1fr));
+      gap: 10px;
+      margin-top: 14px;
+    }
+
+    .service {
+      position: relative;
+      min-width: 0;
+      min-height: 126px;
+      padding: 14px;
+      border: 1px solid var(--line);
+      border-radius: 6px;
+      background: rgba(247,240,223,.86);
+      box-shadow: 0 8px 18px rgba(35,28,22,.07);
+    }
+
+    .service::before {
+      content: "";
+      display: block;
+      width: 28px;
+      height: 4px;
+      margin-bottom: 12px;
+      background: var(--gold);
+    }
+
+    .service:nth-child(2n)::before {
+      background: var(--teal);
+    }
+
+    .service:nth-child(3n)::before {
+      background: var(--red);
+    }
+
+    .service b {
+      display: block;
+      margin-bottom: 8px;
+      font-size: 15px;
+    }
+
+    .service span {
+      color: var(--muted);
+      font-size: 13px;
+    }
+
+    .decision {
+      display: grid;
+      grid-template-columns: repeat(3, minmax(0, 1fr));
+      gap: 14px;
+      margin-top: 14px;
+    }
+
+    .owner {
+      min-width: 0;
+      padding: 16px;
+      border: 1px solid var(--line);
+      border-radius: 7px;
+      background: rgba(255,255,255,.28);
+    }
+
+    .owner h3 {
+      margin: 0 0 8px;
+      font-family: Georgia, "Times New Roman", serif;
+      font-size: 30px;
+      letter-spacing: 0;
+    }
+
+    .owner ul {
+      margin: 0;
+      padding-left: 18px;
+      color: var(--muted);
+    }
+
+    .owner li + li {
+      margin-top: 6px;
+    }
+
+    .footer {
+      margin-top: 32px;
+      padding: 18px;
+      border: 1px solid var(--line);
+      border-radius: 7px;
+      background: var(--ink);
+      color: var(--paper);
+    }
+
+    .footer code {
+      display: block;
+      margin-top: 8px;
+      color: #f4d59e;
+      font-family: "JetBrains Mono", Consolas, monospace;
+      overflow-wrap: anywhere;
+      word-break: break-word;
+    }
+
+    @media (max-width: 980px) {
+      header {
+        grid-template-columns: 1fr;
+      }
+
+      .step {
+        grid-template-columns: 48px minmax(0, 1fr);
+      }
+
+      .commands {
+        grid-column: 2;
+      }
+
+      .service-map {
+        grid-template-columns: repeat(3, minmax(0, 1fr));
+      }
+
+      .decision {
+        grid-template-columns: 1fr;
+      }
+    }
+
+    @media (max-width: 640px) {
+      header {
+        display: block;
+        padding-left: 24px;
+        padding-right: 24px;
+      }
+
+      .control-strip {
+        grid-template-columns: 1fr;
+        margin-top: 22px;
+        width: calc(100vw - 48px);
+        max-width: calc(100vw - 48px);
+      }
+
+      h1 {
+        font-size: 30px;
+        line-height: .98;
+        max-width: min(300px, calc(100vw - 48px));
+      }
+
+      .lede {
+        font-size: 16px;
+        max-width: min(300px, calc(100vw - 48px));
+      }
+
+      .section-title {
+        display: block;
+      }
+
+      .step {
+        grid-template-columns: 1fr;
+        width: calc(100vw - 48px);
+        max-width: calc(100vw - 48px);
+      }
+
+      .step h3,
+      .step p,
+      .commands,
+      .control code {
+        max-width: min(280px, calc(100vw - 86px));
+      }
+
+      .rail::before {
+        display: none;
+      }
+
+      .commands {
+        grid-column: auto;
+      }
+
+      .control,
+      .artifact,
+      .service,
+      .owner,
+      .footer {
+        width: calc(100vw - 48px);
+        max-width: calc(100vw - 48px);
+      }
+
+      .service-map {
+        grid-template-columns: 1fr;
+      }
+    }
+  </style>
+</head>
+<body>
+  <div class="shell">
+    <header>
+      <div>
+        <p class="eyebrow">Reel It In production system</p>
+        <h1>One episode, one folder, one weekly loop.</h1>
+        <p class="lede">Codex gathers, drafts, checks, packages, and reports. Shane makes the editorial calls. Dad gets the brief, the link, and room to be curious.</p>
+      </div>
+      <aside class="control-strip" aria-label="Workspace anchors">
+        <div class="control">
+          <b>Workspace</b>
+          <code>C:\Users\Shane\Documents\reel-it-in</code>
+        </div>
+        <div class="control">
+          <b>Media Vault</b>
+          <code>C:\Users\Shane\Documents\Reel It In Media\&lt;episode&gt;</code>
+        </div>
+        <div class="control">
+          <b>Dad Gets</b>
+          <code>dad-brief.md<br>handoff\dad-packet.md</code>
+        </div>
+        <div class="control">
+          <b>Health Check</b>
+          <code>.\tools\run-episode-pipeline.ps1 -Episode &lt;episode&gt;</code>
+        </div>
+      </aside>
+    </header>
+
+    <main>
+      <section>
+        <div class="section-title">
+          <h2>The Weekly Loop</h2>
+          <span>run from the repo root</span>
+        </div>
+        <div class="rail">
+          <article class="step">
+            <div class="num">0</div>
+            <div>
+              <h3>Check State</h3>
+              <p>See what changed, confirm the latest episode, and avoid working from stale assumptions.</p>
+            </div>
+            <div class="commands">
+              <code>git status --short</code>
+              <code>.\tools\episode-status.ps1</code>
+            </div>
+          </article>
+
+          <article class="step">
+            <div class="num">1</div>
+            <div>
+              <h3>Open The Episode</h3>
+              <p>Create the folder that will hold prep, research, dashboard data, edit notes, marketing, and archive metadata.</p>
+            </div>
+            <div class="commands">
+              <code>.\tools\new-episode.ps1 -Title "Working title"</code>
+            </div>
+          </article>
+
+          <article class="step">
+            <div class="num">2</div>
+            <div>
+              <h3>Research And Scout</h3>
+              <p>Collect official feeds, draft candidate rows, validate links, and make the slate visible.</p>
+            </div>
+            <div class="commands">
+              <code>.\tools\collect-research-feeds.ps1 -Episode &lt;episode&gt;</code>
+              <code>.\tools\draft-research-candidates.ps1 -Episode &lt;episode&gt;</code>
+              <code>.\tools\generate-research-scout.ps1 -Episode &lt;episode&gt;</code>
+              <code>.\tools\validate-sources.ps1 -Path .\episodes\&lt;episode&gt;</code>
+            </div>
+          </article>
+
+          <article class="step">
+            <div class="num">3</div>
+            <div>
+              <h3>Select And Prep</h3>
+              <p>Shane chooses the angle, stories, and sparks. Codex turns that into Dad prep and dashboard data.</p>
+            </div>
+            <div class="commands">
+              <code>.\tools\generate-dad-brief.ps1 -Episode &lt;episode&gt;</code>
+              <code>.\tools\export-dashboard-data.ps1 -Episode &lt;episode&gt; -UpdateDashboard</code>
+            </div>
+          </article>
+
+          <article class="step">
+            <div class="num">4</div>
+            <div>
+              <h3>Record</h3>
+              <p>Launch the dashboard, notes, handoff packet, recording room, and media folders.</p>
+            </div>
+            <div class="commands">
+              <code>.\tools\start-recording-session.ps1 -Episode &lt;episode&gt;</code>
+            </div>
+          </article>
+
+          <article class="step">
+            <div class="num">5</div>
+            <div>
+              <h3>Wrap And Edit</h3>
+              <p>Turn live notes and transcript markers into an editor-ready plan, clips, chapters, titles, and thumbnail concepts.</p>
+            </div>
+            <div class="commands">
+              <code>.\tools\generate-edit-plan.ps1 -Episode &lt;episode&gt;</code>
+              <code>.\tools\generate-title-thumbnail-package.ps1 -Episode &lt;episode&gt;</code>
+              <code>.\tools\generate-publishing-package.ps1 -Episode &lt;episode&gt; -Force</code>
+              <code>.\tools\export-production-packets.ps1 -Episode &lt;episode&gt;</code>
+            </div>
+          </article>
+
+          <article class="step">
+            <div class="num">6</div>
+            <div>
+              <h3>Package And Publish</h3>
+              <p>Split the finished publishing package into upload fields, platform copy, social posts, clip CSVs, and title/thumbnail handoff files.</p>
+            </div>
+            <div class="commands">
+              <code>.\tools\export-marketing-assets.ps1 -Episode &lt;episode&gt;</code>
+            </div>
+          </article>
+
+          <article class="step">
+            <div class="num">7</div>
+            <div>
+              <h3>Archive</h3>
+              <p>Save final metadata, refresh the episode shelf, and run the readiness report.</p>
+            </div>
+            <div class="commands">
+              <code>.\tools\export-archive-metadata.ps1 -Episode &lt;episode&gt; -UpdateIndex</code>
+              <code>.\tools\run-episode-pipeline.ps1 -Episode &lt;episode&gt;</code>
+            </div>
+          </article>
+        </div>
+      </section>
+
+      <section>
+        <div class="section-title">
+          <h2>What Gets Produced</h2>
+          <span>episode artifacts</span>
+        </div>
+        <div class="artifact-grid">
+          <div class="artifact">
+            <b>Research</b>
+            <p>Inbox, candidate rows, source validation, scout summary, and primary-source links.</p>
+            <code>research-drafts.md</code>
+          </div>
+          <div class="artifact">
+            <b>Dad Prep</b>
+            <p>A short brief with the frame, story bullets, and the good questions.</p>
+            <code>handoff\dad-packet.md</code>
+          </div>
+          <div class="artifact">
+            <b>Recording</b>
+            <p>Dashboard data, launch notes, service links, and media folder map.</p>
+            <code>handoff\session-launch.md</code>
+          </div>
+          <div class="artifact">
+            <b>Edit</b>
+            <p>Chapters, cut list, clip candidates, and transcript cleanup checklist.</p>
+            <code>edit-plan.md</code>
+          </div>
+          <div class="artifact">
+            <b>Creative</b>
+            <p>Title options, thumbnail concepts, image prompts, and a thumbnail board.</p>
+            <code>title-thumbnail.md</code>
+          </div>
+          <div class="artifact">
+            <b>Publishing</b>
+            <p>YouTube copy, RSS copy, social copy, newsletter copy, clips, and upload JSON.</p>
+            <code>handoff\marketing\</code>
+          </div>
+          <div class="artifact">
+            <b>Archive</b>
+            <p>Structured episode metadata and a generated episode index.</p>
+            <code>archive.json</code>
+          </div>
+          <div class="artifact">
+            <b>Report</b>
+            <p>One pass/fail summary for the entire episode machine.</p>
+            <code>automation-report.md</code>
+          </div>
+        </div>
+      </section>
+
+      <section>
+        <div class="section-title">
+          <h2>Service Stack</h2>
+          <span>what runs where</span>
+        </div>
+        <div class="service-map">
+          <div class="service">
+            <b>GitHub</b>
+            <span>Shared source of truth for docs, scripts, episode metadata, and handoff files.</span>
+          </div>
+          <div class="service">
+            <b>Cloud Media</b>
+            <span>Raw tracks, exports, clips, thumbnails, transcripts, and masters outside git.</span>
+          </div>
+          <div class="service">
+            <b>Riverside</b>
+            <span>Primary recording room with separate high-quality tracks.</span>
+          </div>
+          <div class="service">
+            <b>OBS</b>
+            <span>Optional safety capture, dashboard capture, or video layout.</span>
+          </div>
+          <div class="service">
+            <b>Descript</b>
+            <span>Transcript-first edit, speaker labels, captions, and clips.</span>
+          </div>
+          <div class="service">
+            <b>Auphonic</b>
+            <span>Final loudness, leveling, and repeatable audio polish.</span>
+          </div>
+        </div>
+      </section>
+
+      <section>
+        <div class="section-title">
+          <h2>Ownership</h2>
+          <span>keep the machine honest</span>
+        </div>
+        <div class="decision">
+          <div class="owner">
+            <h3>Codex</h3>
+            <ul>
+              <li>Create and check episode folders.</li>
+              <li>Draft research, briefs, edit plans, titles, thumbnails, publishing copy, and archive metadata.</li>
+              <li>Run pipeline reports.</li>
+            </ul>
+          </div>
+          <div class="owner">
+            <h3>Shane</h3>
+            <ul>
+              <li>Pick what matters.</li>
+              <li>Approve the angle, title, thumbnail, and final copy.</li>
+              <li>Publish only what feels true to the show.</li>
+            </ul>
+          </div>
+          <div class="owner">
+            <h3>Dad</h3>
+            <ul>
+              <li>Read a short brief.</li>
+              <li>Join the recording link.</li>
+              <li>Ask the normal-person question that makes the show work.</li>
+            </ul>
+          </div>
+        </div>
+      </section>
+
+      <section class="footer">
+        <strong>When the system feels fuzzy, run the full pipeline.</strong>
+        <code>.\tools\run-episode-pipeline.ps1 -Episode &lt;episode&gt; -UpdateDashboard</code>
+      </section>
+    </main>
+  </div>
+</body>
+</html>

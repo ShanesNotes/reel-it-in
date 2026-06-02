@@ -1,0 +1,17 @@
+<!DOCTYPE html>
+<html lang="en"><head><meta charset="UTF-8" />
+<link rel="stylesheet" href="../colors_and_type.css" />
+<style>
+  html,body{margin:0}
+  body{background:var(--bg);color:var(--fg1);padding:26px 30px;-webkit-font-smoothing:antialiased}
+  .epigraph{padding:6px 0 6px 26px;border-left:3px solid var(--accent);position:relative}
+  .epigraph::before{content:"\201C";position:absolute;top:-.30em;left:.02em;font-family:var(--serif);font-weight:600;font-size:120px;line-height:1;color:var(--accent);opacity:.10;pointer-events:none}
+  .epigraph q{font-family:var(--serif);font-style:italic;font-size:26px;line-height:1.28;quotes:none;position:relative;z-index:1}
+  .epigraph cite{display:block;margin-top:12px;font-family:var(--mono);font-style:normal;font-size:11px;letter-spacing:.12em;text-transform:uppercase;color:var(--fg3)}
+  .lede{font-family:var(--serif);font-size:19px;line-height:1.45;margin:22px 0 0;max-width:46ch}
+  .lede.first::first-letter{font-family:var(--serif);font-weight:600;font-size:3.4em;line-height:.78;float:left;margin:.05em .1em 0 0;color:var(--accent);font-variation-settings:"opsz" 144}
+</style></head>
+<body>
+  <div class="epigraph"><q>I'll reel you in when you get too nerdy.</q><cite>— Dad, on his job description</cite></div>
+  <p class="lede first">Two people sit down once a week to make sense of artificial intelligence.</p>
+</body></html>

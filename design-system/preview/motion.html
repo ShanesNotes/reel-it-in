@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="en"><head><meta charset="UTF-8" />
+<link rel="stylesheet" href="../colors_and_type.css" />
+<style>
+  html,body{margin:0}
+  body{background:var(--bg);color:var(--fg1);padding:22px 30px;-webkit-font-smoothing:antialiased}
+  .grid{display:grid;grid-template-columns:repeat(3,1fr);gap:18px}
+  .cell{border:1px solid var(--line-soft);border-radius:5px;background:var(--surface);padding:16px;display:flex;flex-direction:column;gap:12px;align-items:center;box-shadow:var(--shadow-card)}
+  .nm{font-family:var(--mono);font-size:10px;letter-spacing:.1em;text-transform:uppercase;color:var(--fg2)}
+  .v{font-family:var(--mono);font-size:9px;color:var(--fg3)}
+  .stage{height:40px;display:flex;align-items:center;justify-content:center}
+  .chip{width:48px;height:22px;border-radius:3px;background:var(--accent)}
+  .riseD{animation:riseD 1.8s var(--ease) infinite}
+  @keyframes riseD{0%,60%{transform:translateY(0)}70%{transform:translateY(16px);opacity:1}71%{opacity:0}72%{transform:translateY(16px)}100%{transform:translateY(0);opacity:1}}
+  .dot{width:13px;height:13px;border-radius:50%;background:var(--alert)}
+  .pulseD{animation:rii-pulse 1.6s infinite}
+  .lbl{font-family:var(--mono);font-size:11px;letter-spacing:.06em;text-transform:uppercase;color:var(--fg2);margin-bottom:14px}
+</style></head>
+<body>
+  <div class="lbl">Motion · ease cubic-bezier(.2,.7,.2,1) · transform-only (never fades to 0)</div>
+  <div class="grid">
+    <div class="cell"><div class="stage"><div class="chip riseD"></div></div><div class="nm">Rise</div><div class="v">.9s · entrance slide</div></div>
+    <div class="cell"><div class="stage"><div class="chip" style="transition:transform .35s var(--ease)"></div></div><div class="nm">Swap / lift</div><div class="v">.35s · cards & deck</div></div>
+    <div class="cell"><div class="stage"><div class="dot pulseD"></div></div><div class="nm">On-air pulse</div><div class="v">1.6s · only loop</div></div>
+  </div>
+</body></html>

@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html lang="en"><head><meta charset="UTF-8" />
+<link rel="stylesheet" href="../colors_and_type.css" />
+<style>
+  html,body{margin:0}
+  body{background:var(--bg);color:var(--fg1);padding:24px 30px;-webkit-font-smoothing:antialiased}
+  .ramp{display:grid;grid-template-columns:repeat(8,1fr);gap:0;border-radius:5px;overflow:hidden;border:1px solid var(--line)}
+  .stop{height:62px;display:flex;align-items:flex-end;justify-content:center;padding-bottom:5px}
+  .n{font-family:var(--mono);font-size:9px;letter-spacing:.04em}
+  .lbl{font-family:var(--mono);font-size:11px;letter-spacing:.06em;text-transform:uppercase;color:var(--fg2);margin-bottom:12px}
+</style></head>
+<body>
+  <div class="lbl">Teal ramp · 50 → 700 · brand = 500, live = 300</div>
+  <div class="ramp">
+    <div class="stop" style="background:var(--teal-50)"><span class="n" style="color:#173E3B">50</span></div>
+    <div class="stop" style="background:var(--teal-100)"><span class="n" style="color:#173E3B">100</span></div>
+    <div class="stop" style="background:var(--teal-200)"><span class="n" style="color:#102C2A">200</span></div>
+    <div class="stop" style="background:var(--teal-300)"><span class="n" style="color:#102C2A">300</span></div>
+    <div class="stop" style="background:var(--teal-400)"><span class="n" style="color:#E7F0EE">400</span></div>
+    <div class="stop" style="background:var(--teal-500)"><span class="n" style="color:#E7F0EE">500</span></div>
+    <div class="stop" style="background:var(--teal-600)"><span class="n" style="color:#E7F0EE">600</span></div>
+    <div class="stop" style="background:var(--teal-700)"><span class="n" style="color:#E7F0EE">700</span></div>
+  </div>
+</body></html>

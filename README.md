@@ -1,82 +1,80 @@
 # Reel It In
 
-> **Not all the AI news — just what matters, and why. In plain English.**
+Reel It In is a father-son show about AI for people who are curious but not living inside the AI news cycle.
 
-A weekly father–son conversation about artificial intelligence.
+The engine is simple: Shane follows the technology closely; Dad keeps the conversation honest by asking the normal-person question: "why does that matter?"
 
-This repository contains the living, self-contained web template used to publish each episode.
+This repo contains the show product, design system, production workflow, and early intro montage materials.
 
----
+## Start Here
 
-## The Show
+| Need | Go to |
+| --- | --- |
+| What is this project? | `docs/PROJECT_BRIEF.md` |
+| What language should agents use? | `CONTEXT.md` |
+| What improvements are queued? | `docs/CODEBASE_IMPROVEMENT_PLAN.md` |
+| How does the show work? | `docs/SHOW_BIBLE.md` |
+| How should it sound? | `docs/VOICE.md` |
+| How do we prep and record? | `docs/WORKFLOW.md` |
+| How do we automate production? | `docs/AUTOMATION_PLAN.md` |
+| How do we operate it week to week? | `docs/OPERATIONAL_WORKFLOW.md` |
+| Visual workflow map | `docs/operational-workflow.html` |
+| What is the weekly Codex loop? | `docs/WEEKLY_AUTOMATION_RUNBOOK.md` |
+| What are we building next? | `docs/ROADMAP.md` |
+| What should Codex know first? | `AGENTS.md` |
+| Current pilot dashboard | `app/reel-it-in.html` |
+| Design system assets | `design-system/` |
+| Intro montage handoff | `production/intro-montage/` |
 
-Two people sit down once a week:
+## Current Status
 
-- One who follows AI closely
-- One who keeps the other honest
+- `main` contains the original pilot HTML and README history.
+- This branch reorganizes the project into a production-ready repo shape.
+- The current usable prototype is `app/reel-it-in.html`.
+- The design system has been extracted into `design-system/`.
+- The automation-first operating plan is `docs/AUTOMATION_PLAN.md`.
+- A Codex app weekly production check-in is active for Monday mornings.
+- The original Claude export zip is quarantined under `inbox/original-exports/` and ignored by git; it is not a working source of truth.
 
-The goal is simple: cut through the hype, explain what actually happened, and answer the only question that matters — *so what?*
+## Local Use
 
-No jargon survives the table.
+Open `app/reel-it-in.html` directly in a browser. It is intentionally self-contained for now.
 
-## Format
+### Core commands
 
-| Act | Name            | Purpose                                      |
-|-----|-----------------|----------------------------------------------|
-| I   | The Setup       | Who we are, what this is. Keep it short.     |
-| II  | This Week       | 3–5 headlines + the human "why it matters"   |
-| III | The Conversation| "Sparks" — potent prompts to pull like threads |
-| IV  | The Archive     | Every previous episode, saved forever        |
+Create and ingest tonight's solo YouTube reaction episode:
 
-## How to Publish a New Episode (The Weekly Ritual)
+```bash
+python3 tools/prepare-reaction-episode.py \
+  --url "https://youtu.be/vc4WtPXgk88?si=SUGRAsjUNuZVvqeL" \
+  --ingest \
+  --force
+```
 
-1. **Duplicate the file**
-   ```bash
-   cp reel-it-in.html reel-it-in-ep002.html
-   ```
+This calls the existing YouTube University pipeline at `~/university/tools/ingest.sh`, writes transcript/media artifacts under `~/university/`, and links them from the Episode Folder. Do not commit raw video, audio, or full transcript artifacts into this repo.
 
-2. **Edit only the `EPISODE` block** (near the top of the `<script>`)
-   - Update `number`, `label`, `date`, `hosts`
-   - Replace the `news` array (source + headline + *why it matters*)
-   - Pick featured sparks from `SPARK_LIBRARY` via `featuredSparks`
+Run the normal episode automation when PowerShell Core is available:
 
-3. **Update the `ARCHIVE` array** with last week's episode
+```bash
+pwsh -NoProfile -File ./tools/run-episode-pipeline.ps1 -Episode 001-pilot -SkipSourceValidation -SkipResearchFeeds
+```
 
-4. **(Recommended)** Move the previous week's file into `archive/`
+Create a standard Dad/co-host episode from templates:
 
-The entire page is one HTML file. No build tools. No dependencies. Open it in any browser.
+```powershell
+.\tools\new-episode.ps1 -Title "Episode working title"
+```
 
-## Live Production Tools
+Prepare recording day without opening apps:
 
-During recording, press <kbd>L</kbd> (or click the button) to enter **Live Mode**:
+```bash
+pwsh -NoProfile -File ./tools/start-recording-session.ps1 -Episode <episode-folder> -NoOpen
+```
 
-- Dark "on air" theme
-- Large readable focus view for each spark
-- Keyboard-driven navigation (`←` `→`, `C` = mark covered, `W` = wildcard)
-- Built-in timer
-- Fullscreen support
+See `docs/WEEKLY_AUTOMATION_RUNBOOK.md` for the longer weekly loop and `tools/README.md` for the full tool list.
 
-Designed so two people can run the entire show from one laptop.
+## Operating Principle
 
-## Design Notes
+Keep the weekly workflow simple until real episodes prove where complexity belongs. Prefer clear files, plain data, and documented decisions over premature architecture.
 
-- Warm paper aesthetic (light mode) with a rich dark theater mode for live
-- Custom typography: Fraunces (serif) + Hanken Grotesk (sans) + JetBrains Mono
-- Subtle paper grain texture
-- Smooth animations that respect `prefers-reduced-motion`
-- Fully responsive down to small phones
-- 100% self-contained after fonts load from Google Fonts
-
-## Philosophy
-
-Keep it human.  
-Every headline must earn its place by answering "why should a normal person care?"  
-The sparks are doors, not lectures. One person explores; the other reels it back in.
-
----
-
-**Template version:** 5 (as of the pilot)
-
-Made with care by Shane & Dad · 2026
-
-*If you're seeing this in the repo: the current `reel-it-in.html` is the working pilot (Episode 001).*
+Foundation work should prioritize the next real recording: clear directives, fail-fast automation, small reusable script helpers, and a working YouTube reaction lane that reuses the existing `~/university` ingest pipeline. Defer build systems, rewrites, broad adapter frameworks, and new dependencies until production pain proves they are simpler than the current setup.

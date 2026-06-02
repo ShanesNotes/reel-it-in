@@ -1,0 +1,17 @@
+<!DOCTYPE html>
+<html lang="en"><head><meta charset="UTF-8" />
+<link rel="stylesheet" href="../colors_and_type.css" />
+<style>
+  html,body{margin:0}
+  body{background:var(--bg);color:var(--fg1);padding:26px 30px;-webkit-font-smoothing:antialiased;display:flex;flex-direction:column;gap:18px}
+  .status{display:inline-flex;align-items:center;gap:8px;font-family:var(--mono);font-size:11px;letter-spacing:.14em;text-transform:uppercase;color:#F2EBDB;background:var(--accent-2);padding:7px 12px;border-radius:3px;box-shadow:0 6px 22px rgba(0,0,0,.22);width:fit-content}
+  .status b{color:var(--accent)}
+  .onair{display:inline-flex;align-items:center;gap:8px;font-family:var(--mono);font-size:11px;letter-spacing:.22em;text-transform:uppercase;color:#F4D9D4;background:#2A0E0B;padding:7px 12px;border-radius:3px;width:fit-content}
+  .dot{width:8px;height:8px;border-radius:50%;background:#E5483B;box-shadow:0 0 0 0 rgba(229,72,59,.6);animation:pulse 1.6s infinite}
+  .clock{color:#F4D9D4;letter-spacing:.14em;font-variant-numeric:tabular-nums}
+  @keyframes pulse{0%{box-shadow:0 0 0 0 rgba(229,72,59,.6)}70%{box-shadow:0 0 0 9px rgba(229,72,59,0)}100%{box-shadow:0 0 0 0 rgba(229,72,59,0)}}
+</style></head>
+<body>
+  <div class="status"><span class="label-draft">Working Draft · <b>Pilot</b></span></div>
+  <div class="onair"><span class="dot"></span>On Air <span class="clock">04:12</span></div>
+</body></html>

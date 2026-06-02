@@ -1,0 +1,20 @@
+<!DOCTYPE html>
+<html lang="en"><head><meta charset="UTF-8" />
+<link rel="stylesheet" href="../colors_and_type.css" />
+<style>
+  html,body{margin:0}
+  body{background:var(--bg);color:var(--fg1);padding:26px 30px;-webkit-font-smoothing:antialiased}
+  .row{display:flex;align-items:baseline;gap:16px;padding:9px 0;border-bottom:1px solid var(--line-soft)}
+  .row:last-child{border-bottom:none}
+  .tag{font-family:var(--mono);font-size:10px;letter-spacing:.12em;text-transform:uppercase;color:var(--fg3);width:130px;flex-shrink:0}
+  h1{font-family:var(--serif);font-weight:600;font-size:36px;line-height:1.05;letter-spacing:-.01em;margin:0}
+  h2{font-family:var(--serif);font-weight:500;font-size:26px;line-height:1.2;margin:0}
+  .deck{font-family:var(--serif);font-style:italic;font-size:21px;color:var(--fg2);margin:0}
+  .lede{font-family:var(--serif);font-size:20px;line-height:1.4;margin:0}
+</style></head>
+<body>
+  <div class="row"><span class="tag">H1 · Act title</span><h1>The Conversation</h1></div>
+  <div class="row"><span class="tag">H2 · Spark prompt</span><h2>Is anybody home in there?</h2></div>
+  <div class="row"><span class="tag">Deck · italic</span><p class="deck">Just what matters, and why.</p></div>
+  <div class="row"><span class="tag">Lede · serif body</span><p class="lede">No jargon survives this table.</p></div>
+</body></html>

@@ -1,0 +1,31 @@
+You are helping create the Reel It In intro montage.
+
+The HTML handoff cannot be uploaded here, so use the uploaded reference images plus these instructions as the source of truth.
+
+Project:
+Reel It In is a father-son conversation show about AI. The intro visual idea is "The Golden Thread": one luminous gold thread traced through a mythic ancient-futuristic sequence, then reeled in.
+
+Visual premise:
+A single continuous luminous golden thread is the camera's constant. It is born at Creation, climbs Babel, survives the Flood, descends into the deep near a leviathan/Jonah image, and finally snaps taut into a horizontal gold waterline beneath the Reel It In title.
+
+Style:
+Ancient-futuristic sacred montage. Illuminated manuscript fused with archaic technology. Gold leaf, clay, bronze, black water, code-like geometry, and one luminous thread. Warm near-black, antique gold, deep bronze, tiny papyrus highlights, restrained verdigris teal only in water/depth accents. Heavy 16mm film grain, soft halation, volumetric gold light, deep chiaroscuro. Reverent, slow, mysterious, handmade, cinematic.
+
+Never:
+No visible text, no captions, no readable symbols, no logos, no modern city, no neon, no glossy sci-fi, no cartoon/anime, no fast action, no explosion, no tangled rope, no braided cable, no monster attack, no bright daylight, no blue/teal dominance.
+
+Important:
+The final title/wordmark will be added separately unless explicitly requested. Generated video shots should leave clean negative space and should not create on-screen text.
+
+Music alignment:
+The video should be silent unless specifically asked otherwise. It should visually align to a separate audio track:
+- opening low cello / near silence: spark ignition
+- soft frame-drum heartbeat: thread begins unspooling
+- bowed strings and distant choir build: geometry/Babel impressions
+- metallic bronze/prepared piano texture: flood and deep-water tension
+- brief held silence: thread goes taut, motion nearly freezes
+- mechanical reel hit plus low cello pizzicato: thread snaps into horizontal waterline
+- warm cello resolve: hold on title plate / waterline
+
+Task behavior:
+Before generating final video, propose an exact edit plan with beats, timing, source images/reference types, and transition points. Then wait for approval.

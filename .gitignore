@@ -1,0 +1,31 @@
+# Local/editor noise
+.DS_Store
+Thumbs.db
+*.log
+
+# Dependencies/build output if introduced later
+node_modules/
+dist/
+build/
+.cache/
+
+# Raw imports are provenance, not working source
+inbox/original-exports/*.zip
+
+# Temporary scratch space
+.tmp/
+.reel-it-in-tmp/
+
+# Local prototype screenshots
+production/intro-montage/prototypes/screenshots/*.png
+
+# Local Python/cache noise
+__pycache__/
+*.py[cod]
+
+# Local OMX runtime state
+.omx/
+
+# Production media and external ingest artifacts stay outside git
+Reel It In Media/
+university/

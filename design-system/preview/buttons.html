@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html lang="en"><head><meta charset="UTF-8" />
+<link rel="stylesheet" href="../colors_and_type.css" />
+<style>
+  html,body{margin:0}
+  body{background:var(--bg);color:var(--fg1);padding:26px 30px;-webkit-font-smoothing:antialiased;display:flex;flex-wrap:wrap;gap:14px;align-items:center}
+  .btn{font-family:var(--mono);font-size:12px;letter-spacing:.14em;text-transform:uppercase;border-radius:40px;padding:12px 20px;cursor:pointer;display:inline-flex;align-items:center;gap:9px;transition:.2s}
+  .toggle{color:var(--fg1);background:var(--surface);border:1px solid var(--accent);box-shadow:0 10px 30px rgba(0,0,0,.16)}
+  .toggle .glyph{width:9px;height:9px;border-radius:50%;background:var(--accent)}
+  .live{color:#16110A;background:var(--accent);border:1px solid var(--accent)}
+  .live .glyph{width:9px;height:9px;border-radius:50%;background:#16110A}
+  .ghost{background:none;border:1px solid var(--line);color:var(--fg2)}
+  .ghost.on{border-color:var(--accent);color:var(--accent)}
+  .read{font-family:var(--mono);font-size:11px;letter-spacing:.1em;text-transform:uppercase;color:var(--accent-deep);text-decoration:none;display:inline-flex;gap:7px;border-bottom:1px solid var(--accent-deep);padding-bottom:2px}
+</style></head>
+<body>
+  <button class="btn toggle"><span class="glyph"></span>Live Mode</button>
+  <button class="btn live"><span class="glyph"></span>Exit Live</button>
+  <button class="btn ghost">Wildcard</button>
+  <button class="btn ghost on">✓ Covered</button>
+  <a class="read" href="#">Read the story →</a>
+</body></html>
