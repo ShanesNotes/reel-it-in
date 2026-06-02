@@ -1,0 +1,36 @@
+{
+  "schema_version": "v2",
+  "source_kind": "solo",
+  "video_id": "vc4WtPXgk88",
+  "title": "John Vervaeke & Jonathan Pageau - AI Discussion",
+  "channel": "Transfigured",
+  "url": "https://youtu.be/vc4WtPXgk88?si=SUGRAsjUNuZVvqeL",
+  "duration_seconds": 4965,
+  "upload_date": "20260601",
+  "description": "Jonathan Pageau and Dr. John Vervaeke talk about the current state of Artificial Intelligence.\n\n00:00:00 - Introduction & Setting the Table\n00:01:46 - John's Opening: The Plateau & Disconnection of LLMs\n00:07:25 - Jonathan's Opening: The Threat to Gen Z & Career Paths\n00:09:43 - The Moloch Trap & Geopolitical Hyper-Competition\n00:13:55 - What is AI Decadence? (Model Collapse Explained)\n00:16:45 - The Superhuman Coding Illusion & Real-World Feedback Loops\n00:25:36 - Ontological Fumbling: Is AI a Tool or an Agent?\n00:33:47 - Civilizational Collapse & Automated Bureaucracy\n00:43:06 - The Rise of Sex Robots: Why Vice is Quantifiable and Virtue is Not\n00:51:56 - The Pope's Encyclical: Tower of Babel vs. Walls of Jerusalem\n01:04:33 - Can a Spirit Get Inside Silicon? AI as an Oracle\n01:14:05 - Reversing the Flynn Effect: Restoring Wisdom Through Classical Education",
+  "slug": "john-vervaeke-jonathan-pageau-ai-discussion",
+  "ingested_at": "2026-06-02T00:40:54.314447+00:00",
+  "status": {
+    "downloaded": "complete",
+    "normalized": "complete",
+    "transcribed": "complete",
+    "summarized": "pending"
+  },
+  "models": {
+    "transcript": "large-v3-turbo",
+    "compute_type": "int8",
+    "batch_size": 4,
+    "device": "cuda",
+    "runner": "tower"
+  },
+  "paths": {
+    "audio": "audio/source.wav",
+    "transcript_json": "transcript/source.json",
+    "transcript_md": "transcript.md",
+    "transcript_dir": "transcript/"
+  },
+  "_manifest_path": "/home/ark/university/transfigured/2026-06-01-john-vervaeke-jonathan-pageau-ai-discussion-vc4WtPXgk88/manifest.json",
+  "_root": "/home/ark/university/transfigured/2026-06-01-john-vervaeke-jonathan-pageau-ai-discussion-vc4WtPXgk88",
+  "_transcript_path": "/home/ark/university/transfigured/2026-06-01-john-vervaeke-jonathan-pageau-ai-discussion-vc4WtPXgk88/transcript.md",
+  "_audio_path": "/home/ark/university/transfigured/2026-06-01-john-vervaeke-jonathan-pageau-ai-discussion-vc4WtPXgk88/audio/source.wav"
+}

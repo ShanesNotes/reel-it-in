@@ -5,6 +5,7 @@ Future scripts and automation live here.
 Current tools:
 
 - `new-episode.ps1`: create a new episode folder from `episodes/_template/`
+- `prepare-reaction-episode.py`: create/update a Solo Reaction Episode from a YouTube URL and optionally call the existing `~/university/tools/ingest.sh` transcript pipeline.
 - `episode-status.ps1`: inspect required files and open placeholders for an episode
 - `validate-sources.ps1`: find and check URLs in episode markdown files
 - `collect-research-feeds.ps1`: collect fresh items from the research watchlist into `research-inbox.md` and JSON
@@ -21,6 +22,19 @@ Current tools:
 - `start-recording-session.ps1`: prepare recording day, create media folders, write `session-launch.md`, and open the session targets
 - `export-archive-metadata.ps1`: generate structured episode archive metadata and the episode index
 - `run-episode-pipeline.ps1`: run the status, source, dashboard, edit, publishing, handoff, archive, and git checks in one pass and write `automation-report.md`
+
+Shared foundation:
+
+- `Modules/ReelItIn.Tools.psm1`: tiny shared helpers for episode folder resolution, relative paths, markdown/list parsing, UTF-8 text writes, and PowerShell runtime resolution. Keep this module boring; add helpers only when repeated scripts need the same behavior.
+- `Tests/test_tools_foundation.py`: dependency-free static regression check for the shared module imports, cross-platform path seams, and runtime resolver.
+
+Solo reaction entrypoint:
+
+```bash
+python3 tools/prepare-reaction-episode.py --url "<youtube-url>" --ingest --force
+```
+
+This keeps YouTube University transcript/media artifacts under `~/university/` and writes only Episode Folder pointers into this repo.
 
 Good next tools:
 

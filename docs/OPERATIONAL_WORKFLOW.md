@@ -189,6 +189,27 @@ The final pipeline report is:
 episodes\<episode-folder>\automation-report.md
 ```
 
+
+## Solo Reaction Episodes
+
+Solo reactions use the same one-folder rule, but they start from one Source Video instead of a weekly Story Slate.
+
+Run:
+
+```bash
+python3 tools/prepare-reaction-episode.py --url <youtube-url> --ingest --force
+```
+
+This operationalizes the existing YouTube University pipeline. It writes the Episode Folder files in this repo, but the downloaded audio and WhisperX transcript stay under `~/university/`. Use `source-ingest.md` to find the external manifest and transcript.
+
+Before going live, decide only:
+
+- stream title
+- whether to play the whole video or selected chapters
+- where Shane will capture live commentary notes
+
+Do not build a new ingestion stack inside Reel It In unless repeated episodes prove the old one is insufficient.
+
 ## The One-Command Health Check
 
 When in doubt, run:

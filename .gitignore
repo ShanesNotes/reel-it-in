@@ -18,3 +18,14 @@ inbox/original-exports/*.zip
 
 # Local prototype screenshots
 production/intro-montage/prototypes/screenshots/*.png
+
+# Local Python/cache noise
+__pycache__/
+*.py[cod]
+
+# Local OMX runtime state
+.omx/
+
+# Production media and external ingest artifacts stay outside git
+Reel It In Media/
+university/

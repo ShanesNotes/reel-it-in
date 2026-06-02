@@ -8,7 +8,7 @@ param(
 
 $ErrorActionPreference = "Stop"
 
-$repoRoot = Resolve-Path (Join-Path $PSScriptRoot "..")
+$repoRoot = (Resolve-Path (Join-Path $PSScriptRoot "..")).Path
 $episodesDir = Join-Path $repoRoot "episodes"
 
 function Resolve-EpisodeDirectory {
@@ -261,7 +261,7 @@ if (-not (Test-Path -LiteralPath $episodeFile)) {
 }
 
 if ([string]::IsNullOrWhiteSpace($DashboardPath)) {
-    $DashboardPath = Join-Path $repoRoot "app\reel-it-in.html"
+    $DashboardPath = Join-Path (Join-Path $repoRoot "app") "reel-it-in.html"
 }
 elseif (Test-Path -LiteralPath $DashboardPath) {
     $DashboardPath = (Resolve-Path -LiteralPath $DashboardPath).Path

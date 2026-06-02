@@ -2,6 +2,14 @@
 
 This is the practical Codex loop for producing Reel It In with as little repeated manual work as possible.
 
+Scripts are PowerShell-first. On Linux/macOS or a fresh Windows terminal, run them with PowerShell Core:
+
+```bash
+pwsh -NoProfile -File ./tools/run-episode-pipeline.ps1 -Episode 001-pilot -SkipSourceValidation -SkipResearchFeeds
+```
+
+If `pwsh` is missing, install PowerShell Core before the automation loop. The pipeline should fail before partial child-tool work when the runtime or required scripts are unavailable.
+
 ## 0. Start With State
 
 The Codex app also has an active weekly production check-in scheduled for Monday mornings. Manual weekly work should still start with the same state checks.
@@ -85,6 +93,20 @@ For a full prep/pass report, run:
 ```powershell
 .\tools\run-episode-pipeline.ps1 -Episode <episode-folder> -UpdateDashboard
 ```
+
+
+## Solo Reaction Fast Lane
+
+For a one-video reaction episode, use the existing YouTube University ingest pipeline through the Reel It In wrapper:
+
+```bash
+python3 tools/prepare-reaction-episode.py \
+  --url "https://youtu.be/vc4WtPXgk88?si=SUGRAsjUNuZVvqeL" \
+  --ingest \
+  --force
+```
+
+The wrapper creates/updates an Episode Folder, calls `~/university/tools/ingest.sh`, keeps audio/transcript artifacts under `~/university/`, and writes `source-ingest.md` with the external paths. During the stream, Shane should pause often and capture commentary notes in `production-notes.md`.
 
 ## 4. Send Dad The Brief
 

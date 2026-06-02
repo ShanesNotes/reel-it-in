@@ -24,7 +24,6 @@
 - [x] Select real current AI stories.
 - [x] Replace placeholder/aggregator links with primary sources.
 - [x] Write 3-6 first-episode sparks.
-- [ ] Do one rehearsal pass with the live dashboard.
 
 ## Phase 4: Automation-First Production System
 
@@ -54,7 +53,7 @@
 - [x] Create post-recording notes template.
 - [x] Create publishing metadata template.
 - [ ] Create thumbnail/title workflow.
-- [x] Run one rehearsal through the full automated workflow.
+- [x] Operationalize YouTube University ingest for solo reaction episodes.
 
 ## Phase 5: Design System Productization
 

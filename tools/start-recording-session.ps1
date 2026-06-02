@@ -11,72 +11,16 @@ param(
 
 $ErrorActionPreference = "Stop"
 
-$repoRoot = Resolve-Path (Join-Path $PSScriptRoot "..")
+Import-Module (Join-Path $PSScriptRoot "Modules/ReelItIn.Tools.psm1") -Force
+
+$repoRoot = (Resolve-Path (Join-Path $PSScriptRoot "..")).Path
 $episodesDir = Join-Path $repoRoot "episodes"
-
-function Resolve-EpisodeDirectory {
-    param([string]$Value)
-
-    if (-not [string]::IsNullOrWhiteSpace($Value)) {
-        if (Test-Path -LiteralPath $Value) {
-            return (Resolve-Path -LiteralPath $Value).Path
-        }
-
-        $candidate = Join-Path $episodesDir $Value
-        if (Test-Path -LiteralPath $candidate) {
-            return (Resolve-Path -LiteralPath $candidate).Path
-        }
-
-        throw "Episode folder not found: $Value"
-    }
-
-    $latest = Get-ChildItem -LiteralPath $episodesDir -Directory |
-        Where-Object { $_.Name -match "^\d{3}" } |
-        Sort-Object Name |
-        Select-Object -Last 1
-
-    if (-not $latest) {
-        throw "No numbered episode folders found under $episodesDir"
-    }
-
-    return $latest.FullName
-}
 
 function Get-TextOrEmpty {
     param([string]$Path)
 
     if (Test-Path -LiteralPath $Path) {
         return Get-Content -LiteralPath $Path -Raw
-    }
-
-    return ""
-}
-
-function Get-MarkdownSection {
-    param(
-        [string]$Text,
-        [string]$Heading
-    )
-
-    $escaped = [regex]::Escape($Heading)
-    $match = [regex]::Match($Text, "(?ms)^##\s+$escaped\s*\r?\n(?<body>.*?)(?=^##\s+|\z)")
-    if ($match.Success) {
-        return $match.Groups["body"].Value.Trim()
-    }
-
-    return ""
-}
-
-function Get-ListField {
-    param(
-        [string]$Text,
-        [string]$Name
-    )
-
-    $escaped = [regex]::Escape($Name)
-    $match = [regex]::Match($Text, "(?mi)^-[ \t]*$escaped[ \t]*:[ \t]*(?<value>[^\r\n]*)")
-    if ($match.Success) {
-        return $match.Groups["value"].Value.Trim().Trim('`')
     }
 
     return ""
@@ -120,10 +64,17 @@ function Invoke-OpenTarget {
 }
 
 function Find-ObsPath {
-    $candidates = @(
-        (Join-Path $env:ProgramFiles "obs-studio\bin\64bit\obs64.exe"),
-        (Join-Path ${env:ProgramFiles(x86)} "obs-studio\bin\64bit\obs64.exe")
-    )
+    if ([System.Environment]::OSVersion.Platform -ne [System.PlatformID]::Win32NT) {
+        return ""
+    }
+
+    $candidates = @()
+    if ($env:ProgramFiles) {
+        $candidates += (Join-Path $env:ProgramFiles "obs-studio\bin\64bit\obs64.exe")
+    }
+    if (${env:ProgramFiles(x86)}) {
+        $candidates += (Join-Path ${env:ProgramFiles(x86)} "obs-studio\bin\64bit\obs64.exe")
+    }
 
     foreach ($candidate in $candidates) {
         if (Test-Path -LiteralPath $candidate) {
@@ -134,20 +85,10 @@ function Find-ObsPath {
     return ""
 }
 
-function Write-Utf8Text {
-    param(
-        [string]$Path,
-        [string]$Content
-    )
-
-    $utf8NoBom = New-Object System.Text.UTF8Encoding $false
-    [System.IO.File]::WriteAllText($Path, $Content.Trim() + [Environment]::NewLine, $utf8NoBom)
-}
-
-$episodeDir = Resolve-EpisodeDirectory -Value $Episode
+$episodeDir = Resolve-ReelItInEpisodeDirectory -EpisodesDir $episodesDir -Value $Episode
 $episodeName = Split-Path -Path $episodeDir -Leaf
 $handoffDir = Join-Path $episodeDir "handoff"
-$dashboardPath = Join-Path $repoRoot "app\reel-it-in.html"
+$dashboardPath = Join-Path (Join-Path $repoRoot "app") "reel-it-in.html"
 $productionNotesPath = Join-Path $episodeDir "production-notes.md"
 $recordingPacketPath = Join-Path $handoffDir "recording-packet.md"
 $dadPacketPath = Join-Path $handoffDir "dad-packet.md"
@@ -156,12 +97,18 @@ $opened = New-Object System.Collections.Generic.List[string]
 $warnings = New-Object System.Collections.Generic.List[string]
 
 if (-not $SkipPipeline) {
-    $pipelineArgs = @("-NoProfile", "-ExecutionPolicy", "Bypass", "-File", (Join-Path $PSScriptRoot "run-episode-pipeline.ps1"), "-Episode", $episodeName, "-UpdateDashboard", "-SkipResearchFeeds")
+    $powerShellExe = Resolve-ReelItInPowerShellExecutable -RetryCommand "pwsh -NoProfile -File ./tools/start-recording-session.ps1 -Episode $episodeName -NoOpen"
+    $pipelineScriptPath = Join-Path $PSScriptRoot "run-episode-pipeline.ps1"
+    if (-not (Test-Path -LiteralPath $pipelineScriptPath)) {
+        throw "Recording session preflight failed. Missing pipeline script: $pipelineScriptPath"
+    }
+
+    $pipelineArgs = @("-NoProfile", "-ExecutionPolicy", "Bypass", "-File", $pipelineScriptPath, "-Episode", $episodeName, "-UpdateDashboard", "-SkipResearchFeeds")
     if (-not $FullCheck) {
         $pipelineArgs += "-SkipSourceValidation"
     }
 
-    & powershell.exe @pipelineArgs
+    & $powerShellExe @pipelineArgs
     if ($LASTEXITCODE -ne 0) {
         throw "Recording session pipeline failed. Run tools/run-episode-pipeline.ps1 for details."
     }
@@ -170,12 +117,12 @@ if (-not $SkipPipeline) {
 $episodeText = Get-TextOrEmpty -Path (Join-Path $episodeDir "episode.md")
 $dadText = Get-TextOrEmpty -Path (Join-Path $episodeDir "dad-brief.md")
 $productionText = Get-TextOrEmpty -Path $productionNotesPath
-$metadata = Get-MarkdownSection -Text $episodeText -Heading "Metadata"
-$dadRecording = Get-MarkdownSection -Text $dadText -Heading "Recording"
-$productionSetup = Get-MarkdownSection -Text $productionText -Heading "Recording Setup"
+$metadata = Get-ReelItInMarkdownSection -Text $episodeText -Heading "Metadata"
+$dadRecording = Get-ReelItInMarkdownSection -Text $dadText -Heading "Recording"
+$productionSetup = Get-ReelItInMarkdownSection -Text $productionText -Heading "Recording Setup"
 
 if ([string]::IsNullOrWhiteSpace($RecordingUrl)) {
-    $RecordingUrl = Get-ListField -Text $dadRecording -Name "Link"
+    $RecordingUrl = Get-ReelItInListField -Text $dadRecording -Name "Link"
 }
 
 if ([string]::IsNullOrWhiteSpace($MediaRoot)) {
@@ -201,7 +148,7 @@ if ($PSCmdlet.ShouldProcess($episodeMediaDir, "Create recording media folder ske
 $setupFields = @("Recording service", "Backup recording", "Microphones", "Camera", "Headphones", "Media folder")
 $missingSetup = New-Object System.Collections.Generic.List[string]
 foreach ($field in $setupFields) {
-    $value = Get-ListField -Text $productionSetup -Name $field
+    $value = Get-ReelItInListField -Text $productionSetup -Name $field
     if ([string]::IsNullOrWhiteSpace($value)) {
         $missingSetup.Add($field)
     }
@@ -241,7 +188,7 @@ if (-not $NoOpen) {
 
 New-Item -ItemType Directory -Force -Path $handoffDir | Out-Null
 $generatedAt = Get-Date -Format "yyyy-MM-dd HH:mm:ss"
-$episodeLabel = Get-ListField -Text $metadata -Name "Label"
+$episodeLabel = Get-ReelItInListField -Text $metadata -Name "Label"
 if ([string]::IsNullOrWhiteSpace($episodeLabel)) {
     $episodeLabel = $episodeName
 }
@@ -302,7 +249,7 @@ else {
     }
 }
 
-Write-Utf8Text -Path $sessionLaunchPath -Content ($lines -join "`n")
+Write-ReelItInUtf8Text -Path $sessionLaunchPath -Content ($lines -join "`n")
 
 Write-Host "Recording session prepared: $episodeName"
 Write-Host "Session launch report: $sessionLaunchPath"

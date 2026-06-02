@@ -5,38 +5,12 @@ param(
 
 $ErrorActionPreference = "Stop"
 
-$repoRoot = Resolve-Path (Join-Path $PSScriptRoot "..")
+Import-Module (Join-Path $PSScriptRoot "Modules/ReelItIn.Tools.psm1") -Force
+
+$repoRoot = (Resolve-Path (Join-Path $PSScriptRoot "..")).Path
 $episodesDir = Join-Path $repoRoot "episodes"
 
-function Resolve-EpisodeDirectory {
-    param([string]$Value)
-
-    if (-not [string]::IsNullOrWhiteSpace($Value)) {
-        if (Test-Path -LiteralPath $Value) {
-            return (Resolve-Path -LiteralPath $Value).Path
-        }
-
-        $candidate = Join-Path $episodesDir $Value
-        if (Test-Path -LiteralPath $candidate) {
-            return (Resolve-Path -LiteralPath $candidate).Path
-        }
-
-        throw "Episode folder not found: $Value"
-    }
-
-    $latest = Get-ChildItem -LiteralPath $episodesDir -Directory |
-        Where-Object { $_.Name -match "^\d{3}" } |
-        Sort-Object Name |
-        Select-Object -Last 1
-
-    if (-not $latest) {
-        throw "No numbered episode folders found under $episodesDir"
-    }
-
-    return $latest.FullName
-}
-
-$episodeDir = Resolve-EpisodeDirectory -Value $Episode
+$episodeDir = Resolve-ReelItInEpisodeDirectory -EpisodesDir $episodesDir -Value $Episode
 $episodeName = Split-Path -Path $episodeDir -Leaf
 $requiredFiles = @(
     "episode.md",
@@ -86,7 +60,7 @@ $optionalFiles = @(
 )
 
 $fileRows = foreach ($name in $requiredFiles) {
-    $path = Join-Path $episodeDir $name
+    $path = Join-ReelItInRelativePath -BasePath $episodeDir -RelativePath $name
     $exists = Test-Path -LiteralPath $path
     $length = 0
     $status = "Missing"
@@ -105,7 +79,7 @@ $fileRows = foreach ($name in $requiredFiles) {
 }
 
 $optionalRows = foreach ($name in $optionalFiles) {
-    $path = Join-Path $episodeDir $name
+    $path = Join-ReelItInRelativePath -BasePath $episodeDir -RelativePath $name
     $exists = Test-Path -LiteralPath $path
     $length = 0
     $status = "Missing"

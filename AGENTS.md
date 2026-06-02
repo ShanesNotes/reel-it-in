@@ -31,11 +31,13 @@ The first product is not a public marketing site. It is a host/operator dashboar
 ## Source Of Truth Order
 
 1. `docs/PROJECT_BRIEF.md`
-2. `docs/SHOW_BIBLE.md`
-3. `docs/VOICE.md`
-4. `docs/WORKFLOW.md`
-5. `docs/ROADMAP.md`
-6. `docs/DECISIONS.md`
+2. `CONTEXT.md`
+3. `docs/SHOW_BIBLE.md`
+4. `docs/VOICE.md`
+5. `docs/WORKFLOW.md`
+6. `docs/ROADMAP.md`
+7. `docs/DECISIONS.md`
+8. `docs/CODEBASE_IMPROVEMENT_PLAN.md`
 
 If older files disagree with those docs, update or retire the older files.
 
@@ -67,6 +69,17 @@ If older files disagree with those docs, update or retire the older files.
 - Preserve working prototypes before refactoring.
 - Verify browser behavior after meaningful UI changes.
 
+## Operational Directives
+
+- Build for the next real episode before building a platform.
+- Use only as much architecture as weekly production has proven necessary.
+- Keep automation PowerShell-first and cross-platform; do not rewrite the stack unless a decision doc says why.
+- No new dependencies, build systems, or broad adapter frameworks without explicit user request or an ADR proving they simplify the repo.
+- Prefer clear runbooks, preflight checks, generated reports, and small reusable helpers over new layers.
+- Scripts should fail before partial writes when required runtime, folders, or inputs are missing.
+- Network and paid API work must stay opt-in by default.
+- Dad gets useful briefs and questions, not over-scripted prep.
+
 ## Current Priorities
 
 1. Stabilize repo organization.
@@ -90,3 +103,17 @@ For docs/structure changes:
 - check `git status --short`
 - inspect file tree
 - ensure root `README.md` still points to the right places
+
+## Agent skills
+
+### Issue tracker
+
+GitHub issues in `ShanesNotes/reel-it-in`. See `docs/agents/issue-tracker.md`.
+
+### Triage labels
+
+Default mattpocock/skills triage labels are used. See `docs/agents/triage-labels.md`.
+
+### Domain docs
+
+Single-context repo with root `CONTEXT.md`; use `docs/DECISIONS.md` and future `docs/adr/` for durable decisions. See `docs/agents/domain.md`.

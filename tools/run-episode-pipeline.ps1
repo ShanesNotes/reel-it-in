@@ -9,36 +9,10 @@ param(
 
 $ErrorActionPreference = "Stop"
 
-$repoRoot = Resolve-Path (Join-Path $PSScriptRoot "..")
+Import-Module (Join-Path $PSScriptRoot "Modules/ReelItIn.Tools.psm1") -Force
+
+$repoRoot = (Resolve-Path (Join-Path $PSScriptRoot "..")).Path
 $episodesDir = Join-Path $repoRoot "episodes"
-
-function Resolve-EpisodeDirectory {
-    param([string]$Value)
-
-    if (-not [string]::IsNullOrWhiteSpace($Value)) {
-        if (Test-Path -LiteralPath $Value) {
-            return (Resolve-Path -LiteralPath $Value).Path
-        }
-
-        $candidate = Join-Path $episodesDir $Value
-        if (Test-Path -LiteralPath $candidate) {
-            return (Resolve-Path -LiteralPath $candidate).Path
-        }
-
-        throw "Episode folder not found: $Value"
-    }
-
-    $latest = Get-ChildItem -LiteralPath $episodesDir -Directory |
-        Where-Object { $_.Name -match "^\d{3}" } |
-        Sort-Object Name |
-        Select-Object -Last 1
-
-    if (-not $latest) {
-        throw "No numbered episode folders found under $episodesDir"
-    }
-
-    return $latest.FullName
-}
 
 function Format-CommandPart {
     param([string]$Value)
@@ -58,6 +32,37 @@ function Format-MarkdownCell {
     }
 
     return (($Value -replace "\|", "\|") -replace "\r?\n", " ").Trim()
+}
+
+function Assert-PipelinePreflight {
+    param([string]$PowerShellExe)
+
+    if ([string]::IsNullOrWhiteSpace($PowerShellExe)) {
+        throw "Pipeline preflight failed. No PowerShell executable was resolved for child tool steps."
+    }
+
+    $requiredScripts = @(
+        "episode-status.ps1",
+        "validate-sources.ps1",
+        "collect-research-feeds.ps1",
+        "draft-research-candidates.ps1",
+        "generate-research-scout.ps1",
+        "generate-dad-brief.ps1",
+        "export-dashboard-data.ps1",
+        "generate-edit-plan.ps1",
+        "generate-publishing-package.ps1",
+        "generate-title-thumbnail-package.ps1",
+        "export-production-packets.ps1",
+        "export-marketing-assets.ps1",
+        "export-archive-metadata.ps1"
+    )
+
+    foreach ($scriptName in $requiredScripts) {
+        $scriptPath = Join-Path $PSScriptRoot $scriptName
+        if (-not (Test-Path -LiteralPath $scriptPath)) {
+            throw "Pipeline preflight failed. Missing tool script: $scriptPath"
+        }
+    }
 }
 
 function Invoke-PipelineStep {
@@ -111,7 +116,7 @@ function Invoke-ToolStep {
     $toolArgs = @("-NoProfile", "-ExecutionPolicy", "Bypass", "-File", $scriptPath) + $Arguments
     $displayParts = @(".\tools\$ScriptName") + $Arguments
 
-    return Invoke-PipelineStep -Name $Name -FileName "powershell.exe" -Arguments $toolArgs -DisplayParts $displayParts
+    return Invoke-PipelineStep -Name $Name -FileName $pipelinePowerShell -Arguments $toolArgs -DisplayParts $displayParts
 }
 
 function Write-AutomationReport {
@@ -189,7 +194,7 @@ function Write-AutomationReport {
     )
 
     foreach ($artifact in $artifacts) {
-        $artifactPath = Join-Path (Split-Path -Path $Path -Parent) $artifact
+        $artifactPath = Join-ReelItInRelativePath -BasePath (Split-Path -Path $Path -Parent) -RelativePath $artifact
         $state = if (Test-Path -LiteralPath $artifactPath) { "present" } else { "missing" }
         $lines.Add("- ``$artifact``: $state")
     }
@@ -217,7 +222,11 @@ function Write-AutomationReport {
     Set-Content -LiteralPath $Path -Value ($lines -join "`n") -Encoding utf8
 }
 
-$episodeDir = Resolve-EpisodeDirectory -Value $Episode
+$retryEpisode = if ([string]::IsNullOrWhiteSpace($Episode)) { "<episode-folder>" } else { $Episode }
+$pipelinePowerShell = Resolve-ReelItInPowerShellExecutable -RetryCommand "pwsh -NoProfile -File ./tools/run-episode-pipeline.ps1 -Episode $retryEpisode -SkipSourceValidation -SkipResearchFeeds"
+Assert-PipelinePreflight -PowerShellExe $pipelinePowerShell
+
+$episodeDir = Resolve-ReelItInEpisodeDirectory -EpisodesDir $episodesDir -Value $Episode
 $episodeName = Split-Path -Path $episodeDir -Leaf
 $reportPath = Join-Path $episodeDir "automation-report.md"
 $results = New-Object System.Collections.Generic.List[object]

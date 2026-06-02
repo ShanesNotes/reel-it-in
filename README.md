@@ -11,6 +11,8 @@ This repo contains the show product, design system, production workflow, and ear
 | Need | Go to |
 | --- | --- |
 | What is this project? | `docs/PROJECT_BRIEF.md` |
+| What language should agents use? | `CONTEXT.md` |
+| What improvements are queued? | `docs/CODEBASE_IMPROVEMENT_PLAN.md` |
 | How does the show work? | `docs/SHOW_BIBLE.md` |
 | How should it sound? | `docs/VOICE.md` |
 | How do we prep and record? | `docs/WORKFLOW.md` |
@@ -38,111 +40,41 @@ This repo contains the show product, design system, production workflow, and ear
 
 Open `app/reel-it-in.html` directly in a browser. It is intentionally self-contained for now.
 
-During Live Mode, the dashboard supports:
+### Core commands
 
-- on-air clock
-- focus deck
-- keyboard navigation
-- covered tracking
-- wildcard prompts
-- fullscreen operation
+Create and ingest tonight's solo YouTube reaction episode:
 
-No build step is required yet.
+```bash
+python3 tools/prepare-reaction-episode.py \
+  --url "https://youtu.be/vc4WtPXgk88?si=SUGRAsjUNuZVvqeL" \
+  --ingest \
+  --force
+```
 
-To create a new episode workspace from the standard templates:
+This calls the existing YouTube University pipeline at `~/university/tools/ingest.sh`, writes transcript/media artifacts under `~/university/`, and links them from the Episode Folder. Do not commit raw video, audio, or full transcript artifacts into this repo.
+
+Run the normal episode automation when PowerShell Core is available:
+
+```bash
+pwsh -NoProfile -File ./tools/run-episode-pipeline.ps1 -Episode 001-pilot -SkipSourceValidation -SkipResearchFeeds
+```
+
+Create a standard Dad/co-host episode from templates:
 
 ```powershell
 .\tools\new-episode.ps1 -Title "Episode working title"
 ```
 
-To inspect the latest episode workspace:
+Prepare recording day without opening apps:
 
-```powershell
-.\tools\episode-status.ps1
+```bash
+pwsh -NoProfile -File ./tools/start-recording-session.ps1 -Episode <episode-folder> -NoOpen
 ```
 
-To run the full episode automation loop and write `automation-report.md`:
-
-```powershell
-.\tools\run-episode-pipeline.ps1 -Episode 001-pilot
-```
-
-To validate source links for an episode:
-
-```powershell
-.\tools\validate-sources.ps1 -Path .\episodes\001-pilot
-```
-
-To generate the research scout from candidate sources:
-
-```powershell
-.\tools\collect-research-feeds.ps1 -Episode 001-pilot
-.\tools\draft-research-candidates.ps1 -Episode 001-pilot
-.\tools\generate-research-scout.ps1 -Episode 001-pilot
-```
-
-To generate Dad's brief from the selected episode stories:
-
-```powershell
-.\tools\generate-dad-brief.ps1 -Episode 001-pilot
-```
-
-To generate dashboard-ready data:
-
-```powershell
-.\tools\export-dashboard-data.ps1 -Episode 001-pilot
-```
-
-To generate the editor-facing plan from recording notes and transcript markers:
-
-```powershell
-.\tools\generate-edit-plan.ps1 -Episode 001-pilot
-```
-
-To generate a first-pass publishing package:
-
-```powershell
-.\tools\generate-publishing-package.ps1 -Episode 001-pilot -Force
-```
-
-To generate title options, thumbnail concepts, prompts, and a thumbnail board:
-
-```powershell
-.\tools\generate-title-thumbnail-package.ps1 -Episode 001-pilot
-```
-
-To generate actual thumbnail PNGs after explicitly enabling paid image generation:
-
-```powershell
-$env:OPENAI_API_KEY = "<your key>"
-$env:REEL_IT_IN_GENERATE_IMAGES = "1"
-.\tools\generate-thumbnail-images.ps1 -Episode 001-pilot
-```
-
-To generate shareable handoff packets for Dad, recording, editing, and publishing:
-
-```powershell
-.\tools\export-production-packets.ps1 -Episode 001-pilot
-```
-
-To split publishing copy into YouTube, RSS, social, newsletter, clip, checklist, and upload-field files:
-
-```powershell
-.\tools\export-marketing-assets.ps1 -Episode 001-pilot
-```
-
-To prepare recording day, create the external media folders, and open the working files:
-
-```powershell
-.\tools\start-recording-session.ps1 -Episode 001-pilot
-```
-
-To generate structured archive metadata:
-
-```powershell
-.\tools\export-archive-metadata.ps1 -Episode 001-pilot -UpdateIndex
-```
+See `docs/WEEKLY_AUTOMATION_RUNBOOK.md` for the longer weekly loop and `tools/README.md` for the full tool list.
 
 ## Operating Principle
 
 Keep the weekly workflow simple until real episodes prove where complexity belongs. Prefer clear files, plain data, and documented decisions over premature architecture.
+
+Foundation work should prioritize the next real recording: clear directives, fail-fast automation, small reusable script helpers, and a working YouTube reaction lane that reuses the existing `~/university` ingest pipeline. Defer build systems, rewrites, broad adapter frameworks, and new dependencies until production pain proves they are simpler than the current setup.
