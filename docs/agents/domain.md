@@ -6,7 +6,7 @@ This repo uses a single domain context.
 
 - `CONTEXT.md` at the repo root.
 - `docs/adr/` if it exists.
-- `docs/DECISIONS.md` for existing project decisions until ADRs are introduced.
+- `docs/DECISIONS.md` for project decisions not yet captured in an ADR.
 - The source-of-truth docs listed in `AGENTS.md`.
 
 If an ADR directory does not exist, proceed silently. Create ADRs only when a decision is hard to reverse, surprising without context, and the result of a real trade-off.
@@ -18,7 +18,7 @@ If an ADR directory does not exist, proceed silently. Create ADRs only when a de
 ├── CONTEXT.md
 ├── docs/
 │   ├── DECISIONS.md
-│   └── adr/            # created lazily when needed
+│   └── adr/            # durable architecture decisions
 ├── app/
 ├── episodes/
 └── tools/
@@ -28,7 +28,7 @@ If an ADR directory does not exist, proceed silently. Create ADRs only when a de
 
 When output names a domain concept, use the term as defined in `CONTEXT.md`. Do not drift to avoided synonyms.
 
-If the concept is missing from the glossary, either reconsider the wording or update `CONTEXT.md` through `grill-with-docs`.
+If the concept is missing from the glossary, either reconsider the wording or update `CONTEXT.md` and note the change in `docs/DECISIONS.md` when it affects how agents should work.
 
 ## Flag decision conflicts
 

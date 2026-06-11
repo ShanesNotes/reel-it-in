@@ -1,0 +1,93 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Reel It In — Design System Previews</title>
+  <link rel="stylesheet" href="../colors_and_type.css" />
+  <style>
+    html, body { margin: 0; }
+    body {
+      background: var(--bg);
+      color: var(--fg1);
+      font-family: var(--sans);
+      line-height: 1.5;
+      padding: 2.5rem 1.5rem 3rem;
+      -webkit-font-smoothing: antialiased;
+    }
+    h1 {
+      font-family: var(--display);
+      font-weight: 500;
+      font-size: clamp(1.75rem, 4vw, 2.5rem);
+      margin: 0 0 0.5rem;
+    }
+    .lede { color: var(--fg2); max-width: 42rem; margin: 0 0 2rem; }
+    section { margin-bottom: 2rem; }
+    h2 {
+      font-family: var(--mono);
+      font-size: 0.75rem;
+      letter-spacing: 0.18em;
+      text-transform: uppercase;
+      color: var(--fg2);
+      margin: 0 0 0.75rem;
+    }
+    ul { list-style: none; padding: 0; margin: 0; display: grid; gap: 0.5rem; }
+    a {
+      color: var(--accent-deep);
+      text-decoration: none;
+      border-bottom: 1px solid transparent;
+    }
+    a:hover { border-bottom-color: currentColor; }
+    li { font-size: 0.95rem; }
+  </style>
+</head>
+<body>
+  <h1>Design System Previews</h1>
+  <p class="lede">Small visual specimens for tokens, type, color, and components. Open any file directly in a browser.</p>
+
+  <section>
+    <h2>Color</h2>
+    <ul>
+      <li><a href="color-paper.html">Paper palette</a></li>
+      <li><a href="color-live.html">Live surface palette</a></li>
+      <li><a href="color-accents.html">Accent colors</a></li>
+      <li><a href="ramp-gold.html">Gold ramp</a></li>
+      <li><a href="ramp-teal.html">Teal ramp</a></li>
+    </ul>
+  </section>
+
+  <section>
+    <h2>Typography</h2>
+    <ul>
+      <li><a href="type-display.html">Display (Fraunces)</a></li>
+      <li><a href="type-scale.html">Type scale</a></li>
+      <li><a href="type-ramp.html">Type ramp</a></li>
+      <li><a href="type-mono.html">Mono labels</a></li>
+      <li><a href="type-dropcap.html">Drop cap</a></li>
+    </ul>
+  </section>
+
+  <section>
+    <h2>Layout &amp; Surface</h2>
+    <ul>
+      <li><a href="grid.html">Grid</a></li>
+      <li><a href="spacing.html">Spacing</a></li>
+      <li><a href="radii.html">Radii</a></li>
+      <li><a href="shadows.html">Shadows</a></li>
+      <li><a href="grain.html">Film grain</a></li>
+      <li><a href="motion.html">Motion</a></li>
+    </ul>
+  </section>
+
+  <section>
+    <h2>Components</h2>
+    <ul>
+      <li><a href="buttons.html">Buttons</a></li>
+      <li><a href="news-card.html">News card</a></li>
+      <li><a href="spark-card.html">Spark card</a></li>
+      <li><a href="arc-row.html">Arc row</a></li>
+      <li><a href="status-live.html">Live status</a></li>
+    </ul>
+  </section>
+</body>
+</html>

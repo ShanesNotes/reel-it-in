@@ -1,6 +1,6 @@
 # Tools
 
-Future scripts and automation live here.
+Scripts and automation for weekly episode production.
 
 Current tools:
 

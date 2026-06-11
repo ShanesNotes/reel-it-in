@@ -24,7 +24,7 @@ The first product is not a public marketing site. It is a host/operator dashboar
 - `docs/`: project source-of-truth docs
 - `episodes/`: per-episode prep, source links, notes, and future snapshots
 - `production/`: intro montage, publishing, media-production materials
-- `tools/`: future scripts and automation
+- `tools/`: scripts and automation
 - `archive/`: retired generated artifacts or published snapshots
 - `inbox/`: raw imports and user drops; not a source of truth
 
@@ -116,4 +116,4 @@ Default mattpocock/skills triage labels are used. See `docs/agents/triage-labels
 
 ### Domain docs
 
-Single-context repo with root `CONTEXT.md`; use `docs/DECISIONS.md` and future `docs/adr/` for durable decisions. See `docs/agents/domain.md`.
+Single-context repo with root `CONTEXT.md`; use `docs/DECISIONS.md` and `docs/adr/` for durable decisions. See `docs/agents/domain.md`.

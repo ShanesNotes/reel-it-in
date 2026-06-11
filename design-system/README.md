@@ -8,7 +8,7 @@ This folder contains the extracted Reel It In design system.
 - `accessibility.md`: contrast notes and accessibility constraints
 - `assets/`: reusable brand texture and wordmark specimens
 - `fonts/`: font-loading notes
-- `preview/`: small visual specimens
+- `preview/`: small visual specimens (`preview/index.html` links them all)
 - `screenshots/`: reference screenshots from prior design passes
 - `ui-kits/`: higher-fidelity HTML/CSS/JSX prototypes
 

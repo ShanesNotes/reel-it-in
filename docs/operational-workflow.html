@@ -477,19 +477,19 @@
       <aside class="control-strip" aria-label="Workspace anchors">
         <div class="control">
           <b>Workspace</b>
-          <code>C:\Users\Shane\Documents\reel-it-in</code>
+          <code>~/reel-it-in<br>C:\Users\Shane\Documents\reel-it-in</code>
         </div>
         <div class="control">
           <b>Media Vault</b>
-          <code>C:\Users\Shane\Documents\Reel It In Media\&lt;episode&gt;</code>
+          <code>~/Reel It In Media/&lt;episode&gt;<br>C:\Users\Shane\Documents\Reel It In Media\&lt;episode&gt;</code>
         </div>
         <div class="control">
           <b>Dad Gets</b>
-          <code>dad-brief.md<br>handoff\dad-packet.md</code>
+          <code>dad-brief.md<br>handoff/dad-packet.md</code>
         </div>
         <div class="control">
           <b>Health Check</b>
-          <code>.\tools\run-episode-pipeline.ps1 -Episode &lt;episode&gt;</code>
+          <code>pwsh -NoProfile -File ./tools/run-episode-pipeline.ps1 -Episode &lt;episode&gt;</code>
         </div>
       </aside>
     </header>
@@ -498,7 +498,7 @@
       <section>
         <div class="section-title">
           <h2>The Weekly Loop</h2>
-          <span>run from the repo root</span>
+          <span>run from the repo root · Linux/macOS: prefix with <code>pwsh -NoProfile -File</code></span>
         </div>
         <div class="rail">
           <article class="step">
@@ -602,6 +602,35 @@
 
       <section>
         <div class="section-title">
+          <h2>Solo Reaction Lane</h2>
+          <span>one source video, same one-folder rule</span>
+        </div>
+        <div class="rail">
+          <article class="step">
+            <div class="num">A</div>
+            <div>
+              <h3>Ingest And Prep</h3>
+              <p>Create or refresh a Solo Reaction Episode from a YouTube URL. Transcript artifacts stay under <code>~/university/</code>; this repo keeps pointers only.</p>
+            </div>
+            <div class="commands">
+              <code>python3 tools/prepare-reaction-episode.py --url &lt;youtube-url&gt; --ingest --force</code>
+            </div>
+          </article>
+          <article class="step">
+            <div class="num">B</div>
+            <div>
+              <h3>Record And Package</h3>
+              <p>Stream or record with commentary notes, then run the normal packaging tools when ready.</p>
+            </div>
+            <div class="commands">
+              <code>pwsh -NoProfile -File ./tools/run-episode-pipeline.ps1 -Episode &lt;episode&gt; -SkipSourceValidation -SkipResearchFeeds</code>
+            </div>
+          </article>
+        </div>
+      </section>
+
+      <section>
+        <div class="section-title">
           <h2>What Gets Produced</h2>
           <span>episode artifacts</span>
         </div>
@@ -614,12 +643,12 @@
           <div class="artifact">
             <b>Dad Prep</b>
             <p>A short brief with the frame, story bullets, and the good questions.</p>
-            <code>handoff\dad-packet.md</code>
+            <code>handoff/dad-packet.md</code>
           </div>
           <div class="artifact">
             <b>Recording</b>
             <p>Dashboard data, launch notes, service links, and media folder map.</p>
-            <code>handoff\session-launch.md</code>
+            <code>handoff/session-launch.md</code>
           </div>
           <div class="artifact">
             <b>Edit</b>
@@ -634,7 +663,7 @@
           <div class="artifact">
             <b>Publishing</b>
             <p>YouTube copy, RSS copy, social copy, newsletter copy, clips, and upload JSON.</p>
-            <code>handoff\marketing\</code>
+            <code>handoff/marketing/</code>
           </div>
           <div class="artifact">
             <b>Archive</b>
@@ -717,7 +746,7 @@
 
       <section class="footer">
         <strong>When the system feels fuzzy, run the full pipeline.</strong>
-        <code>.\tools\run-episode-pipeline.ps1 -Episode &lt;episode&gt; -UpdateDashboard</code>
+        <code>pwsh -NoProfile -File ./tools/run-episode-pipeline.ps1 -Episode &lt;episode&gt; -UpdateDashboard</code>
       </section>
     </main>
   </div>

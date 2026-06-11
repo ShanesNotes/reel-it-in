@@ -227,7 +227,7 @@ $episodeDir = Resolve-EpisodeDirectory -Value $Episode
 $episodeName = Split-Path -Path $episodeDir -Leaf
 
 if ([string]::IsNullOrWhiteSpace($WatchlistPath)) {
-    $WatchlistPath = Join-Path $repoRoot "docs\RESEARCH_WATCHLIST.json"
+    $WatchlistPath = Join-Path $repoRoot "docs/RESEARCH_WATCHLIST.json"
 }
 elseif (-not [System.IO.Path]::IsPathRooted($WatchlistPath)) {
     $WatchlistPath = Join-Path $repoRoot $WatchlistPath

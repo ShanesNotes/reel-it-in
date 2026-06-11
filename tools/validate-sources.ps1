@@ -27,7 +27,7 @@ else {
 $targetItem = Get-Item -LiteralPath $targetPath
 if ($targetItem.PSIsContainer) {
     $files = Get-ChildItem -LiteralPath $targetItem.FullName -Recurse -File -Filter "*.md" |
-        Where-Object { $_.Name -notin @("automation-report.md", "research-scout.md", "research-inbox.md", "research-drafts.md") -and $_.FullName -notmatch "\\handoff\\" }
+        Where-Object { $_.Name -notin @("automation-report.md", "research-scout.md", "research-inbox.md", "research-drafts.md") -and $_.FullName -notmatch "[\\/]handoff[\\/]" }
 }
 else {
     $files = @($targetItem)

@@ -23,18 +23,19 @@ This repo contains the show product, design system, production workflow, and ear
 | What are we building next? | `docs/ROADMAP.md` |
 | What should Codex know first? | `AGENTS.md` |
 | Current pilot dashboard | `app/reel-it-in.html` |
-| Design system assets | `design-system/` |
+| Design system assets | `design-system/` (`design-system/preview/index.html`) |
 | Intro montage handoff | `production/intro-montage/` |
 
 ## Current Status
 
-- `main` contains the original pilot HTML and README history.
-- This branch reorganizes the project into a production-ready repo shape.
+- Default branch is `main`, which holds the production-ready repo shape (merged from the foundation work in PR #1).
 - The current usable prototype is `app/reel-it-in.html`.
-- The design system has been extracted into `design-system/`.
-- The automation-first operating plan is `docs/AUTOMATION_PLAN.md`.
+- The design system lives in `design-system/`.
+- Episode automation lives in `tools/`; the operating plan is `docs/AUTOMATION_PLAN.md`.
+- `001-pilot/` has a full prep slate and generated artifacts; not recorded yet.
+- `002-john-vervaeke-jonathan-pageau-ai-discussion-reaction/` is the active solo-reaction prep lane.
 - A Codex app weekly production check-in is active for Monday mornings.
-- The original Claude export zip is quarantined under `inbox/original-exports/` and ignored by git; it is not a working source of truth.
+- The original Claude export zip, if kept locally, belongs under `inbox/original-exports/` and is ignored by git; extracted files are the working source of truth.
 
 ## Local Use
 

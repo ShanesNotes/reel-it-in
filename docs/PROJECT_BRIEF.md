@@ -23,7 +23,7 @@ The first product is a host/operator dashboard:
 - prep surface for one episode
 - weekly template
 - live recording substrate
-- future archive/publishing helper
+- episode packaging and publishing helpers (`tools/`, `production/publishing/`)
 
 The current dashboard is `app/reel-it-in.html`.
 

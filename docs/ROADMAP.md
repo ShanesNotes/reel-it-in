@@ -8,10 +8,11 @@
 - [x] Create source-of-truth docs.
 - [x] Add Codex operating guide.
 - [x] Review and commit foundation branch.
+- [x] Merge foundation work to `main` (PR #1).
 
 ## Phase 2: Pilot Dashboard Stabilization
 
-- [ ] Verify `app/reel-it-in.html` after the move.
+- [x] Verify `app/reel-it-in.html` after the move.
 - [ ] Fix any broken asset references.
 - [ ] Add a small browser test checklist.
 - [ ] Decide whether the current single HTML remains the production template for episode 001.
@@ -52,14 +53,14 @@
 - [x] Define audio capture plan with separate tracks.
 - [x] Create post-recording notes template.
 - [x] Create publishing metadata template.
-- [ ] Create thumbnail/title workflow.
+- [x] Create thumbnail/title workflow (automation in `tools/`; human still picks final title and image).
 - [x] Operationalize YouTube University ingest for solo reaction episodes.
 
 ## Phase 5: Design System Productization
 
 - [ ] Normalize UI kit file names and references.
 - [ ] Decide whether React prototypes stay as references or become app code.
-- [ ] Add design-system preview index.
+- [x] Add design-system preview index.
 - [ ] Keep accessibility notes current.
 - [ ] Create public graphics lane only when needed.
 

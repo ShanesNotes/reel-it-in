@@ -1,6 +1,6 @@
 # Operational Workflow
 
-Last verified: 2026-06-01.
+Last verified: 2026-06-11.
 
 This is the plain-English way to run Reel It In each week.
 
@@ -14,10 +14,11 @@ Codex can generate, check, and package most of the work. Shane still makes the e
 
 ## Where Everything Lives
 
-Active workspace:
+Active workspace (use your local checkout path):
 
 ```text
-C:\Users\Shane\Documents\reel-it-in
+Windows: C:\Users\Shane\Documents\reel-it-in
+Linux:   ~/reel-it-in
 ```
 
 Shared GitHub source of truth:
@@ -29,20 +30,21 @@ https://github.com/ShanesNotes/reel-it-in.git
 Raw and exported media live outside git:
 
 ```text
-C:\Users\Shane\Documents\Reel It In Media\<episode-folder>\
+Windows: C:\Users\Shane\Documents\Reel It In Media\<episode-folder>\
+Linux:   ~/Reel It In Media/<episode-folder>/
 ```
 
 Per-episode working folders live in:
 
 ```text
-episodes\<episode-folder>\
+episodes/<episode-folder>/
 ```
 
 Dad-facing files:
 
 ```text
-episodes\<episode-folder>\dad-brief.md
-episodes\<episode-folder>\handoff\dad-packet.md
+episodes/<episode-folder>/dad-brief.md
+episodes/<episode-folder>/handoff/dad-packet.md
 ```
 
 ## The Weekly Loop
@@ -186,7 +188,7 @@ After publishing, add final links, runtime, transcript link, and export location
 The final pipeline report is:
 
 ```text
-episodes\<episode-folder>\automation-report.md
+episodes/<episode-folder>/automation-report.md
 ```
 
 
@@ -218,7 +220,13 @@ When in doubt, run:
 .\tools\run-episode-pipeline.ps1 -Episode <episode-folder> -UpdateDashboard
 ```
 
-This checks sources, research, Dad brief, dashboard data, edit plan, title/thumbnail package, publishing package, handoff packets, marketing files, archive metadata, and git status.
+On Linux or macOS, use PowerShell Core from the repo root:
+
+```bash
+pwsh -NoProfile -File ./tools/run-episode-pipeline.ps1 -Episode <episode-folder> -UpdateDashboard
+```
+
+This checks sources, research, Dad brief, dashboard data, edit plan, title/thumbnail package, publishing package, handoff packets, marketing files, archive metadata, and git status. See `docs/WEEKLY_AUTOMATION_RUNBOOK.md` for the full weekly loop.
 
 ## What Codex Owns
 
