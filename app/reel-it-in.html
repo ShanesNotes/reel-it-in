@@ -1,9 +1,12 @@
-﻿<!DOCTYPE html>
+<!DOCTYPE html>
 <html lang="en">
 <head>
 <meta charset="UTF-8" />
 <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-<title>Reel It In â€” working draft</title>
+<meta name="reel-it-in-template" content="pilot-dashboard" />
+<meta name="reel-it-in-version" content="5.1" />
+<meta name="reel-it-in-updated" content="2026-06-11" />
+<title>Reel It In — Pilot Dashboard</title>
 <link rel="preconnect" href="https://fonts.googleapis.com" />
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
 <link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,400;0,9..144,500;0,9..144,600;1,9..144,400;1,9..144,500&family=Hanken+Grotesk:wght@400;500;600;700&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet" />
@@ -100,6 +103,8 @@
   .head{font-family:var(--sans);font-weight:700;font-size:21px;line-height:1.22;margin:12px 0 14px;letter-spacing:-.01em;text-wrap:balance}
   .why{font-size:15px;color:var(--ink-soft);flex:1}
   .why b{color:var(--ink);font-weight:600}
+  .x-insight{font-size:13px;color:var(--ink-faint);margin-top:10px;border-left:2px solid var(--gold);padding-left:10px;line-height:1.45}
+  .x-insight b{color:var(--ink-soft);font-weight:600}
   .read{font-family:var(--mono);font-size:11px;letter-spacing:.1em;text-transform:uppercase;color:var(--gold-deep);text-decoration:none;margin-top:16px;display:inline-flex;align-items:center;gap:7px;border-bottom:1px solid transparent;transition:border-color .25s;width:fit-content}
   .read:hover{border-color:var(--gold-deep)}
   .read .arr{transition:transform .25s ease}
@@ -150,7 +155,7 @@
   body.live .act-note{display:none}
   body.live .news{grid-template-columns:repeat(auto-fit,minmax(220px,1fr));gap:12px}
   body.live .news-card{padding:16px 18px}
-  body.live .news-card .why,body.live .news-card .read{display:none}
+  body.live .news-card .why,body.live .news-card .read,body.live .news-card .x-insight{display:none}
   body.live .news-card .head{font-size:17px;margin-bottom:0}
   body.live .news-card.blank{display:none}
   body.live .sparks{gap:16px}
@@ -207,7 +212,7 @@
 
   <div class="status">
     <span class="live-dot"></span>
-    <span class="label-draft">Working Draft Â· <b id="st-label">Pilot</b></span>
+    <span class="label-draft">Working Draft · <b id="st-label">Pilot</b></span>
     <span class="label-live">On Air</span>
     <span class="clock" id="clock">00:00</span>
   </div>
@@ -219,8 +224,8 @@
   </button>
 
   <div id="hud">
-    <div class="counts">â˜… <b id="hud-total">0</b> sparks Â· <b id="hud-left">0</b> left</div>
-    <div class="keys">Tap a spark Â· <b>&larr;&rarr;</b> move Â· <b>C</b> covered Â· <b>W</b> wildcard</div>
+    <div class="counts">â˜… <b id="hud-total">0</b> sparks · <b id="hud-left">0</b> left</div>
+    <div class="keys">Tap a spark · <b>&larr;&rarr;</b> move · <b>C</b> covered · <b>W</b> wildcard</div>
     <div class="hud-btns">
       <button id="hud-wild">Wildcard</button>
       <button id="hud-full">Fullscreen</button>
@@ -230,7 +235,7 @@
   <div id="focus" aria-hidden="true" role="dialog" aria-label="Spark focus view">
     <div class="f-top">
       <span class="f-counter" id="f-counter"></span>
-      <button class="f-close" id="f-close">Esc Â· back</button>
+      <button class="f-close" id="f-close">Esc · back</button>
     </div>
     <div class="f-center">
       <span class="f-tag" id="f-tag"></span>
@@ -253,12 +258,12 @@
   <div class="wrap">
 
     <header>
-      <div class="kicker rise d1">A fatherâ€“son conversation about A.I.</div>
+      <div class="kicker rise d1">A father–son conversation about A.I.</div>
       <h1 class="title rise d2">Reel<span class="it"> It</span> In</h1>
-      <p class="deck rise d3">Not all the AI news â€” just what matters, and why. In plain English.</p>
+      <p class="deck rise d3">Not all the AI news — just what matters, and why. In plain English.</p>
       <div class="epigraph rise d4">
         <q>I'll reel you in when you get too nerdy.</q>
-        <cite>â€” Dad, on his job description</cite>
+        <cite>— Dad, on his job description</cite>
       </div>
       <div class="meta rise d5">
         <span class="byline">Hosted by <span class="fill" id="host-you">[ you ]</span> &amp; <span class="fill" id="host-dad">[ dad ]</span></span>
@@ -291,73 +296,76 @@
     </section>
 
     <footer>
-      <p><span class="gold">Reel It In</span> â€” working title, working draft</p>
-      <p id="foot-version">Template v5 Â· duplicate weekly Â· edit the EPISODE block Â· archive the rest</p>
+      <p><span class="gold">Reel It In</span> — working title, working draft</p>
+      <p id="foot-version">Template v5.1 · updated 2026-06-11 · edit the EPISODE block · archive the rest</p>
     </footer>
 
   </div>
 
 <script>
   /* =====================================================================
-     â–ˆâ–ˆâ–ˆ  EDIT THIS BLOCK EACH WEEK â€” NOTHING ELSE  â–ˆâ–ˆâ–ˆ
+     ███  EDIT THIS BLOCK EACH WEEK — NOTHING ELSE  ███
        1. Duplicate this file  ->  reel-it-in-ep002.html
        2. Edit the EPISODE object below (number, date, hosts, news, sparks)
        3. Move last week's file to your archive folder + add it to ARCHIVE
-     CRON HOOK: the `news` array is plain data â€” a weekly job can fetch the
+     CRON HOOK: the `news` array is plain data — a weekly job can fetch the
      top AI headlines and write it in. Keep `why` human-written.
      ===================================================================== */
   const EPISODE = {
-    "number":  "001",
-    "label":  "Pilot",
-    "date":  "2026-06-01",
-    "hosts":  {
-                  "you":  "Shane",
-                  "dad":  "Dad"
-              },
-    "news":  [
-                 {
-                     "source":  "Google I/O 2026 announcements",
-                     "url":  "https://blog.google/innovation-and-ai/technology/ai/google-io-2026-all-our-announcements/",
-                     "headline":  "Google wants AI to stop just answering and start doing things for you.",
-                     "why":  "This is the moment AI starts feeling less like a chatbot and more like a helper embedded in products people already use.",
-                     "dadQuestion":  "When you say it can \"act,\" what is it actually allowed to do?",
-                     "status":  "Selected"
-                 },
-                 {
-                     "source":  "Microsoft Security: Defense at AI speed",
-                     "url":  "https://www.microsoft.com/en-us/security/blog/2026/05/12/defense-at-ai-speed-microsofts-new-multi-model-agentic-security-system-tops-leading-industry-benchmark/",
-                     "headline":  "Microsoft says AI agents helped find serious Windows security holes.",
-                     "why":  "AI is not just writing code now; it is starting to inspect the digital plumbing we all depend on. That could help defenders, but it also raises the obvious question of what attackers can do with similar tools.",
-                     "dadQuestion":  "If AI can find those flaws, can criminals use it to find them too?",
-                     "status":  "Selected"
-                 },
-                 {
-                     "source":  "European Commission AI transparency consultation",
-                     "url":  "https://digital-strategy.ec.europa.eu/en/news/commission-opens-consultation-draft-guidelines-ai-transparency-obligations",
-                     "headline":  "Europe is moving toward labels for AI conversations and AI-made media.",
-                     "why":  "The internet is about to need ingredient labels. The hard part is deciding what must be labeled, who checks it, and whether normal people will trust the labels.",
-                     "dadQuestion":  "Would a label make you trust something more, or just make you wonder what else is unlabeled?",
-                     "status":  "Selected"
-                 }
-             ],
-    "featuredSparks":  [
-                           "whose-opinions",
-                           "oracle",
-                           "the-state",
-                           "where-it-lives",
-                           "who-owns-temple"
-                       ]
+  "number": "001",
+  "label": "Pilot",
+  "date": "2026-06-01",
+  "hosts": {
+    "you": "Shane",
+    "dad": "Dad"
+  },
+  "news": [
+    {
+      "source": "Google I/O 2026 announcements",
+      "url": "https://blog.google/innovation-and-ai/technology/ai/google-io-2026-all-our-announcements/",
+      "headline": "Google wants AI to stop just answering and start doing things for you.",
+      "why": "This is the moment AI starts feeling less like a chatbot and more like a helper embedded in products people already use.",
+      "dadQuestion": "When you say it can \"act,\" what is it actually allowed to do?",
+      "status": "Selected",
+      "xInsight": "- **What people are arguing about:** Did Google just kill the old search box, or is it the same product with more AI on top? Publishers and SEO folks warn that background “information agents” could mean fewer website visits; Google pushes back that blue links still exist, just farther from center stage.\n- **Representative angle:** Tech coverage keeps framing Gemini Spark as Google’s answer to OpenClaw — an always-on cloud agent that can watch your inbox and calendar even when your laptop is off, with permission checks before it does anything big.\n- **So what for listeners:** AI is moving into the apps you already use — search, shopping, email — and starting to handle small jobs, not just answer questions. Less keyword hunting, more delegating, if you’re okay with what it can see."
+    },
+    {
+      "source": "Microsoft Security: Defense at AI speed",
+      "url": "https://www.microsoft.com/en-us/security/blog/2026/05/12/defense-at-ai-speed-microsofts-new-multi-model-agentic-security-system-tops-leading-industry-benchmark/",
+      "headline": "Microsoft says AI agents helped find serious Windows security holes.",
+      "why": "AI is not just writing code now; it is starting to inspect the digital plumbing we all depend on. That could help defenders, but it also raises the obvious question of what attackers can do with similar tools.",
+      "dadQuestion": "If AI can find those flaws, can criminals use it to find them too?",
+      "status": "Selected",
+      "xInsight": "- **The fight on X:** Real breakthrough or benchmark theater? Debate splits over self-reported CyberGym scores beating Anthropic's Mythos, whether 100-plus agents beat one big model, and whether the same bug-hunting kit works for attackers too.\n- **Representative angle:** Nadella's Patch Tuesday flex — AI agents found 16 Windows flaws, four critical, right before the fixes shipped. GeekWire summed it up as \"Mythos has been MDASH'd.\"\n- **So what:** AI isn't just writing code anymore; it's stress-testing the plumbing behind your laptop. That could patch holes faster — but the race to find them just sped up for everyone."
+    },
+    {
+      "source": "European Commission AI transparency consultation",
+      "url": "https://digital-strategy.ec.europa.eu/en/news/commission-opens-consultation-draft-guidelines-ai-transparency-obligations",
+      "headline": "Europe is moving toward labels for AI conversations and AI-made media.",
+      "why": "The internet is about to need ingredient labels. The hard part is deciding what must be labeled, who checks it, and whether normal people will trust the labels.",
+      "dadQuestion": "Would a label make you trust something more, or just make you wonder what else is unlabeled?",
+      "status": "Selected",
+      "xInsight": "- **What people on X are arguing about:** Whether EU transparency rules will actually help people spot bots and deepfakes, or just add legal fine print platforms can game—while creators and lawyers fight over what counts as AI-generated, manipulated, or “public interest” content.\n- **Representative angle:** A recurring thread treats the August deadline like ingredient labels on the internet: fine in theory, but pointless if nobody reads them, watermarks get stripped, or only honest players bother to comply.\n- **So what:** Europe is deciding when apps and sites must tell you you’re talking to AI or seeing synthetic media. That shapes how much you can trust what you read, watch, and click—not just whether a label exists."
+    }
+  ],
+  "featuredSparks": [
+    "whose-opinions",
+    "oracle",
+    "the-state",
+    "where-it-lives",
+    "who-owns-temple"
+  ]
 };
 
   const SPARK_LIBRARY = {
-    "consciousness":  { tag:"The Big One",       prompt:"Is anybody home in there? Is it actually thinking?", aside:"My honest take: no â€” a brilliant mirror, not a mind. So why does the line feel like it's blurring?" },
-    "whose-opinions": { tag:"Under the Hood",    prompt:"The model has no opinions of its own â€” so whose are coming out of its mouth?", aside:"Whatever it was trained on becomes its worldview. That's why two AIs can answer the same question differently." },
-    "oracle":         { tag:"Myth & Machine",    prompt:"People are \u201cpraying\u201d to the machine. Is the prompt box the new oracle?", aside:"A tool, a confessional, or a ritual â€” and does it know the difference? (It doesn't.)" },
-    "old-gods":       { tag:"Old Gods, New Gods", prompt:"Every age built something to consult the unknown. What does ours say about us?", aside:"Oracles, spirits, daemons â€” and the silicon version we just quietly invented." },
-    "the-state":      { tag:"The State",         prompt:"When the government starts asking the AI for answers, whose answers are they?", aside:"Policy, policing, public services â€” running on models almost nobody can see inside." },
-    "where-it-lives": { tag:"Where It Lives",    prompt:"Soon the AI may live in your pocket instead of a warehouse far away. Better, or just different?", aside:"Data centers, energy, privacy â€” and why 'where the AI lives' is about to matter to you." },
+    "consciousness":  { tag:"The Big One",       prompt:"Is anybody home in there? Is it actually thinking?", aside:"My honest take: no — a brilliant mirror, not a mind. So why does the line feel like it's blurring?" },
+    "whose-opinions": { tag:"Under the Hood",    prompt:"The model has no opinions of its own — so whose are coming out of its mouth?", aside:"Whatever it was trained on becomes its worldview. That's why two AIs can answer the same question differently." },
+    "oracle":         { tag:"Myth & Machine",    prompt:"People are \u201cpraying\u201d to the machine. Is the prompt box the new oracle?", aside:"A tool, a confessional, or a ritual — and does it know the difference? (It doesn't.)" },
+    "old-gods":       { tag:"Old Gods, New Gods", prompt:"Every age built something to consult the unknown. What does ours say about us?", aside:"Oracles, spirits, daemons — and the silicon version we just quietly invented." },
+    "the-state":      { tag:"The State",         prompt:"When the government starts asking the AI for answers, whose answers are they?", aside:"Policy, policing, public services — running on models almost nobody can see inside." },
+    "where-it-lives": { tag:"Where It Lives",    prompt:"Soon the AI may live in your pocket instead of a warehouse far away. Better, or just different?", aside:"Data centers, energy, privacy — and why 'where the AI lives' is about to matter to you." },
     "who-owns-temple":{ tag:"Who Owns the Temple", prompt:"A handful of companies own the buildings all of this runs in. Should that worry us?", aside:"Whoever owns the compute owns the answers. The new cathedrals have landlords." },
-    "everyday-trust": { tag:"Closer to Home",    prompt:"If a friend gave you the advice the AI just gave you, would you take it?", aside:"How much we already lean on it without noticing â€” and where that's fine, and where it isn't." }
+    "everyday-trust": { tag:"Closer to Home",    prompt:"If a friend gave you the advice the AI just gave you, would you take it?", aside:"How much we already lean on it without noticing — and where that's fine, and where it isn't." }
   };
 
   const ARCHIVE = [
@@ -381,6 +389,7 @@
       <span class="src">${esc(n.source)}</span>
       <h3 class="head">${esc(n.headline)}</h3>
       <p class="why"><b>Why it matters:</b> ${esc(n.why)}</p>
+      ${n.xInsight ? `<p class="x-insight"><b>On X:</b> ${esc(n.xInsight)}</p>` : ``}
       ${n.url ? `<a class="read" href="${n.url}" target="_blank" rel="noopener">Read the story <span class="arr">&rarr;</span></a>` : ``}
     </article>`).join('') +
     `<div class="news-card blank rise"><span>+ drop this week's story</span></div>`;
@@ -396,13 +405,13 @@
   }).join('');
 
   $('#archive').innerHTML = ARCHIVE.length ? ARCHIVE.map(a => {
-    const tags = a.sparks.map(id => SPARK_LIBRARY[id] ? SPARK_LIBRARY[id].tag : id).join(' Â· ');
+    const tags = a.sparks.map(id => SPARK_LIBRARY[id] ? SPARK_LIBRARY[id].tag : id).join(' · ');
     return `<div class="arc-row rise">
       <div class="arc-num">EP ${esc(a.number)}</div>
       <div class="arc-body"><div class="arc-title">${esc(a.title)}</div><div class="arc-tags">${esc(tags)}</div></div>
       <div class="arc-date">${fmtDate(a.date)}</div>
     </div>`;
-  }).join('') : `<div class="arc-empty">The shelf is empty â€” for now.</div>`;
+  }).join('') : `<div class="arc-empty">The shelf is empty — for now.</div>`;
 
   /* ====================== LIVE PRODUCTION TOOLS ======================== */
   const covered = new Set();
@@ -456,7 +465,7 @@
   }
   function paintFocus(){
     const s = SPARK_LIBRARY[currentId()];
-    $('#f-tag').textContent = (focusWild!==null ? 'Wildcard Â· ' : '') + s.tag;
+    $('#f-tag').textContent = (focusWild!==null ? 'Wildcard · ' : '') + s.tag;
     $('#f-prompt').textContent = s.prompt;
     $('#f-aside').textContent = s.aside;
     $('#f-counter').innerHTML = focusWild!==null ? '<b>WILD</b>' : '<b>'+(focusIndex+1)+'</b> / '+featured.length;

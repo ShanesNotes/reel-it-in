@@ -13,6 +13,7 @@ ROOT = Path(__file__).resolve().parents[2]
 EXPECTED_EXPORTS = [
     "Resolve-ReelItInEpisodeDirectory",
     "Join-ReelItInRelativePath",
+    "Get-ReelItInMediaRoot",
     "Get-ReelItInMarkdownSection",
     "Get-ReelItInListField",
     "Write-ReelItInUtf8Text",

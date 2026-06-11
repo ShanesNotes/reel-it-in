@@ -13,10 +13,10 @@
 ## Phase 2: Pilot Dashboard Stabilization
 
 - [x] Verify `app/reel-it-in.html` after the move.
-- [ ] Fix any broken asset references.
-- [ ] Add a small browser test checklist.
-- [ ] Decide whether the current single HTML remains the production template for episode 001.
-- [ ] Add version/date metadata inside the HTML.
+- [x] Fix any broken asset references (Google Fonts CDN only; audited 2026-06-11).
+- [x] Add a small browser test checklist (`app/README.md`).
+- [x] Decide whether the current single HTML remains the production template for episode 001 (`docs/adr/0003-single-html-dashboard-for-episode-001.md`).
+- [x] Add version/date metadata inside the HTML.
 
 ## Phase 3: First Recording Prep
 
@@ -80,14 +80,14 @@
 - [x] Generate platform-specific marketing and distribution files.
 - [x] Generate archive metadata and episode index.
 - [x] Run the episode production pipeline from one command.
-- [ ] Improve research drafts with browsing-backed page summaries.
+- [x] Improve research drafts with browsing-backed page summaries (`tools/fetch-page-summaries.py`; still human-reviewed).
 - [ ] Generate deeper show notes from full transcript exports.
 - [ ] Connect archive metadata to a public/private archive view.
 
 ## Phase 7: Hosting And Publishing
 
-- [ ] Choose RSS host: RSS.com, Simplecast, Buzzsprout, Spotify for Creators, or other.
-- [ ] Choose hosting target for the dashboard/prototype.
-- [ ] Publish a simple web version for Dad and collaborators.
-- [ ] Decide public site vs private production dashboard boundaries.
+- [ ] Choose RSS host: RSS.com, Simplecast, Buzzsprout, Spotify for Creators, or other (deferred — see `docs/adr/0002-defer-public-hosting-until-first-recording.md`).
+- [ ] Choose hosting target for the dashboard/prototype (deferred until after first recording).
+- [ ] Publish a simple web version for Dad and collaborators (deferred; Dad still gets briefs + link).
+- [x] Decide public site vs private production dashboard boundaries (operator dashboard stays local/private for now).
 - [ ] Add RSS/YouTube publishing workflow.

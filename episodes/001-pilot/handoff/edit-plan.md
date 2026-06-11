@@ -66,6 +66,6 @@ Introduce the father-son format with a simple theme: AI is moving out of the ans
 
 ## Next Actions
 
-- Export the Descript transcript into episodes/001-pilot/transcript.md or paste a transcript link.
+- Export the Descript transcript into pisodes/001-pilot/transcript.md or paste a transcript link.
 - Add rough timestamps to production-notes.md while the recording is still fresh.
 - Fill runtime and final export paths after Descript and Auphonic exports are done.

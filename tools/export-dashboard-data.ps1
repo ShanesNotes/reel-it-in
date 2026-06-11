@@ -302,9 +302,49 @@ if ([string]::IsNullOrWhiteSpace($host2)) {
     $host2 = "Dad"
 }
 
+function Get-XInsightMap {
+    param([string]$EpisodeDir)
+
+    $map = @{}
+    $insightsPath = Join-Path $EpisodeDir "x-insights.json"
+    if (-not (Test-Path -LiteralPath $insightsPath)) {
+        return $map
+    }
+
+    $insightData = Get-Content -LiteralPath $insightsPath -Raw | ConvertFrom-Json
+    foreach ($item in @($insightData.items)) {
+        $url = [string]$item.url
+        $insight = [string]$item.xInsight
+        if (-not [string]::IsNullOrWhiteSpace($url) -and -not [string]::IsNullOrWhiteSpace($insight)) {
+            $map[$url] = $insight
+        }
+    }
+
+    return $map
+}
+
 $dashboardSparkData = Get-DashboardSparkData -DashboardFile $DashboardPath
 $storySection = Get-MarkdownSection -Text $episodeText -Heading "Selected Stories"
 $stories = Select-MainStories -Stories (Convert-StoryBlocks -Section $storySection)
+$insightMap = Get-XInsightMap -EpisodeDir $episodeDir
+if ($insightMap.Count -gt 0) {
+    $enriched = New-Object System.Collections.Generic.List[object]
+    foreach ($story in $stories) {
+        $entry = [ordered]@{
+            source = $story.source
+            url = $story.url
+            headline = $story.headline
+            why = $story.why
+            dadQuestion = $story.dadQuestion
+            status = $story.status
+        }
+        if ($story.url -and $insightMap.ContainsKey($story.url)) {
+            $entry["xInsight"] = $insightMap[$story.url]
+        }
+        $enriched.Add($entry)
+    }
+    $stories = $enriched.ToArray()
+}
 $sparkSection = Get-MarkdownSection -Text $episodeText -Heading "Sparks"
 $sparkData = Convert-Sparks -Section $sparkSection -KnownKeys $dashboardSparkData.Keys -Fallback $dashboardSparkData.Featured
 

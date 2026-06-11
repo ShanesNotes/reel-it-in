@@ -126,7 +126,7 @@ if ([string]::IsNullOrWhiteSpace($RecordingUrl)) {
 }
 
 if ([string]::IsNullOrWhiteSpace($MediaRoot)) {
-    $MediaRoot = Join-Path ([Environment]::GetFolderPath("MyDocuments")) "Reel It In Media"
+    $MediaRoot = Get-ReelItInMediaRoot
 }
 
 $episodeMediaDir = Join-Path $MediaRoot $episodeName

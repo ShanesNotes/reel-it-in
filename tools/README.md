@@ -6,6 +6,8 @@ Current tools:
 
 - `new-episode.ps1`: create a new episode folder from `episodes/_template/`
 - `prepare-reaction-episode.py`: create/update a Solo Reaction Episode from a YouTube URL and optionally call the existing `~/university/tools/ingest.sh` transcript pipeline.
+- `collect-x-insights.py`: optional Grok Build X discourse briefs for selected stories (`--allow-network`).
+- `fetch-page-summaries.py`: optional lightweight page summaries for empty research inbox rows (`--allow-network`).
 - `episode-status.ps1`: inspect required files and open placeholders for an episode
 - `validate-sources.ps1`: find and check URLs in episode markdown files
 - `collect-research-feeds.ps1`: collect fresh items from the research watchlist into `research-inbox.md` and JSON
@@ -27,6 +29,19 @@ Shared foundation:
 
 - `Modules/ReelItIn.Tools.psm1`: tiny shared helpers for episode folder resolution, relative paths, markdown/list parsing, UTF-8 text writes, and PowerShell runtime resolution. Keep this module boring; add helpers only when repeated scripts need the same behavior.
 - `Tests/test_tools_foundation.py`: dependency-free static regression check for the shared module imports, cross-platform path seams, and runtime resolver.
+- `Tests/test_research_enrichment.py`: static checks for optional research enrichment tools and dashboard xInsight wiring.
+
+### PowerShell Core on Linux
+
+If `pwsh` is not installed system-wide, a portable build works:
+
+```bash
+mkdir -p ~/.local/powershell
+curl -fsSL https://github.com/PowerShell/PowerShell/releases/download/v7.5.1/powershell-7.5.1-linux-x64.tar.gz -o /tmp/pwsh.tar.gz
+tar -xzf /tmp/pwsh.tar.gz -C ~/.local/powershell
+chmod +x ~/.local/powershell/pwsh
+export PATH="$HOME/.local/powershell:$PATH"
+```
 
 Solo reaction entrypoint:
 

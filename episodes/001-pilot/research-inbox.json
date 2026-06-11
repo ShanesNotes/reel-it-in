@@ -1,272 +1,270 @@
 {
-    "schemaVersion":  1,
-    "generatedAt":  "2026-06-01T13:26:33",
-    "episode":  "001-pilot",
-    "recentDays":  45,
-    "maxItemsPerFeed":  5,
-    "watchlist":  "docs/RESEARCH_WATCHLIST.json",
-    "itemCount":  25,
-    "errorCount":  0,
-    "items":  [
-                  {
-                      "feed":  "Google AI Blog",
-                      "category":  "AI lab / platform",
-                      "priority":  "primary",
-                      "title":  "How we used Gemini to build Google I/O 2026",
-                      "url":  "https://blog.google/innovation-and-ai/technology/ai/io-2026-google-ai/",
-                      "published":  "2026-06-01",
-                      "summary":  "A collage of I/O-related images, including the Antigravity Coffee Co. pop-up, a colorful jellyfish and a still from the Timmy TPU video. The word AI repeats three times on the left of the image, and there are colorful icons, including a sparkle, as well. Learn how Googlers used AI to produce Google I/O 2026."
-                  },
-                  {
-                      "feed":  "Hugging Face Blog",
-                      "category":  "Developer ecosystem",
-                      "priority":  "primary",
-                      "title":  "Beyond LLMs: Why Scalable Enterprise AI Adoption Depends on Agent Logic",
-                      "url":  "https://huggingface.co/blog/ibm-research/agent-logic-and-scalable-ai-adoption",
-                      "published":  "2026-06-01",
-                      "summary":  ""
-                  },
-                  {
-                      "feed":  "Hugging Face Blog",
-                      "category":  "Developer ecosystem",
-                      "priority":  "primary",
-                      "title":  "Introducing Mellum2: A 12B Mixture-of-Experts Model by JetBrains",
-                      "url":  "https://huggingface.co/blog/JetBrains/mellum2-launch",
-                      "published":  "2026-06-01",
-                      "summary":  ""
-                  },
-                  {
-                      "feed":  "OpenAI News",
-                      "category":  "AI lab",
-                      "priority":  "primary",
-                      "title":  "Building the infrastructure for the Intelligence Age in Michigan",
-                      "url":  "https://openai.com/index/stargate-michigan-data-center",
-                      "published":  "2026-06-01",
-                      "summary":  "OpenAI breaks ground on a 1GW data center project in Michigan as part of Stargate, building AI infrastructure to expand access, create jobs, and support communities."
-                  },
-                  {
-                      "feed":  "Hugging Face Blog",
-                      "category":  "Developer ecosystem",
-                      "priority":  "primary",
-                      "title":  "Welcome NVIDIA Cosmos 3: The First Open Omni-model for Physical AI Reasoning and Action",
-                      "url":  "https://huggingface.co/blog/nvidia/cosmos-3-for-physical-ai",
-                      "published":  "2026-05-31",
-                      "summary":  ""
-                  },
-                  {
-                      "feed":  "Google AI Blog",
-                      "category":  "AI lab / platform",
-                      "priority":  "primary",
-                      "title":  "9 demos of Gemini Omni and Gemini 3.5 in action",
-                      "url":  "https://blog.google/innovation-and-ai/models-and-research/gemini-models/gemini-omni-3-5-videos/",
-                      "published":  "2026-05-29",
-                      "summary":  "Gemini Omni \u0026 Gemini 3.5 hero Watch 9 videos showing the capabilities of Gemini Omni and Gemini 3.5, announced at Google I/O 2026."
-                  },
-                  {
-                      "feed":  "Google AI Blog",
-                      "category":  "AI lab / platform",
-                      "priority":  "primary",
-                      "title":  "Check out real-life AI prototypes from the Futures Lab.",
-                      "url":  "https://blog.google/innovation-and-ai/technology/ai/university-waterloo-labs/",
-                      "published":  "2026-05-29",
-                      "summary":  "University of Waterloo students develop AI prototypes like sign language tutors to reshape the future of education and work."
-                  },
-                  {
-                      "feed":  "Google AI Blog",
-                      "category":  "AI lab / platform",
-                      "priority":  "primary",
-                      "title":  "Take our I/O 2026 quiz, vibe coded in Google AI Studio.",
-                      "url":  "https://blog.google/innovation-and-ai/technology/ai/io-2026-vibe-coded-quiz/",
-                      "published":  "2026-05-29",
-                      "summary":  "We used Google AI Studio to vibe code a quiz about our top I/O 2026 announcements."
-                  },
-                  {
-                      "feed":  "Microsoft Security Blog",
-                      "category":  "Security",
-                      "priority":  "primary",
-                      "title":  "Malicious npm packages abuse dependency confusion to profile developer environments",
-                      "url":  "https://www.microsoft.com/en-us/security/blog/2026/05/29/33-malicious-npm-packages-abuse-dependency-confusion-profile-developer-environments/",
-                      "published":  "2026-05-29",
-                      "summary":  "A dependency confusion campaign leveraged 33 malicious npm packages to collect reconnaissance data from developer and build environments. This report details the attack chain, observed tradecraft, and detection opportunities to help organizations identify and disrupt related activity. The post Malicious npm packages abuse dependency confusion to profile developer environments appeared first on Microsoft Security Blog ."
-                  },
-                  {
-                      "feed":  "Microsoft Security Blog",
-                      "category":  "Security",
-                      "priority":  "primary",
-                      "title":  "Microsoft is named a Leader in the 2026 Gartner Magic Quadrant for Endpoint Protection",
-                      "url":  "https://www.microsoft.com/en-us/security/blog/2026/05/29/microsoft-is-named-a-leader-in-the-2026-gartner-magic-quadrant-for-endpoint-protection/",
-                      "published":  "2026-05-29",
-                      "summary":  "Microsoft is named a Leader in the 2026 Gartner Magic Quadrant for Endpoint Protection. The post Microsoft is named a Leader in the 2026 Gartner Magic Quadrant for Endpoint Protection appeared first on Microsoft Security Blog ."
-                  },
-                  {
-                      "feed":  "OpenAI News",
-                      "category":  "AI lab",
-                      "priority":  "primary",
-                      "title":  "Boston Children\u0027s uses AI to unlock new diagnoses",
-                      "url":  "https://openai.com/index/boston-childrens-hospital",
-                      "published":  "2026-05-29",
-                      "summary":  "Boston Children\u0027s Hospital uses OpenAI technology to improve patient care, reduce operational burden, and help diagnose more than 40 rare disease cases."
-                  },
-                  {
-                      "feed":  "OpenAI News",
-                      "category":  "AI lab",
-                      "priority":  "primary",
-                      "title":  "How Braintrust turns customer requests into code with Codex",
-                      "url":  "https://openai.com/index/braintrust",
-                      "published":  "2026-05-29",
-                      "summary":  "How Braintrust engineers use Codex with GPT-5.5 to run experiments and code faster."
-                  },
-                  {
-                      "feed":  "Google AI Blog",
-                      "category":  "AI lab / platform",
-                      "priority":  "primary",
-                      "title":  "Catch up on 12 major I/O 2026 moments",
-                      "url":  "https://blog.google/innovation-and-ai/technology/ai/io-2026-keynote-moment-videos/",
-                      "published":  "2026-05-28",
-                      "summary":  "The colorful I/O logo against a black background, surrounded by stills from the I/O keynote Here are 12 of the biggest Google I/O 2026 keynote moments, including news about Gemini Omni, Gemini 3.5 Flash and more."
-                  },
-                  {
-                      "feed":  "Hugging Face Blog",
-                      "category":  "Developer ecosystem",
-                      "priority":  "primary",
-                      "title":  "Profiling in PyTorch (Part 1): A Beginner\u0027s Guide to torch.profiler",
-                      "url":  "https://huggingface.co/blog/torch-profiler",
-                      "published":  "2026-05-28",
-                      "summary":  ""
-                  },
-                  {
-                      "feed":  "Microsoft Security Blog",
-                      "category":  "Security",
-                      "priority":  "primary",
-                      "title":  "The Gentlemen ransomware: Dissecting a self-propagating Go encryptor",
-                      "url":  "https://www.microsoft.com/en-us/security/blog/2026/05/28/the-gentlemen-ransomware-dissecting-a-self-propagating-go-encryptor/",
-                      "published":  "2026-05-28",
-                      "summary":  "Microsoft Threat Intelligence presents a comprehensive analysis of The Gentlemen, a Go-based ransomware deployed by affiliates of Storm-2697 that combines per-file ephemeral key encryption with an aggressive self-propagation module to deploy itself across an entire network using series of simultaneous lateral movement techniques per target. The post The Gentlemen ransomware: Dissecting a self-propagating Go encryptor appeared first on Microsoft Security Blog ."
-                  },
-                  {
-                      "feed":  "Microsoft Security Blog",
-                      "category":  "Security",
-                      "priority":  "primary",
-                      "title":  "Typosquatted npm packages used to steal cloud and CI/CD secrets",
-                      "url":  "https://www.microsoft.com/en-us/security/blog/2026/05/28/typosquatted-npm-packages-used-steal-cloud-ci-cd-secrets/",
-                      "published":  "2026-05-28",
-                      "summary":  "The Mini Shai-Hulud campaign used malicious npm packages to target cloud and CI/CD credentials across developer environments. This report details the attack chain, detection opportunities, and mitigation guidance to help organizations identify and disrupt related activity. The post Typosquatted npm packages used to steal cloud and CI/CD secrets appeared first on Microsoft Security Blog ."
-                  },
-                  {
-                      "feed":  "OpenAI News",
-                      "category":  "AI lab",
-                      "priority":  "primary",
-                      "title":  "A shared playbook for trustworthy third party evaluations",
-                      "url":  "https://openai.com/index/trustworthy-third-party-evaluations-foundations",
-                      "published":  "2026-05-28",
-                      "summary":  "OpenAI shares guidance on third-party AI evaluations, covering how to assess model capabilities, safeguards, and validity for frontier systems."
-                  },
-                  {
-                      "feed":  "OpenAI News",
-                      "category":  "AI lab",
-                      "priority":  "primary",
-                      "title":  "Strengthening societal resilience with Rosalind Biodefense",
-                      "url":  "https://openai.com/index/strengthening-societal-resilience-with-rosalind-biodefense",
-                      "published":  "2026-05-28",
-                      "summary":  "OpenAI launches Rosalind Biodefense, expanding trusted access to GPT-Rosalind for vetted developers and U.S. government partners advancing biodefense, public health, and pandemic preparedness through frontier AI."
-                  },
-                  {
-                      "feed":  "Hugging Face Blog",
-                      "category":  "Developer ecosystem",
-                      "priority":  "primary",
-                      "title":  "Reachy Mini goes fully local",
-                      "url":  "https://huggingface.co/blog/local-reachy-mini-conversation",
-                      "published":  "2026-05-26",
-                      "summary":  ""
-                  },
-                  {
-                      "feed":  "Microsoft Security Blog",
-                      "category":  "Security",
-                      "priority":  "primary",
-                      "title":  "From poisoned search results to GPU mining: A cryptojacking campaign abusing ScreenConnect and Microsoft .NET utilities",
-                      "url":  "https://www.microsoft.com/en-us/security/blog/2026/05/26/poisoned-search-results-gpu-mining-cryptojacking-campaign-abusing-screenconnect-microsoft-net-utilities/",
-                      "published":  "2026-05-26",
-                      "summary":  "Microsoft exposes a cryptojacking campaign using SEO poisoning and ScreenConnect to target high-performance PCs, with malicious sites also surfaced through AI chatbots. The post From poisoned search results to GPU mining: A cryptojacking campaign abusing ScreenConnect and Microsoft .NET utilities appeared first on Microsoft Security Blog ."
-                  },
-                  {
-                      "feed":  "Apple Newsroom",
-                      "category":  "Platform",
-                      "priority":  "primary",
-                      "title":  "Apple TV to air first major live pro sports event shot on iPhone 17 Pro",
-                      "url":  "https://www.apple.com/newsroom/2026/05/apple-tv-to-air-first-major-live-pro-sports-event-shot-on-iphone-17-pro/",
-                      "published":  "2026-05-21",
-                      "summary":  ""
-                  },
-                  {
-                      "feed":  "Apple Newsroom",
-                      "category":  "Platform",
-                      "priority":  "primary",
-                      "title":  "Apple unveils new accessibility features, and updates with Apple Intelligence",
-                      "url":  "https://www.apple.com/newsroom/2026/05/apple-unveils-new-accessibility-features-and-updates-with-apple-intelligence/",
-                      "published":  "2026-05-19",
-                      "summary":  ""
-                  },
-                  {
-                      "feed":  "Apple Newsroom",
-                      "category":  "Platform",
-                      "priority":  "primary",
-                      "title":  "AI meets accessibility in this year\u0027s Swift Student Challenge",
-                      "url":  "https://www.apple.com/newsroom/2026/05/ai-meets-accessibility-in-this-years-swift-student-challenge/",
-                      "published":  "2026-05-07",
-                      "summary":  ""
-                  },
-                  {
-                      "feed":  "Apple Newsroom",
-                      "category":  "Platform",
-                      "priority":  "primary",
-                      "title":  "Apple Manufacturing Academy accelerates AI use in U.S. supply chains",
-                      "url":  "https://www.apple.com/newsroom/2026/05/apple-manufacturing-academy-accelerates-ai-use-in-us-supply-chains/",
-                      "published":  "2026-05-05",
-                      "summary":  ""
-                  },
-                  {
-                      "feed":  "Apple Newsroom",
-                      "category":  "Platform",
-                      "priority":  "primary",
-                      "title":  "Tim Cook to become Apple Executive Chairman John Ternus to become Apple CEO",
-                      "url":  "https://www.apple.com/newsroom/2026/04/tim-cook-to-become-apple-executive-chairman-john-ternus-to-become-apple-ceo/",
-                      "published":  "2026-04-20",
-                      "summary":  ""
-                  }
-              ],
-    "errors":  [
-
-               ],
-    "manualPages":  [
-                        {
-                            "name":  "Anthropic News",
-                            "url":  "https://www.anthropic.com/news",
-                            "category":  "AI lab",
-                            "reason":  "Official news page; no simple RSS feed verified in this workflow."
-                        },
-                        {
-                            "name":  "Google DeepMind Blog",
-                            "url":  "https://deepmind.google/blog",
-                            "category":  "AI lab / research",
-                            "reason":  "Official blog page; no simple RSS feed verified in this workflow."
-                        },
-                        {
-                            "name":  "Meta AI Blog",
-                            "url":  "https://ai.meta.com/blog",
-                            "category":  "AI lab / platform",
-                            "reason":  "Official blog page; no simple RSS feed verified in this workflow."
-                        },
-                        {
-                            "name":  "European Commission AI News",
-                            "url":  "https://digital-strategy.ec.europa.eu/en/policies/artificial-intelligence",
-                            "category":  "Policy",
-                            "reason":  "Official policy source; use browsing/search to find current AI Act updates."
-                        },
-                        {
-                            "name":  "NIST AI",
-                            "url":  "https://www.nist.gov/artificial-intelligence",
-                            "category":  "Policy / standards",
-                            "reason":  "Official standards source; use browsing/search for current updates."
-                        }
-                    ]
+  "schemaVersion": 1,
+  "generatedAt": "2026-06-01T13:26:33",
+  "episode": "001-pilot",
+  "recentDays": 45,
+  "maxItemsPerFeed": 5,
+  "watchlist": "docs/RESEARCH_WATCHLIST.json",
+  "itemCount": 25,
+  "errorCount": 0,
+  "items": [
+    {
+      "feed": "Google AI Blog",
+      "category": "AI lab / platform",
+      "priority": "primary",
+      "title": "How we used Gemini to build Google I/O 2026",
+      "url": "https://blog.google/innovation-and-ai/technology/ai/io-2026-google-ai/",
+      "published": "2026-06-01",
+      "summary": "A collage of I/O-related images, including the Antigravity Coffee Co. pop-up, a colorful jellyfish and a still from the Timmy TPU video. The word AI repeats three times on the left of the image, and there are colorful icons, including a sparkle, as well. Learn how Googlers used AI to produce Google I/O 2026."
+    },
+    {
+      "feed": "Hugging Face Blog",
+      "category": "Developer ecosystem",
+      "priority": "primary",
+      "title": "Beyond LLMs: Why Scalable Enterprise AI Adoption Depends on Agent Logic",
+      "url": "https://huggingface.co/blog/ibm-research/agent-logic-and-scalable-ai-adoption",
+      "published": "2026-06-01",
+      "summary": "A Blog post by IBM Research on Hugging Face"
+    },
+    {
+      "feed": "Hugging Face Blog",
+      "category": "Developer ecosystem",
+      "priority": "primary",
+      "title": "Introducing Mellum2: A 12B Mixture-of-Experts Model by JetBrains",
+      "url": "https://huggingface.co/blog/JetBrains/mellum2-launch",
+      "published": "2026-06-01",
+      "summary": "A Blog post by JetBrains on Hugging Face"
+    },
+    {
+      "feed": "OpenAI News",
+      "category": "AI lab",
+      "priority": "primary",
+      "title": "Building the infrastructure for the Intelligence Age in Michigan",
+      "url": "https://openai.com/index/stargate-michigan-data-center",
+      "published": "2026-06-01",
+      "summary": "OpenAI breaks ground on a 1GW data center project in Michigan as part of Stargate, building AI infrastructure to expand access, create jobs, and support communities."
+    },
+    {
+      "feed": "Hugging Face Blog",
+      "category": "Developer ecosystem",
+      "priority": "primary",
+      "title": "Welcome NVIDIA Cosmos 3: The First Open Omni-model for Physical AI Reasoning and Action",
+      "url": "https://huggingface.co/blog/nvidia/cosmos-3-for-physical-ai",
+      "published": "2026-05-31",
+      "summary": "A Blog post by NVIDIA on Hugging Face"
+    },
+    {
+      "feed": "Google AI Blog",
+      "category": "AI lab / platform",
+      "priority": "primary",
+      "title": "9 demos of Gemini Omni and Gemini 3.5 in action",
+      "url": "https://blog.google/innovation-and-ai/models-and-research/gemini-models/gemini-omni-3-5-videos/",
+      "published": "2026-05-29",
+      "summary": "Gemini Omni & Gemini 3.5 hero Watch 9 videos showing the capabilities of Gemini Omni and Gemini 3.5, announced at Google I/O 2026."
+    },
+    {
+      "feed": "Google AI Blog",
+      "category": "AI lab / platform",
+      "priority": "primary",
+      "title": "Check out real-life AI prototypes from the Futures Lab.",
+      "url": "https://blog.google/innovation-and-ai/technology/ai/university-waterloo-labs/",
+      "published": "2026-05-29",
+      "summary": "University of Waterloo students develop AI prototypes like sign language tutors to reshape the future of education and work."
+    },
+    {
+      "feed": "Google AI Blog",
+      "category": "AI lab / platform",
+      "priority": "primary",
+      "title": "Take our I/O 2026 quiz, vibe coded in Google AI Studio.",
+      "url": "https://blog.google/innovation-and-ai/technology/ai/io-2026-vibe-coded-quiz/",
+      "published": "2026-05-29",
+      "summary": "We used Google AI Studio to vibe code a quiz about our top I/O 2026 announcements."
+    },
+    {
+      "feed": "Microsoft Security Blog",
+      "category": "Security",
+      "priority": "primary",
+      "title": "Malicious npm packages abuse dependency confusion to profile developer environments",
+      "url": "https://www.microsoft.com/en-us/security/blog/2026/05/29/33-malicious-npm-packages-abuse-dependency-confusion-profile-developer-environments/",
+      "published": "2026-05-29",
+      "summary": "A dependency confusion campaign leveraged 33 malicious npm packages to collect reconnaissance data from developer and build environments. This report details the attack chain, observed tradecraft, and detection opportunities to help organizations identify and disrupt related activity. The post Malicious npm packages abuse dependency confusion to profile developer environments appeared first on Microsoft Security Blog ."
+    },
+    {
+      "feed": "Microsoft Security Blog",
+      "category": "Security",
+      "priority": "primary",
+      "title": "Microsoft is named a Leader in the 2026 Gartner Magic Quadrant for Endpoint Protection",
+      "url": "https://www.microsoft.com/en-us/security/blog/2026/05/29/microsoft-is-named-a-leader-in-the-2026-gartner-magic-quadrant-for-endpoint-protection/",
+      "published": "2026-05-29",
+      "summary": "Microsoft is named a Leader in the 2026 Gartner Magic Quadrant for Endpoint Protection. The post Microsoft is named a Leader in the 2026 Gartner Magic Quadrant for Endpoint Protection appeared first on Microsoft Security Blog ."
+    },
+    {
+      "feed": "OpenAI News",
+      "category": "AI lab",
+      "priority": "primary",
+      "title": "Boston Children's uses AI to unlock new diagnoses",
+      "url": "https://openai.com/index/boston-childrens-hospital",
+      "published": "2026-05-29",
+      "summary": "Boston Children's Hospital uses OpenAI technology to improve patient care, reduce operational burden, and help diagnose more than 40 rare disease cases."
+    },
+    {
+      "feed": "OpenAI News",
+      "category": "AI lab",
+      "priority": "primary",
+      "title": "How Braintrust turns customer requests into code with Codex",
+      "url": "https://openai.com/index/braintrust",
+      "published": "2026-05-29",
+      "summary": "How Braintrust engineers use Codex with GPT-5.5 to run experiments and code faster."
+    },
+    {
+      "feed": "Google AI Blog",
+      "category": "AI lab / platform",
+      "priority": "primary",
+      "title": "Catch up on 12 major I/O 2026 moments",
+      "url": "https://blog.google/innovation-and-ai/technology/ai/io-2026-keynote-moment-videos/",
+      "published": "2026-05-28",
+      "summary": "The colorful I/O logo against a black background, surrounded by stills from the I/O keynote Here are 12 of the biggest Google I/O 2026 keynote moments, including news about Gemini Omni, Gemini 3.5 Flash and more."
+    },
+    {
+      "feed": "Hugging Face Blog",
+      "category": "Developer ecosystem",
+      "priority": "primary",
+      "title": "Profiling in PyTorch (Part 1): A Beginner's Guide to torch.profiler",
+      "url": "https://huggingface.co/blog/torch-profiler",
+      "published": "2026-05-28",
+      "summary": "We’re on a journey to advance and democratize artificial intelligence through open source and open science."
+    },
+    {
+      "feed": "Microsoft Security Blog",
+      "category": "Security",
+      "priority": "primary",
+      "title": "The Gentlemen ransomware: Dissecting a self-propagating Go encryptor",
+      "url": "https://www.microsoft.com/en-us/security/blog/2026/05/28/the-gentlemen-ransomware-dissecting-a-self-propagating-go-encryptor/",
+      "published": "2026-05-28",
+      "summary": "Microsoft Threat Intelligence presents a comprehensive analysis of The Gentlemen, a Go-based ransomware deployed by affiliates of Storm-2697 that combines per-file ephemeral key encryption with an aggressive self-propagation module to deploy itself across an entire network using series of simultaneous lateral movement techniques per target. The post The Gentlemen ransomware: Dissecting a self-propagating Go encryptor appeared first on Microsoft Security Blog ."
+    },
+    {
+      "feed": "Microsoft Security Blog",
+      "category": "Security",
+      "priority": "primary",
+      "title": "Typosquatted npm packages used to steal cloud and CI/CD secrets",
+      "url": "https://www.microsoft.com/en-us/security/blog/2026/05/28/typosquatted-npm-packages-used-steal-cloud-ci-cd-secrets/",
+      "published": "2026-05-28",
+      "summary": "The Mini Shai-Hulud campaign used malicious npm packages to target cloud and CI/CD credentials across developer environments. This report details the attack chain, detection opportunities, and mitigation guidance to help organizations identify and disrupt related activity. The post Typosquatted npm packages used to steal cloud and CI/CD secrets appeared first on Microsoft Security Blog ."
+    },
+    {
+      "feed": "OpenAI News",
+      "category": "AI lab",
+      "priority": "primary",
+      "title": "A shared playbook for trustworthy third party evaluations",
+      "url": "https://openai.com/index/trustworthy-third-party-evaluations-foundations",
+      "published": "2026-05-28",
+      "summary": "OpenAI shares guidance on third-party AI evaluations, covering how to assess model capabilities, safeguards, and validity for frontier systems."
+    },
+    {
+      "feed": "OpenAI News",
+      "category": "AI lab",
+      "priority": "primary",
+      "title": "Strengthening societal resilience with Rosalind Biodefense",
+      "url": "https://openai.com/index/strengthening-societal-resilience-with-rosalind-biodefense",
+      "published": "2026-05-28",
+      "summary": "OpenAI launches Rosalind Biodefense, expanding trusted access to GPT-Rosalind for vetted developers and U.S. government partners advancing biodefense, public health, and pandemic preparedness through frontier AI."
+    },
+    {
+      "feed": "Hugging Face Blog",
+      "category": "Developer ecosystem",
+      "priority": "primary",
+      "title": "Reachy Mini goes fully local",
+      "url": "https://huggingface.co/blog/local-reachy-mini-conversation",
+      "published": "2026-05-26",
+      "summary": "We’re on a journey to advance and democratize artificial intelligence through open source and open science."
+    },
+    {
+      "feed": "Microsoft Security Blog",
+      "category": "Security",
+      "priority": "primary",
+      "title": "From poisoned search results to GPU mining: A cryptojacking campaign abusing ScreenConnect and Microsoft .NET utilities",
+      "url": "https://www.microsoft.com/en-us/security/blog/2026/05/26/poisoned-search-results-gpu-mining-cryptojacking-campaign-abusing-screenconnect-microsoft-net-utilities/",
+      "published": "2026-05-26",
+      "summary": "Microsoft exposes a cryptojacking campaign using SEO poisoning and ScreenConnect to target high-performance PCs, with malicious sites also surfaced through AI chatbots. The post From poisoned search results to GPU mining: A cryptojacking campaign abusing ScreenConnect and Microsoft .NET utilities appeared first on Microsoft Security Blog ."
+    },
+    {
+      "feed": "Apple Newsroom",
+      "category": "Platform",
+      "priority": "primary",
+      "title": "Apple TV to air first major live pro sports event shot on iPhone 17 Pro",
+      "url": "https://www.apple.com/newsroom/2026/05/apple-tv-to-air-first-major-live-pro-sports-event-shot-on-iphone-17-pro/",
+      "published": "2026-05-21",
+      "summary": ""
+    },
+    {
+      "feed": "Apple Newsroom",
+      "category": "Platform",
+      "priority": "primary",
+      "title": "Apple unveils new accessibility features, and updates with Apple Intelligence",
+      "url": "https://www.apple.com/newsroom/2026/05/apple-unveils-new-accessibility-features-and-updates-with-apple-intelligence/",
+      "published": "2026-05-19",
+      "summary": ""
+    },
+    {
+      "feed": "Apple Newsroom",
+      "category": "Platform",
+      "priority": "primary",
+      "title": "AI meets accessibility in this year's Swift Student Challenge",
+      "url": "https://www.apple.com/newsroom/2026/05/ai-meets-accessibility-in-this-years-swift-student-challenge/",
+      "published": "2026-05-07",
+      "summary": ""
+    },
+    {
+      "feed": "Apple Newsroom",
+      "category": "Platform",
+      "priority": "primary",
+      "title": "Apple Manufacturing Academy accelerates AI use in U.S. supply chains",
+      "url": "https://www.apple.com/newsroom/2026/05/apple-manufacturing-academy-accelerates-ai-use-in-us-supply-chains/",
+      "published": "2026-05-05",
+      "summary": ""
+    },
+    {
+      "feed": "Apple Newsroom",
+      "category": "Platform",
+      "priority": "primary",
+      "title": "Tim Cook to become Apple Executive Chairman John Ternus to become Apple CEO",
+      "url": "https://www.apple.com/newsroom/2026/04/tim-cook-to-become-apple-executive-chairman-john-ternus-to-become-apple-ceo/",
+      "published": "2026-04-20",
+      "summary": ""
+    }
+  ],
+  "errors": [],
+  "manualPages": [
+    {
+      "name": "Anthropic News",
+      "url": "https://www.anthropic.com/news",
+      "category": "AI lab",
+      "reason": "Official news page; no simple RSS feed verified in this workflow."
+    },
+    {
+      "name": "Google DeepMind Blog",
+      "url": "https://deepmind.google/blog",
+      "category": "AI lab / research",
+      "reason": "Official blog page; no simple RSS feed verified in this workflow."
+    },
+    {
+      "name": "Meta AI Blog",
+      "url": "https://ai.meta.com/blog",
+      "category": "AI lab / platform",
+      "reason": "Official blog page; no simple RSS feed verified in this workflow."
+    },
+    {
+      "name": "European Commission AI News",
+      "url": "https://digital-strategy.ec.europa.eu/en/policies/artificial-intelligence",
+      "category": "Policy",
+      "reason": "Official policy source; use browsing/search to find current AI Act updates."
+    },
+    {
+      "name": "NIST AI",
+      "url": "https://www.nist.gov/artificial-intelligence",
+      "category": "Policy / standards",
+      "reason": "Official standards source; use browsing/search for current updates."
+    }
+  ]
 }

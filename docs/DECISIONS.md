@@ -62,6 +62,18 @@ Decision: improve the codebase by adding only the smallest architecture needed f
 
 Reason: Shane and Dad are starting the podcast now. The repo should make weekly production smooth before it becomes a platform. Dashboard build systems, broad adapter frameworks, schema systems, rewrites, and new dependencies stay deferred until real production pain proves they are simpler.
 
+## 2026-06-11: X discourse insights use Grok Build opt-in lane
+
+Decision: add `tools/collect-x-insights.py` as an optional research step that calls Grok Build for X discourse briefs. Merge results into dashboard news beats via `x-insights.json` and `tools/export-dashboard-data.ps1`.
+
+Reason: news beats benefit from "what people are arguing about" context, but network calls and model opinions must stay opt-in and clearly labeled as prep material, not on-air script.
+
+## 2026-06-11: Public hosting waits until after first recording
+
+Decision: defer RSS host, public dashboard hosting, and marketing-site work until at least one episode is recorded and published.
+
+Reason: the immediate product is operator prep and recording, not distribution infrastructure. See `docs/adr/0002-defer-public-hosting-until-first-recording.md`.
+
 ## 2026-06-01: Solo reaction episodes use the existing YouTube University ingest lane
 
 Decision: operationalize Shane's existing `~/university/tools/ingest.sh` pipeline from Reel It In instead of rebuilding YouTube ingestion inside this repo.

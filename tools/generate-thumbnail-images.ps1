@@ -15,6 +15,8 @@ param(
 
 $ErrorActionPreference = "Stop"
 
+Import-Module (Join-Path $PSScriptRoot "Modules/ReelItIn.Tools.psm1") -Force
+
 $repoRoot = Resolve-Path (Join-Path $PSScriptRoot "..")
 $episodesDir = Join-Path $repoRoot "episodes"
 
@@ -115,8 +117,7 @@ if (-not (Test-Path -LiteralPath $creativeJsonPath)) {
 }
 
 if ([string]::IsNullOrWhiteSpace($OutputDir)) {
-    $documents = [Environment]::GetFolderPath("MyDocuments")
-    $OutputDir = Join-Path (Join-Path $documents "Reel It In Media") (Join-Path $episodeName "thumbnails")
+    $OutputDir = Join-Path (Join-Path (Get-ReelItInMediaRoot) $episodeName) "thumbnails"
 }
 elseif (-not [System.IO.Path]::IsPathRooted($OutputDir)) {
     $OutputDir = Join-Path $repoRoot $OutputDir

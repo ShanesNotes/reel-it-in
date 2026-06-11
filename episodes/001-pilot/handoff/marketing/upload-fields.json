@@ -1,187 +1,187 @@
 {
-    "schemaVersion":  1,
-    "generatedAt":  "2026-06-01T13:26:42",
-    "episode":  {
-                    "folder":  "001-pilot",
-                    "number":  "001",
-                    "title":  "Reel It In 001: Pilot",
-                    "shortTitle":  "Pilot",
-                    "releaseDate":  "2026-06-01",
-                    "runtime":  "",
-                    "explicit":  "No"
-                },
-    "youtube":  {
-                    "title":  "Reel It In 001: Pilot",
-                    "description":  "Introduce the father-son format with a simple theme: AI is moving out of the answer box and into everyday systems that act, protect, label, and connect.\n\nThis episode covers:\n- Google wants AI to stop just answering and start doing things for you. This is the moment AI starts feeling less like a chatbot and more like a helper embedded in products people already use.\n- Microsoft says AI agents helped find serious Windows security holes. AI is not just writing code now; it is starting to inspect the digital plumbing we all depend on. That could help defenders, but it also raises the obvious question of what attackers can do with similar tools.\n- Europe is moving toward labels for AI conversations and AI-made media. The internet is about to need ingredient labels. The hard part is deciding what must be labeled, who checks it, and whether normal people will trust the labels.\n\nSources:\n- [Google I/O 2026 announcements](https://blog.google/innovation-and-ai/technology/ai/google-io-2026-all-our-announcements/)\n- [Microsoft Security: Defense at AI speed](https://www.microsoft.com/en-us/security/blog/2026/05/12/defense-at-ai-speed-microsofts-new-multi-model-agentic-security-system-tops-leading-industry-benchmark/)\n- [European Commission AI transparency consultation](https://digital-strategy.ec.europa.eu/en/news/commission-opens-consultation-draft-guidelines-ai-transparency-obligations)\n\nNot all the AI news - just what matters, and why.",
-                    "tags":  "AI, artificial intelligence, technology, plain English, Reel It In",
-                    "thumbnailIdea":  "Shane and Dad at the table with one plain-English phrase from the strongest story."
-                },
-    "rss":  {
-                "title":  "Reel It In 001: Pilot",
-                "summary":  "Introduce the father-son format with a simple theme: AI is moving out of the answer box and into everyday systems that act, protect, label, and connect.",
-                "notes":  "Introduce the father-son format with a simple theme: AI is moving out of the answer box and into everyday systems that act, protect, label, and connect.\n\nThis episode covers:\n- Google wants AI to stop just answering and start doing things for you. This is the moment AI starts feeling less like a chatbot and more like a helper embedded in products people already use.\n- Microsoft says AI agents helped find serious Windows security holes. AI is not just writing code now; it is starting to inspect the digital plumbing we all depend on. That could help defenders, but it also raises the obvious question of what attackers can do with similar tools.\n- Europe is moving toward labels for AI conversations and AI-made media. The internet is about to need ingredient labels. The hard part is deciding what must be labeled, who checks it, and whether normal people will trust the labels.\n\nSources:\n- [Google I/O 2026 announcements](https://blog.google/innovation-and-ai/technology/ai/google-io-2026-all-our-announcements/)\n- [Microsoft Security: Defense at AI speed](https://www.microsoft.com/en-us/security/blog/2026/05/12/defense-at-ai-speed-microsofts-new-multi-model-agentic-security-system-tops-leading-industry-benchmark/)\n- [European Commission AI transparency consultation](https://digital-strategy.ec.europa.eu/en/news/commission-opens-consultation-draft-guidelines-ai-transparency-obligations)",
-                "transcript":  ""
-            },
-    "social":  {
-                   "shortPost":  "New Reel It In: Shane and Dad make sense of 3 AI stories without letting the jargon win. Pilot.",
-                   "newsletterBlurb":  "This week on Reel It In:\n\nIntroduce the father-son format with a simple theme: AI is moving out of the answer box and into everyday systems that act, protect, label, and connect.\n\nThis episode covers:\n- Google wants AI to stop just answering and start doing things for you. This is the moment AI starts feeling less like a chatbot and more like a helper embedded in products people already use.\n- Microsoft says AI agents helped find serious Windows security holes. AI is not just writing code now; it is starting to inspect the digital plumbing we all depend on. That could help defenders, but it also raises the obvious question of what attackers can do with similar tools.\n- Europe is moving toward labels for AI conversations and AI-made media. The internet is about to need ingredient labels. The hard part is deciding what must be labeled, who checks it, and whether normal people will trust the labels.\n\nBest moments to look for:\n- TBD after edit."
-               },
-    "chapters":  [
-                     {
-                         "Timecode":  "00:00",
-                         "Title":  "Opening"
-                     }
-                 ],
-    "sources":  [
-                    {
-                        "label":  "Google I/O 2026 announcements",
-                        "url":  "https://blog.google/innovation-and-ai/technology/ai/google-io-2026-all-our-announcements/"
-                    },
-                    {
-                        "label":  "Microsoft Security: Defense at AI speed",
-                        "url":  "https://www.microsoft.com/en-us/security/blog/2026/05/12/defense-at-ai-speed-microsofts-new-multi-model-agentic-security-system-tops-leading-industry-benchmark/"
-                    },
-                    {
-                        "label":  "European Commission AI transparency consultation",
-                        "url":  "https://digital-strategy.ec.europa.eu/en/news/commission-opens-consultation-draft-guidelines-ai-transparency-obligations"
-                    }
-                ],
-    "clips":  [
-                  {
-                      "Clip":  "",
-                      "Timecode":  "",
-                      "Hook":  "TBD after edit",
-                      "Platform":  "YouTube Shorts / TikTok / Reels"
-                  }
-              ],
-    "creative":  {
-                     "schemaVersion":  1,
-                     "generatedAt":  "2026-06-01T13:26:40",
-                     "episode":  {
-                                     "folder":  "001-pilot",
-                                     "number":  "001",
-                                     "label":  "Pilot",
-                                     "currentTitle":  "Reel It In 001: Pilot"
-                                 },
-                     "titleOptions":  [
-                                          {
-                                              "title":  "When AI Starts Doing Things",
-                                              "length":  27,
-                                              "use":  "YouTube",
-                                              "reason":  "Plain-English hook for agentic AI without jargon.",
-                                              "risk":  ""
-                                          },
-                                          {
-                                              "title":  "AI Is Leaving The Chatbox",
-                                              "length":  25,
-                                              "use":  "RSS / YouTube",
-                                              "reason":  "Captures the move from answers to action.",
-                                              "risk":  ""
-                                          },
-                                          {
-                                              "title":  "Do We Trust AI With The Keys?",
-                                              "length":  29,
-                                              "use":  "YouTube",
-                                              "reason":  "Turns the agent story into Dad\u0027s normal-person question.",
-                                              "risk":  ""
-                                          },
-                                          {
-                                              "title":  "AI Found The Cracks",
-                                              "length":  19,
-                                              "use":  "YouTube",
-                                              "reason":  "Short, concrete security hook.",
-                                              "risk":  ""
-                                          },
-                                          {
-                                              "title":  "AI Agents Meet Cybersecurity",
-                                              "length":  28,
-                                              "use":  "RSS",
-                                              "reason":  "Clear for podcast apps and search.",
-                                              "risk":  ""
-                                          },
-                                          {
-                                              "title":  "The Internet Needs AI Labels",
-                                              "length":  28,
-                                              "use":  "YouTube / RSS",
-                                              "reason":  "Strong plain-English policy frame.",
-                                              "risk":  ""
-                                          },
-                                          {
-                                              "title":  "Can We Trust The Label?",
-                                              "length":  23,
-                                              "use":  "YouTube",
-                                              "reason":  "Good father-son question for the EU transparency story.",
-                                              "risk":  ""
-                                          },
-                                          {
-                                              "title":  "AI Gets Tools, Guards, And Labels",
-                                              "length":  33,
-                                              "use":  "RSS",
-                                              "reason":  "Accurate three-story umbrella.",
-                                              "risk":  ""
-                                          },
-                                          {
-                                              "title":  "Helpers, Hackers, And Labels",
-                                              "length":  28,
-                                              "use":  "YouTube",
-                                              "reason":  "Compact thumbnail-friendly summary.",
-                                              "risk":  ""
-                                          },
-                                          {
-                                              "title":  "AI Is More Than Answers Now",
-                                              "length":  27,
-                                              "use":  "RSS / YouTube",
-                                              "reason":  "Directly names the episode angle.",
-                                              "risk":  ""
-                                          },
-                                          {
-                                              "title":  "Reel It In Pilot",
-                                              "length":  16,
-                                              "use":  "Fallback",
-                                              "reason":  "Safe if the episode is still being shaped.",
-                                              "risk":  "Less clickable."
-                                          }
-                                      ],
-                     "thumbnailOptions":  [
-                                              {
-                                                  "name":  "The Keys",
-                                                  "overlay":  "AI HAS KEYS",
-                                                  "visual":  "Shane and Dad at a table, one oversized brass key between them, subtle dashboard papers underneath.",
-                                                  "mood":  "Curious, slightly uneasy, grounded.",
-                                                  "prompt":  "Warm editorial podcast thumbnail, father and adult son at a table, cream paper texture, warm ink, one brass key as the central object, subtle teal accent, cinematic but natural light, readable overlay text AI HAS KEYS, no fake brand logos, no tiny text, 16:9.",
-                                                  "notes":  "Best for the agentic AI angle."
-                                              },
-                                              {
-                                                  "name":  "The Crack",
-                                                  "overlay":  "AI FOUND IT",
-                                                  "visual":  "A printed circuit-board style map with one glowing crack, Shane pointing, Dad skeptical.",
-                                                  "mood":  "Investigative, high contrast, not alarmist.",
-                                                  "prompt":  "Warm magazine-style podcast thumbnail, father and adult son reviewing a simple circuit-board map on paper, one visible crack highlighted in gold, cream and ink palette, subtle teal accent, readable overlay text AI FOUND IT, no fake logos, no cybersecurity cliches, 16:9.",
-                                                  "notes":  "Best for the Microsoft security story."
-                                              },
-                                              {
-                                                  "name":  "The Label",
-                                                  "overlay":  "AI OR REAL?",
-                                                  "visual":  "Two identical-looking cards on a table, one stamped AI, one unstamped, Dad asking the obvious question.",
-                                                  "mood":  "Plain-English trust question.",
-                                                  "prompt":  "Editorial podcast thumbnail, father and adult son at a table with two nearly identical printed cards, one stamped AI in gold, cream paper background, warm ink, restrained teal accent, readable overlay text AI OR REAL, grounded and human, no fake logos, 16:9.",
-                                                  "notes":  "Best for transparency and media-labeling stories."
-                                              },
-                                              {
-                                                  "name":  "Three Cards",
-                                                  "overlay":  "WHAT MATTERS?",
-                                                  "visual":  "Three story cards on the table: AI acts, AI finds flaws, AI gets labels.",
-                                                  "mood":  "Pilot-friendly, complete episode overview.",
-                                                  "prompt":  "Warm printed-magazine podcast thumbnail for Reel It In, father and adult son at a table with three bold story cards, labels AI ACTS, SECURITY, LABELS, cream paper, warm ink, one gold accent, subtle teal, readable overlay text WHAT MATTERS, no fake logos, 16:9.",
-                                                  "notes":  "Best fallback when the episode has multiple equally important stories."
-                                              }
-                                          ],
-                     "artifacts":  {
-                                       "package":  "episodes/001-pilot/title-thumbnail.md",
-                                       "titleOptions":  "episodes/001-pilot/handoff/marketing/title-options.md",
-                                       "thumbnailBrief":  "episodes/001-pilot/handoff/marketing/thumbnail-brief.md",
-                                       "thumbnailPrompts":  "episodes/001-pilot/handoff/marketing/thumbnail-prompts.txt",
-                                       "thumbnailBoard":  "episodes/001-pilot/handoff/marketing/thumbnail-board.html"
-                                   }
-                 }
+  "schemaVersion": 1,
+  "generatedAt": "2026-06-11T06:49:18",
+  "episode": {
+    "folder": "001-pilot",
+    "number": "001",
+    "title": "Reel It In 001: Pilot",
+    "shortTitle": "Pilot",
+    "releaseDate": "2026-06-01",
+    "runtime": "",
+    "explicit": "No"
+  },
+  "youtube": {
+    "title": "Reel It In 001: Pilot",
+    "description": "Introduce the father-son format with a simple theme: AI is moving out of the answer box and into everyday systems that act, protect, label, and connect.\n\nThis episode covers:\n- Google wants AI to stop just answering and start doing things for you. This is the moment AI starts feeling less like a chatbot and more like a helper embedded in products people already use.\n- Microsoft says AI agents helped find serious Windows security holes. AI is not just writing code now; it is starting to inspect the digital plumbing we all depend on. That could help defenders, but it also raises the obvious question of what attackers can do with similar tools.\n- Europe is moving toward labels for AI conversations and AI-made media. The internet is about to need ingredient labels. The hard part is deciding what must be labeled, who checks it, and whether normal people will trust the labels.\n\nSources:\n- [Google I/O 2026 announcements](https://blog.google/innovation-and-ai/technology/ai/google-io-2026-all-our-announcements/)\n- [Microsoft Security: Defense at AI speed](https://www.microsoft.com/en-us/security/blog/2026/05/12/defense-at-ai-speed-microsofts-new-multi-model-agentic-security-system-tops-leading-industry-benchmark/)\n- [European Commission AI transparency consultation](https://digital-strategy.ec.europa.eu/en/news/commission-opens-consultation-draft-guidelines-ai-transparency-obligations)\n\nNot all the AI news - just what matters, and why.",
+    "tags": "AI, artificial intelligence, technology, plain English, Reel It In",
+    "thumbnailIdea": "Shane and Dad at the table with one plain-English phrase from the strongest story."
+  },
+  "rss": {
+    "title": "Reel It In 001: Pilot",
+    "summary": "Introduce the father-son format with a simple theme: AI is moving out of the answer box and into everyday systems that act, protect, label, and connect.",
+    "notes": "Introduce the father-son format with a simple theme: AI is moving out of the answer box and into everyday systems that act, protect, label, and connect.\n\nThis episode covers:\n- Google wants AI to stop just answering and start doing things for you. This is the moment AI starts feeling less like a chatbot and more like a helper embedded in products people already use.\n- Microsoft says AI agents helped find serious Windows security holes. AI is not just writing code now; it is starting to inspect the digital plumbing we all depend on. That could help defenders, but it also raises the obvious question of what attackers can do with similar tools.\n- Europe is moving toward labels for AI conversations and AI-made media. The internet is about to need ingredient labels. The hard part is deciding what must be labeled, who checks it, and whether normal people will trust the labels.\n\nSources:\n- [Google I/O 2026 announcements](https://blog.google/innovation-and-ai/technology/ai/google-io-2026-all-our-announcements/)\n- [Microsoft Security: Defense at AI speed](https://www.microsoft.com/en-us/security/blog/2026/05/12/defense-at-ai-speed-microsofts-new-multi-model-agentic-security-system-tops-leading-industry-benchmark/)\n- [European Commission AI transparency consultation](https://digital-strategy.ec.europa.eu/en/news/commission-opens-consultation-draft-guidelines-ai-transparency-obligations)",
+    "transcript": ""
+  },
+  "social": {
+    "shortPost": "New Reel It In: Shane and Dad make sense of 3 AI stories without letting the jargon win. Pilot.",
+    "newsletterBlurb": "This week on Reel It In:\n\nIntroduce the father-son format with a simple theme: AI is moving out of the answer box and into everyday systems that act, protect, label, and connect.\n\nThis episode covers:\n- Google wants AI to stop just answering and start doing things for you. This is the moment AI starts feeling less like a chatbot and more like a helper embedded in products people already use.\n- Microsoft says AI agents helped find serious Windows security holes. AI is not just writing code now; it is starting to inspect the digital plumbing we all depend on. That could help defenders, but it also raises the obvious question of what attackers can do with similar tools.\n- Europe is moving toward labels for AI conversations and AI-made media. The internet is about to need ingredient labels. The hard part is deciding what must be labeled, who checks it, and whether normal people will trust the labels.\n\nBest moments to look for:\n- TBD after edit."
+  },
+  "chapters": [
+    {
+      "Timecode": "00:00",
+      "Title": "Opening"
+    }
+  ],
+  "sources": [
+    {
+      "label": "Google I/O 2026 announcements",
+      "url": "https://blog.google/innovation-and-ai/technology/ai/google-io-2026-all-our-announcements/"
+    },
+    {
+      "label": "Microsoft Security: Defense at AI speed",
+      "url": "https://www.microsoft.com/en-us/security/blog/2026/05/12/defense-at-ai-speed-microsofts-new-multi-model-agentic-security-system-tops-leading-industry-benchmark/"
+    },
+    {
+      "label": "European Commission AI transparency consultation",
+      "url": "https://digital-strategy.ec.europa.eu/en/news/commission-opens-consultation-draft-guidelines-ai-transparency-obligations"
+    }
+  ],
+  "clips": [
+    {
+      "Clip": "",
+      "Timecode": "",
+      "Hook": "TBD after edit",
+      "Platform": "YouTube Shorts / TikTok / Reels"
+    }
+  ],
+  "creative": {
+    "schemaVersion": 1,
+    "generatedAt": "2026-06-11T06:49:16",
+    "episode": {
+      "folder": "001-pilot",
+      "number": "001",
+      "label": "Pilot",
+      "currentTitle": "Reel It In 001: Pilot"
+    },
+    "titleOptions": [
+      {
+        "title": "When AI Starts Doing Things",
+        "length": 27,
+        "use": "YouTube",
+        "reason": "Plain-English hook for agentic AI without jargon.",
+        "risk": ""
+      },
+      {
+        "title": "AI Is Leaving The Chatbox",
+        "length": 25,
+        "use": "RSS / YouTube",
+        "reason": "Captures the move from answers to action.",
+        "risk": ""
+      },
+      {
+        "title": "Do We Trust AI With The Keys?",
+        "length": 29,
+        "use": "YouTube",
+        "reason": "Turns the agent story into Dad's normal-person question.",
+        "risk": ""
+      },
+      {
+        "title": "AI Found The Cracks",
+        "length": 19,
+        "use": "YouTube",
+        "reason": "Short, concrete security hook.",
+        "risk": ""
+      },
+      {
+        "title": "AI Agents Meet Cybersecurity",
+        "length": 28,
+        "use": "RSS",
+        "reason": "Clear for podcast apps and search.",
+        "risk": ""
+      },
+      {
+        "title": "The Internet Needs AI Labels",
+        "length": 28,
+        "use": "YouTube / RSS",
+        "reason": "Strong plain-English policy frame.",
+        "risk": ""
+      },
+      {
+        "title": "Can We Trust The Label?",
+        "length": 23,
+        "use": "YouTube",
+        "reason": "Good father-son question for the EU transparency story.",
+        "risk": ""
+      },
+      {
+        "title": "AI Gets Tools, Guards, And Labels",
+        "length": 33,
+        "use": "RSS",
+        "reason": "Accurate three-story umbrella.",
+        "risk": ""
+      },
+      {
+        "title": "Helpers, Hackers, And Labels",
+        "length": 28,
+        "use": "YouTube",
+        "reason": "Compact thumbnail-friendly summary.",
+        "risk": ""
+      },
+      {
+        "title": "AI Is More Than Answers Now",
+        "length": 27,
+        "use": "RSS / YouTube",
+        "reason": "Directly names the episode angle.",
+        "risk": ""
+      },
+      {
+        "title": "Reel It In Pilot",
+        "length": 16,
+        "use": "Fallback",
+        "reason": "Safe if the episode is still being shaped.",
+        "risk": "Less clickable."
+      }
+    ],
+    "thumbnailOptions": [
+      {
+        "name": "The Keys",
+        "overlay": "AI HAS KEYS",
+        "visual": "Shane and Dad at a table, one oversized brass key between them, subtle dashboard papers underneath.",
+        "mood": "Curious, slightly uneasy, grounded.",
+        "prompt": "Warm editorial podcast thumbnail, father and adult son at a table, cream paper texture, warm ink, one brass key as the central object, subtle teal accent, cinematic but natural light, readable overlay text AI HAS KEYS, no fake brand logos, no tiny text, 16:9.",
+        "notes": "Best for the agentic AI angle."
+      },
+      {
+        "name": "The Crack",
+        "overlay": "AI FOUND IT",
+        "visual": "A printed circuit-board style map with one glowing crack, Shane pointing, Dad skeptical.",
+        "mood": "Investigative, high contrast, not alarmist.",
+        "prompt": "Warm magazine-style podcast thumbnail, father and adult son reviewing a simple circuit-board map on paper, one visible crack highlighted in gold, cream and ink palette, subtle teal accent, readable overlay text AI FOUND IT, no fake logos, no cybersecurity cliches, 16:9.",
+        "notes": "Best for the Microsoft security story."
+      },
+      {
+        "name": "The Label",
+        "overlay": "AI OR REAL?",
+        "visual": "Two identical-looking cards on a table, one stamped AI, one unstamped, Dad asking the obvious question.",
+        "mood": "Plain-English trust question.",
+        "prompt": "Editorial podcast thumbnail, father and adult son at a table with two nearly identical printed cards, one stamped AI in gold, cream paper background, warm ink, restrained teal accent, readable overlay text AI OR REAL, grounded and human, no fake logos, 16:9.",
+        "notes": "Best for transparency and media-labeling stories."
+      },
+      {
+        "name": "Three Cards",
+        "overlay": "WHAT MATTERS?",
+        "visual": "Three story cards on the table: AI acts, AI finds flaws, AI gets labels.",
+        "mood": "Pilot-friendly, complete episode overview.",
+        "prompt": "Warm printed-magazine podcast thumbnail for Reel It In, father and adult son at a table with three bold story cards, labels AI ACTS, SECURITY, LABELS, cream paper, warm ink, one gold accent, subtle teal, readable overlay text WHAT MATTERS, no fake logos, 16:9.",
+        "notes": "Best fallback when the episode has multiple equally important stories."
+      }
+    ],
+    "artifacts": {
+      "package": "episodes/001-pilot/title-thumbnail.md",
+      "titleOptions": "episodes/001-pilot/handoff/marketing/title-options.md",
+      "thumbnailBrief": "episodes/001-pilot/handoff/marketing/thumbnail-brief.md",
+      "thumbnailPrompts": "episodes/001-pilot/handoff/marketing/thumbnail-prompts.txt",
+      "thumbnailBoard": "episodes/001-pilot/handoff/marketing/thumbnail-board.html"
+    }
+  }
 }

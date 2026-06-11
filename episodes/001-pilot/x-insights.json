@@ -1,0 +1,30 @@
+{
+  "schemaVersion": 1,
+  "generatedAt": "2026-06-11T06:49:50",
+  "episode": "001-pilot",
+  "provider": "grok-build",
+  "itemCount": 3,
+  "items": [
+    {
+      "title": "Google is putting agentic AI into Search, Gemini, creation, shopping, development, and everyday help.",
+      "url": "https://blog.google/innovation-and-ai/technology/ai/google-io-2026-all-our-announcements/",
+      "status": "Selected",
+      "xInsight": "- **What people are arguing about:** Did Google just kill the old search box, or is it the same product with more AI on top? Publishers and SEO folks warn that background “information agents” could mean fewer website visits; Google pushes back that blue links still exist, just farther from center stage.\n- **Representative angle:** Tech coverage keeps framing Gemini Spark as Google’s answer to OpenClaw — an always-on cloud agent that can watch your inbox and calendar even when your laptop is off, with permission checks before it does anything big.\n- **So what for listeners:** AI is moving into the apps you already use — search, shopping, email — and starting to handle small jobs, not just answer questions. Less keyword hunting, more delegating, if you’re okay with what it can see.",
+      "generationStatus": "ok"
+    },
+    {
+      "title": "Microsoft says its multi-model agentic security harness helped find 16 Windows vulnerabilities.",
+      "url": "https://www.microsoft.com/en-us/security/blog/2026/05/12/defense-at-ai-speed-microsofts-new-multi-model-agentic-security-system-tops-leading-industry-benchmark/",
+      "status": "Selected",
+      "xInsight": "- **The fight on X:** Real breakthrough or benchmark theater? Debate splits over self-reported CyberGym scores beating Anthropic's Mythos, whether 100-plus agents beat one big model, and whether the same bug-hunting kit works for attackers too.\n- **Representative angle:** Nadella's Patch Tuesday flex — AI agents found 16 Windows flaws, four critical, right before the fixes shipped. GeekWire summed it up as \"Mythos has been MDASH'd.\"\n- **So what:** AI isn't just writing code anymore; it's stress-testing the plumbing behind your laptop. That could patch holes faster — but the race to find them just sped up for everyone.",
+      "generationStatus": "ok"
+    },
+    {
+      "title": "Europe is clarifying rules that tell people when they are interacting with AI or seeing AI-generated/manipulated content.",
+      "url": "https://digital-strategy.ec.europa.eu/en/news/commission-opens-consultation-draft-guidelines-ai-transparency-obligations",
+      "status": "Selected",
+      "xInsight": "- **What people on X are arguing about:** Whether EU transparency rules will actually help people spot bots and deepfakes, or just add legal fine print platforms can game—while creators and lawyers fight over what counts as AI-generated, manipulated, or “public interest” content.\n- **Representative angle:** A recurring thread treats the August deadline like ingredient labels on the internet: fine in theory, but pointless if nobody reads them, watermarks get stripped, or only honest players bother to comply.\n- **So what:** Europe is deciding when apps and sites must tell you you’re talking to AI or seeing synthetic media. That shapes how much you can trust what you read, watch, and click—not just whether a label exists.",
+      "generationStatus": "ok"
+    }
+  ]
+}

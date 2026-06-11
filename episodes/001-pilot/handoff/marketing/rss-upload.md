@@ -28,6 +28,6 @@ Sources:
 
 - Episode number: 001
 - Release date: 2026-06-01
-- Runtime:
+- Runtime: 
 - Explicit: No
 - Transcript:

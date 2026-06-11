@@ -1,130 +1,130 @@
 {
-    "schemaVersion":  1,
-    "generatedAt":  "2026-06-01T13:26:40",
-    "episode":  {
-                    "folder":  "001-pilot",
-                    "number":  "001",
-                    "label":  "Pilot",
-                    "currentTitle":  "Reel It In 001: Pilot"
-                },
-    "titleOptions":  [
-                         {
-                             "title":  "When AI Starts Doing Things",
-                             "length":  27,
-                             "use":  "YouTube",
-                             "reason":  "Plain-English hook for agentic AI without jargon.",
-                             "risk":  ""
-                         },
-                         {
-                             "title":  "AI Is Leaving The Chatbox",
-                             "length":  25,
-                             "use":  "RSS / YouTube",
-                             "reason":  "Captures the move from answers to action.",
-                             "risk":  ""
-                         },
-                         {
-                             "title":  "Do We Trust AI With The Keys?",
-                             "length":  29,
-                             "use":  "YouTube",
-                             "reason":  "Turns the agent story into Dad\u0027s normal-person question.",
-                             "risk":  ""
-                         },
-                         {
-                             "title":  "AI Found The Cracks",
-                             "length":  19,
-                             "use":  "YouTube",
-                             "reason":  "Short, concrete security hook.",
-                             "risk":  ""
-                         },
-                         {
-                             "title":  "AI Agents Meet Cybersecurity",
-                             "length":  28,
-                             "use":  "RSS",
-                             "reason":  "Clear for podcast apps and search.",
-                             "risk":  ""
-                         },
-                         {
-                             "title":  "The Internet Needs AI Labels",
-                             "length":  28,
-                             "use":  "YouTube / RSS",
-                             "reason":  "Strong plain-English policy frame.",
-                             "risk":  ""
-                         },
-                         {
-                             "title":  "Can We Trust The Label?",
-                             "length":  23,
-                             "use":  "YouTube",
-                             "reason":  "Good father-son question for the EU transparency story.",
-                             "risk":  ""
-                         },
-                         {
-                             "title":  "AI Gets Tools, Guards, And Labels",
-                             "length":  33,
-                             "use":  "RSS",
-                             "reason":  "Accurate three-story umbrella.",
-                             "risk":  ""
-                         },
-                         {
-                             "title":  "Helpers, Hackers, And Labels",
-                             "length":  28,
-                             "use":  "YouTube",
-                             "reason":  "Compact thumbnail-friendly summary.",
-                             "risk":  ""
-                         },
-                         {
-                             "title":  "AI Is More Than Answers Now",
-                             "length":  27,
-                             "use":  "RSS / YouTube",
-                             "reason":  "Directly names the episode angle.",
-                             "risk":  ""
-                         },
-                         {
-                             "title":  "Reel It In Pilot",
-                             "length":  16,
-                             "use":  "Fallback",
-                             "reason":  "Safe if the episode is still being shaped.",
-                             "risk":  "Less clickable."
-                         }
-                     ],
-    "thumbnailOptions":  [
-                             {
-                                 "name":  "The Keys",
-                                 "overlay":  "AI HAS KEYS",
-                                 "visual":  "Shane and Dad at a table, one oversized brass key between them, subtle dashboard papers underneath.",
-                                 "mood":  "Curious, slightly uneasy, grounded.",
-                                 "prompt":  "Warm editorial podcast thumbnail, father and adult son at a table, cream paper texture, warm ink, one brass key as the central object, subtle teal accent, cinematic but natural light, readable overlay text AI HAS KEYS, no fake brand logos, no tiny text, 16:9.",
-                                 "notes":  "Best for the agentic AI angle."
-                             },
-                             {
-                                 "name":  "The Crack",
-                                 "overlay":  "AI FOUND IT",
-                                 "visual":  "A printed circuit-board style map with one glowing crack, Shane pointing, Dad skeptical.",
-                                 "mood":  "Investigative, high contrast, not alarmist.",
-                                 "prompt":  "Warm magazine-style podcast thumbnail, father and adult son reviewing a simple circuit-board map on paper, one visible crack highlighted in gold, cream and ink palette, subtle teal accent, readable overlay text AI FOUND IT, no fake logos, no cybersecurity cliches, 16:9.",
-                                 "notes":  "Best for the Microsoft security story."
-                             },
-                             {
-                                 "name":  "The Label",
-                                 "overlay":  "AI OR REAL?",
-                                 "visual":  "Two identical-looking cards on a table, one stamped AI, one unstamped, Dad asking the obvious question.",
-                                 "mood":  "Plain-English trust question.",
-                                 "prompt":  "Editorial podcast thumbnail, father and adult son at a table with two nearly identical printed cards, one stamped AI in gold, cream paper background, warm ink, restrained teal accent, readable overlay text AI OR REAL, grounded and human, no fake logos, 16:9.",
-                                 "notes":  "Best for transparency and media-labeling stories."
-                             },
-                             {
-                                 "name":  "Three Cards",
-                                 "overlay":  "WHAT MATTERS?",
-                                 "visual":  "Three story cards on the table: AI acts, AI finds flaws, AI gets labels.",
-                                 "mood":  "Pilot-friendly, complete episode overview.",
-                                 "prompt":  "Warm printed-magazine podcast thumbnail for Reel It In, father and adult son at a table with three bold story cards, labels AI ACTS, SECURITY, LABELS, cream paper, warm ink, one gold accent, subtle teal, readable overlay text WHAT MATTERS, no fake logos, 16:9.",
-                                 "notes":  "Best fallback when the episode has multiple equally important stories."
-                             }
-                         ],
-    "artifacts":  {
-                      "package":  "episodes/001-pilot/title-thumbnail.md",
-                      "titleOptions":  "episodes/001-pilot/handoff/marketing/title-options.md",
-                      "thumbnailBrief":  "episodes/001-pilot/handoff/marketing/thumbnail-brief.md",
-                      "thumbnailPrompts":  "episodes/001-pilot/handoff/marketing/thumbnail-prompts.txt",
-                      "thumbnailBoard":  "episodes/001-pilot/handoff/marketing/thumbnail-board.html"
-                  }
+  "schemaVersion": 1,
+  "generatedAt": "2026-06-11T06:49:16",
+  "episode": {
+    "folder": "001-pilot",
+    "number": "001",
+    "label": "Pilot",
+    "currentTitle": "Reel It In 001: Pilot"
+  },
+  "titleOptions": [
+    {
+      "title": "When AI Starts Doing Things",
+      "length": 27,
+      "use": "YouTube",
+      "reason": "Plain-English hook for agentic AI without jargon.",
+      "risk": ""
+    },
+    {
+      "title": "AI Is Leaving The Chatbox",
+      "length": 25,
+      "use": "RSS / YouTube",
+      "reason": "Captures the move from answers to action.",
+      "risk": ""
+    },
+    {
+      "title": "Do We Trust AI With The Keys?",
+      "length": 29,
+      "use": "YouTube",
+      "reason": "Turns the agent story into Dad's normal-person question.",
+      "risk": ""
+    },
+    {
+      "title": "AI Found The Cracks",
+      "length": 19,
+      "use": "YouTube",
+      "reason": "Short, concrete security hook.",
+      "risk": ""
+    },
+    {
+      "title": "AI Agents Meet Cybersecurity",
+      "length": 28,
+      "use": "RSS",
+      "reason": "Clear for podcast apps and search.",
+      "risk": ""
+    },
+    {
+      "title": "The Internet Needs AI Labels",
+      "length": 28,
+      "use": "YouTube / RSS",
+      "reason": "Strong plain-English policy frame.",
+      "risk": ""
+    },
+    {
+      "title": "Can We Trust The Label?",
+      "length": 23,
+      "use": "YouTube",
+      "reason": "Good father-son question for the EU transparency story.",
+      "risk": ""
+    },
+    {
+      "title": "AI Gets Tools, Guards, And Labels",
+      "length": 33,
+      "use": "RSS",
+      "reason": "Accurate three-story umbrella.",
+      "risk": ""
+    },
+    {
+      "title": "Helpers, Hackers, And Labels",
+      "length": 28,
+      "use": "YouTube",
+      "reason": "Compact thumbnail-friendly summary.",
+      "risk": ""
+    },
+    {
+      "title": "AI Is More Than Answers Now",
+      "length": 27,
+      "use": "RSS / YouTube",
+      "reason": "Directly names the episode angle.",
+      "risk": ""
+    },
+    {
+      "title": "Reel It In Pilot",
+      "length": 16,
+      "use": "Fallback",
+      "reason": "Safe if the episode is still being shaped.",
+      "risk": "Less clickable."
+    }
+  ],
+  "thumbnailOptions": [
+    {
+      "name": "The Keys",
+      "overlay": "AI HAS KEYS",
+      "visual": "Shane and Dad at a table, one oversized brass key between them, subtle dashboard papers underneath.",
+      "mood": "Curious, slightly uneasy, grounded.",
+      "prompt": "Warm editorial podcast thumbnail, father and adult son at a table, cream paper texture, warm ink, one brass key as the central object, subtle teal accent, cinematic but natural light, readable overlay text AI HAS KEYS, no fake brand logos, no tiny text, 16:9.",
+      "notes": "Best for the agentic AI angle."
+    },
+    {
+      "name": "The Crack",
+      "overlay": "AI FOUND IT",
+      "visual": "A printed circuit-board style map with one glowing crack, Shane pointing, Dad skeptical.",
+      "mood": "Investigative, high contrast, not alarmist.",
+      "prompt": "Warm magazine-style podcast thumbnail, father and adult son reviewing a simple circuit-board map on paper, one visible crack highlighted in gold, cream and ink palette, subtle teal accent, readable overlay text AI FOUND IT, no fake logos, no cybersecurity cliches, 16:9.",
+      "notes": "Best for the Microsoft security story."
+    },
+    {
+      "name": "The Label",
+      "overlay": "AI OR REAL?",
+      "visual": "Two identical-looking cards on a table, one stamped AI, one unstamped, Dad asking the obvious question.",
+      "mood": "Plain-English trust question.",
+      "prompt": "Editorial podcast thumbnail, father and adult son at a table with two nearly identical printed cards, one stamped AI in gold, cream paper background, warm ink, restrained teal accent, readable overlay text AI OR REAL, grounded and human, no fake logos, 16:9.",
+      "notes": "Best for transparency and media-labeling stories."
+    },
+    {
+      "name": "Three Cards",
+      "overlay": "WHAT MATTERS?",
+      "visual": "Three story cards on the table: AI acts, AI finds flaws, AI gets labels.",
+      "mood": "Pilot-friendly, complete episode overview.",
+      "prompt": "Warm printed-magazine podcast thumbnail for Reel It In, father and adult son at a table with three bold story cards, labels AI ACTS, SECURITY, LABELS, cream paper, warm ink, one gold accent, subtle teal, readable overlay text WHAT MATTERS, no fake logos, 16:9.",
+      "notes": "Best fallback when the episode has multiple equally important stories."
+    }
+  ],
+  "artifacts": {
+    "package": "episodes/001-pilot/title-thumbnail.md",
+    "titleOptions": "episodes/001-pilot/handoff/marketing/title-options.md",
+    "thumbnailBrief": "episodes/001-pilot/handoff/marketing/thumbnail-brief.md",
+    "thumbnailPrompts": "episodes/001-pilot/handoff/marketing/thumbnail-prompts.txt",
+    "thumbnailBoard": "episodes/001-pilot/handoff/marketing/thumbnail-board.html"
+  }
 }

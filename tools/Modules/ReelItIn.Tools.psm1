@@ -93,6 +93,22 @@ function Write-ReelItInUtf8Text {
     [System.IO.File]::WriteAllText($Path, $Content.Trim() + [Environment]::NewLine, $utf8NoBom)
 }
 
+function Get-ReelItInMediaRoot {
+    param(
+        [string]$MediaRoot = ""
+    )
+
+    if (-not [string]::IsNullOrWhiteSpace($MediaRoot)) {
+        return $MediaRoot
+    }
+
+    if ($IsLinux -or $IsMacOS) {
+        return Join-Path $HOME "Reel It In Media"
+    }
+
+    return Join-Path ([Environment]::GetFolderPath("MyDocuments")) "Reel It In Media"
+}
+
 function Resolve-ReelItInPowerShellExecutable {
     param(
         [string]$RetryCommand = "pwsh -NoProfile -File ./tools/run-episode-pipeline.ps1 -Episode <episode-folder> -SkipSourceValidation -SkipResearchFeeds"
@@ -127,6 +143,7 @@ function Resolve-ReelItInPowerShellExecutable {
 Export-ModuleMember -Function @(
     "Resolve-ReelItInEpisodeDirectory",
     "Join-ReelItInRelativePath",
+    "Get-ReelItInMediaRoot",
     "Get-ReelItInMarkdownSection",
     "Get-ReelItInListField",
     "Write-ReelItInUtf8Text",

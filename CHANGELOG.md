@@ -2,6 +2,12 @@
 
 ## Unreleased
 
+- Verified PowerShell Episode Pipeline on Linux with portable `pwsh` 7.5.1.
+- Completed Phase 2 dashboard stabilization: encoding cleanup, version metadata, asset audit, browser checklist, ADR for single-HTML template.
+- Added cross-platform Production Vault path helper (`Get-ReelItInMediaRoot`) and regenerated `001-pilot/thumbnail-images.json` on Linux.
+- Added optional research enrichment: `tools/fetch-page-summaries.py` and `tools/collect-x-insights.py` (Grok Build X discourse).
+- Wired `xInsight` into dashboard news beats via `export-dashboard-data.ps1`.
+- Documented deferred hosting/publishing choices in ADRs 0002 and 0003.
 - Reorganized project into app, design-system, docs, episodes, production, tools, archive, and inbox lanes.
 - Moved the current pilot dashboard to `app/reel-it-in.html`.
 - Extracted the Claude-generated design system into project-owned folders.
